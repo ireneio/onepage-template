@@ -1,5 +1,6 @@
 import { useAppDispatch } from '@/store';
 import ScrollIntoView from 'react-scroll-into-view';
+import { motion } from 'framer-motion';
 
 const MouseHandle = ({
   headerStyleOnScroll,
@@ -23,9 +24,14 @@ const MouseHandle = ({
         }}
       >
         <img src="/images/cursor_outline.png" alt="cursor" />
-        <div className="absolute bottom-[8px] left-[6px]">
+        <motion.div
+          className="absolute bottom-[8px] left-[6px]"
+          initial={{ y: 0 }}
+          animate={{ y: -5 }}
+          transition={{ repeatType: 'mirror', repeat: 1000000, duration: 0.6 }}
+        >
           <img src="/images/cursor_anim.png" alt="cursor" />
-        </div>
+        </motion.div>
       </ScrollIntoView>
     </div>
   );

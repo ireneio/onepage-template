@@ -1,11 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const templates = Array(8).fill(0);
+const pcTemplates = Array(8).fill(0);
+const mobileTemplates = Array(8).fill(0);
 
-const TemplateCarousel = () => {
-  const [carouselItems] = useState([templates, templates, templates]);
+const TemplateCarousel = ({
+  device,
+  onItemClick,
+}: {
+  device: 'pc' | 'mobile';
+  onItemClick: (item: any) => void;
+}) => {
+  const [carouselItems, setCarouselItems] = useState([
+    pcTemplates,
+    pcTemplates,
+    pcTemplates,
+  ]);
+
+  useEffect(() => {
+    if (device === 'pc') {
+      setCarouselItems([pcTemplates, pcTemplates, pcTemplates]);
+    } else {
+      setCarouselItems([mobileTemplates, mobileTemplates, mobileTemplates]);
+    }
+  }, [device]);
+
+  const handleItemClick = (item: any) => {
+    onItemClick && onItemClick(item);
+  };
 
   return (
     <div>
@@ -39,11 +62,15 @@ const TemplateCarousel = () => {
           return (
             <div
               key={idx}
-              className="grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap"
+              className="grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap cursor-pointer"
             >
               {array.map((item, itemIdx) => {
                 return (
-                  <div key={itemIdx} className="h-[150px]">
+                  <div
+                    key={itemIdx}
+                    className="h-[150px]"
+                    onClick={() => handleItemClick(item)}
+                  >
                     <img src={'/images/template_1.png'} alt="" />
                   </div>
                 );

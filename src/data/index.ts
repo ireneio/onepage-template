@@ -96,3 +96,16 @@ export const about = [
     image: '/images/about_heart.png',
   },
 ];
+
+export const devices = [
+  { text: 'PC端', value: 'pc' },
+  { text: '移动端', value: 'mobile' },
+];
+
+export const templatePreviews = [
+  { image: '/images/template_preview.png', value: '' },
+  { image: '/images/template_preview.png', value: '' },
+  { image: '/images/template_preview.png', value: '' },
+  { image: '/images/template_preview.png', value: '' },
+  { image: '/images/template_preview.png', value: '' },
+];

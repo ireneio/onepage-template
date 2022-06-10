@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from '@/store';
-import { useRouter } from 'next/router';
 import ScrollIntoView from 'react-scroll-into-view';
 
 interface Header {
@@ -19,13 +18,12 @@ const headers: Header[] = [
 
 const Header = () => {
   const dispatch = useAppDispatch();
-  const router = useRouter();
   const currentHeader = useAppSelector((state) => state.layout.header.item);
   const headerMode = useAppSelector((state) => state.layout.header.style);
 
   const handleGoHomePage = () => {
     dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
-    router.push('/');
+    dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });
   };
 
   const handleSetHeader = (header: {
