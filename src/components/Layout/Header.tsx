@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <div
-      className="z-[10] shadow-lg fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto max-w-[3000px]"
+      className="z-[10] shadow-lg fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto"
       style={{
         backgroundColor: headerMode === 'light' ? '#FFFFFF' : 'rgba(0,0,0,.8)',
       }}
@@ -70,8 +70,8 @@ const Header = () => {
                     currentHeader === header.value
                       ? '#B39B5C'
                       : headerMode === 'light'
-                      ? '#000000'
-                      : '#FFFFFF',
+                        ? '#000000'
+                        : '#FFFFFF',
                 }}
                 onClick={() => handleSetHeader(header)}
               >

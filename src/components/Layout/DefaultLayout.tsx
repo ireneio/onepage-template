@@ -73,7 +73,7 @@ const DefaultLayout = ({ children, title }: Props) => {
   return (
     <>
       <div
-        className="min-h-[100vh] bg-[#0C001C] max-w-[3000px] w-full overflow-x-hidden mx-auto"
+        className="min-h-[100vh] bg-[#0C001C] max-w-[2500px] w-full overflow-x-hidden mx-auto"
         id="entry"
       >
         <Head>
