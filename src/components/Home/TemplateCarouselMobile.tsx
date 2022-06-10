@@ -2,52 +2,9 @@ import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import flatten from 'lodash/flatten';
-import Slider from 'react-slick';
 
 const pcTemplates = Array(8).fill(0);
 const mobileTemplates = Array(8).fill(0);
-
-function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: 'flex',
-        alignItems: 'center',
-        background: 'transparent',
-        zIndex: 12,
-        right: '0px',
-        height: '100%',
-        backgroundColor: 'rgba(255,255,255,.2)',
-      }}
-      onClick={onClick}
-    >
-      {/* <img src="/images/arrow_right.png" alt="" /> */}
-    </div>
-  );
-}
-
-function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: 'flex',
-        alignItems: 'center',
-        background: 'transparent',
-        zIndex: 10,
-        left: '0px',
-        height: '100%',
-        backgroundColor: 'rgba(255,255,255,.2)',
-      }}
-      onClick={onClick}
-    />
-  );
-}
 
 const TemplateCarouselMobile = ({
   device,
@@ -71,35 +28,12 @@ const TemplateCarouselMobile = ({
   }, [device]);
 
   const handleItemClick = (item: any) => {
-    // onItemClick && onItemClick(item);
+    onItemClick && onItemClick(item);
   };
-
-  const [settings] = useState({
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  });
 
   return (
     <div>
-      <Slider {...settings}>
-        {flatten(carouselItems).map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              className="h-[150px]"
-              onClick={() => handleItemClick(item)}
-            >
-              <img src={'/images/template_1.png'} alt="" />
-            </div>
-          );
-        })}
-      </Slider>
-      {/* <Carousel
+      <Carousel
         ariaLabel="Carousel"
         useKeyboardArrows
         swipeable
@@ -107,7 +41,7 @@ const TemplateCarouselMobile = ({
         showStatus={false}
         showArrows={true}
         showIndicators={false}
-        showThumbs={false}
+        showThumbs={true}
         infiniteLoop
         autoPlay
         width="100%"
@@ -127,16 +61,12 @@ const TemplateCarouselMobile = ({
       >
         {flatten(carouselItems).map((item, idx) => {
           return (
-            <div
-              key={idx}
-              className="h-[150px]"
-              onClick={() => handleItemClick(item)}
-            >
+            <div key={idx} onClick={() => handleItemClick(item)}>
               <img src={'/images/template_1.png'} alt="" />
             </div>
           );
         })}
-      </Carousel> */}
+      </Carousel>
     </div>
   );
 };
