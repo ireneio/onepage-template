@@ -15,7 +15,7 @@ const PartnersCarousel = () => {
         stopOnHover
         showStatus={false}
         showArrows={true}
-        showIndicators={true}
+        showIndicators={false}
         showThumbs={false}
         infiniteLoop
         autoPlay

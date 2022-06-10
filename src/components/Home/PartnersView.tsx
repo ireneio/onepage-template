@@ -17,7 +17,9 @@ const PartnersView = () => {
           className="h-auto lg:h-[18vh]"
         />
       </div>
-      <PartnersCarousel />
+      <div className="mt-[12px]">
+        <PartnersCarousel />
+      </div>
       <div className="hidden lg:block">
         <Cr />
         <MouseHandle

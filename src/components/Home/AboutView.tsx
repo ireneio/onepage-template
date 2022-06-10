@@ -39,7 +39,7 @@ const AboutView = () => {
             })}
           </div>
         </div>
-        <div className="basis-[100%] lg:basis-[50%] flex order-1 lg:order-2 mb-[16px] lg:mb-0">
+        <div className="basis-[100%] lg:basis-[50%] flex order-1 lg:order-2 mb-[16px] lg:mb-0 mt-[12px] lg:mt-0">
           <div className="mx-auto lg:mr-0 lg:ml-auto">
             <img
               src="/images/about_intro_right.png"

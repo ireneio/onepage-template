@@ -8,7 +8,7 @@ import SocialList from '../General/SocialList';
 const IntroView = () => {
   return (
     <div
-      className="relative w-full text-[#FFFFFF] bg-no-repeat bg-cover bg-center h-[100vh] flex items-center justify-center"
+      className="relative w-[100vw] text-[#FFFFFF] bg-no-repeat bg-cover bg-center h-[100vh] flex items-center justify-center"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
         height: 'calc(100vh - 75px)',
