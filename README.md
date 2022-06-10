@@ -1,4 +1,4 @@
-# Catheon Gaming Center - Core Frontend
+# LXBW
 
 ## Getting Started
 
