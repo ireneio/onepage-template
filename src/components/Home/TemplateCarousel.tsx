@@ -62,7 +62,7 @@ const TemplateCarousel = ({
           return (
             <div
               key={idx}
-              className="grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap cursor-pointer"
+              className="hidden lg:grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap cursor-pointer"
             >
               {array.map((item, itemIdx) => {
                 return (

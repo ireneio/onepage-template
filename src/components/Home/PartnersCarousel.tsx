@@ -15,7 +15,7 @@ const PartnersCarousel = () => {
         stopOnHover
         showStatus={false}
         showArrows={true}
-        showIndicators={false}
+        showIndicators={true}
         showThumbs={false}
         infiniteLoop
         autoPlay
@@ -24,10 +24,10 @@ const PartnersCarousel = () => {
         renderIndicator={(onClick: any, selected: any, index: number) => {
           return (
             <div
-              className="w-[80px] h-[5px] rounded-[5px] inline-block cursor-pointer absolute bottom-[0] translate-x-[-50%]"
+              className="w-[80px] h-[5px] ml-[2px] mr-[2px] rounded-[5px] inline-block cursor-pointer absolute bottom-[0]"
               style={{
                 backgroundColor: selected ? '#B39B5C' : '#E8E8E8',
-                left: `calc(50% + ${(index + 1) * 80}px)`,
+                left: `calc(50% + ${(index - 1.5) * 80}px)`,
               }}
               onClick={onClick}
             />
@@ -36,21 +36,30 @@ const PartnersCarousel = () => {
       >
         {carouselItems.map((array, idx) => {
           return (
-            <div
-              key={idx}
-              className="grid gap-[32px] grid-cols-4 grid-rows-2 w-[80%] justify-between items-start mx-auto mt-[22px] flex-wrap"
-            >
-              {array.map((item, itemIdx) => {
-                return (
-                  <div
-                    key={itemIdx}
-                    className="bg-[#363636] h-[150px] flex justify-center"
-                  >
-                    <img src={item.image} alt="" className="h-[150px]" />
-                  </div>
-                );
-              })}
-            </div>
+            <>
+              <div
+                key={idx}
+                className="grid gap-[12px] lg:gap-[32px] grid-cols-2 lg:grid-cols-4 grid-rows-4 lg:grid-rows-2 w-[80%] justify-between items-start mx-auto mt-[22px] flex-wrap"
+              >
+                {array.map((item, itemIdx) => {
+                  return (
+                    <div
+                      key={itemIdx}
+                      className="bg-[#363636] h-[100px] lg:h-[150px] flex justify-center"
+                    >
+                      <img
+                        src={item.image}
+                        alt=""
+                        className="h-[100px] lg:h-[150px]"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+              {/* <div className='lg:hidden' key={idx}>
+
+              </div> */}
+            </>
           );
         })}
       </Carousel>

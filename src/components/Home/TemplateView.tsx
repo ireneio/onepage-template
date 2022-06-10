@@ -4,6 +4,7 @@ import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import TemplateCarousel from './TemplateCarousel';
+import TemplateCarouselMobile from './TemplateCarouselMobile';
 import TemplatePreviewModal from './TemplatePreviewModal';
 
 const TemplateView = () => {
@@ -17,16 +18,16 @@ const TemplateView = () => {
   return (
     <div
       id="template"
-      className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[75px]"
+      className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]"
     >
-      <div className="w-[80%] mx-auto flex justify-center items-center mt-[32px]">
+      <div className="w-[90%] lg:w-[80%] mx-auto flex justify-center items-center mt-[32px]">
         <img
           src="/images/banner_template.png"
           alt="template"
-          className="h-[18vh]"
+          className="h-auto lg:h-[18vh]"
         />
       </div>
-      <div className="flex text-[14px] w-[200px] mx-auto justify-center">
+      <div className="flex text-[14px] w-[200px] mx-auto justify-center mt-[12px] mb-[12px]">
         {devices.map((device) => {
           return (
             <div
@@ -49,10 +50,18 @@ const TemplateView = () => {
           );
         })}
       </div>
-      <TemplateCarousel
-        device={selectedDevice}
-        onItemClick={() => handlePreview()}
-      />
+      <div className="hidden lg:block">
+        <TemplateCarousel
+          device={selectedDevice}
+          onItemClick={() => handlePreview()}
+        />
+      </div>
+      <div className="lg:hidden">
+        <TemplateCarouselMobile
+          device={selectedDevice}
+          onItemClick={() => handlePreview()}
+        />
+      </div>
       {/* <div className="grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap">
       {Array(8)
         .fill(0)
@@ -64,17 +73,19 @@ const TemplateView = () => {
           );
         })}
     </div> */}
-      <Cr />
-      <MouseHandle
-        anchor="#products"
-        headerStyleOnScroll="light"
-        headerValueOnScroll="#products"
-      />
-      <SocialList />
-      <TemplatePreviewModal
-        isOpen={showPreview}
-        setIsOpen={(val) => setShowPreview(val)}
-      />
+      <div className="hidden lg:block">
+        <Cr />
+        <MouseHandle
+          anchor="#products"
+          headerStyleOnScroll="light"
+          headerValueOnScroll="#products"
+        />
+        <SocialList />
+        <TemplatePreviewModal
+          isOpen={showPreview}
+          setIsOpen={(val) => setShowPreview(val)}
+        />
+      </div>
     </div>
   );
 };

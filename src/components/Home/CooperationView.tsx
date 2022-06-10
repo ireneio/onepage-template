@@ -2,21 +2,22 @@ import { customerServices } from '@/data';
 import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
+import CooperationCarouselMobile from './CooperationCarouselMobile';
 
 const CooperationView = () => {
   return (
     <div
       id="cooperation"
-      className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[75px]"
+      className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]"
     >
-      <div className="w-[80%] mx-auto flex justify-center items-center mt-[32px]">
+      <div className="w-full lg:w-[80%] mx-auto flex justify-center items-center mt-[32px]">
         <img
           src="/images/banner_cooperation.png"
           alt="cooperation"
-          className="h-[22vh]"
+          className="h-auto lg:h-[22vh]"
         />
       </div>
-      <div className="grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[72px] flex-wrap">
+      <div className="hidden lg:grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[72px] flex-wrap">
         {customerServices.map((cs, idx) => {
           return (
             <div key={idx} className="flex-1 relative h-[320px] bg-[#eee]">
@@ -42,13 +43,18 @@ const CooperationView = () => {
           );
         })}
       </div>
-      <Cr />
-      <MouseHandle
-        anchor="#partners"
-        headerStyleOnScroll="dark"
-        headerValueOnScroll="#partners"
-      />
-      <SocialList />
+      <div className="lg:hidden mt-[112px] px-[24px]">
+        <CooperationCarouselMobile />
+      </div>
+      <div className="hidden lg:block">
+        <Cr />
+        <MouseHandle
+          anchor="#partners"
+          headerStyleOnScroll="dark"
+          headerValueOnScroll="#partners"
+        />
+        <SocialList />
+      </div>
     </div>
   );
 };

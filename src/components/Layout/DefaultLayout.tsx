@@ -7,6 +7,7 @@ import seo from '../../data/seo';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+import HeaderMobile from './HeaderMobile';
 
 interface Props {
   children?: React.ReactNode;
@@ -120,8 +121,13 @@ const DefaultLayout = ({ children, title }: Props) => {
           show={snackbarShow}
           title={snackbarTitle}
         />
-        <Header />
-        <div className="flex mt-[75px] relative justify-center">
+        <div className="hidden lg:block">
+          <Header />
+        </div>
+        <div className="lg:hidden">
+          <HeaderMobile />
+        </div>
+        <div className="flex mt-[44px] lg:mt-[75px] relative justify-center">
           {/* <div className="fixed top-[75px] w-[225px] hidden md:block flex-shrink-0 z-[100]">
             <Sidebar
               items={SIDE_BAR_ITEMS}
