@@ -72,7 +72,7 @@ const DefaultLayout = ({ children, title }: Props) => {
   return (
     <>
       <div
-        className="min-h-[100vh] bg-[#0C001C] max-w-[3840px] overflow-x-hidden"
+        className="min-h-[100vh] bg-[#0C001C] max-w-[3000px] w-full overflow-x-hidden mx-auto"
         id="entry"
       >
         <Head>
@@ -121,7 +121,7 @@ const DefaultLayout = ({ children, title }: Props) => {
           title={snackbarTitle}
         />
         <Header />
-        <div className="flex mt-[75px] relative">
+        <div className="flex mt-[75px] relative justify-center">
           {/* <div className="fixed top-[75px] w-[225px] hidden md:block flex-shrink-0 z-[100]">
             <Sidebar
               items={SIDE_BAR_ITEMS}

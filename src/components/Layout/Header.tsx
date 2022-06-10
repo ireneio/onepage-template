@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { useRouter } from 'next/router';
 import ScrollIntoView from 'react-scroll-into-view';
@@ -21,7 +20,7 @@ const headers: Header[] = [
 const Header = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const [currentHeader, setCurrentHeader] = useState('#entry');
+  const currentHeader = useAppSelector((state) => state.layout.header.item);
   const headerMode = useAppSelector((state) => state.layout.header.style);
 
   const handleGoHomePage = () => {
@@ -34,13 +33,13 @@ const Header = () => {
     value: string;
     header: 'light' | 'dark';
   }) => {
-    setCurrentHeader(header.value);
+    dispatch({ type: 'SET_HEADER_ITEM', payload: header.value });
     dispatch({ type: 'SET_HEADER_STYLE', payload: header.header });
   };
 
   return (
     <div
-      className="z-[10] shadow-lg fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto max-w-[3840px]"
+      className="z-[10] shadow-lg fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto max-w-[3000px]"
       style={{
         backgroundColor: headerMode === 'light' ? '#FFFFFF' : 'rgba(0,0,0,.8)',
       }}

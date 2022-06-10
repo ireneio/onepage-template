@@ -16,6 +16,7 @@ interface LayoutState {
   };
   header: {
     style: string;
+    item: string;
   };
 }
 
@@ -31,6 +32,7 @@ const initialState: LayoutState = {
   },
   header: {
     style: 'dark',
+    item: '#entry',
   },
 };
 
@@ -49,6 +51,10 @@ type Action =
   | {
       type: 'SET_HEADER_STYLE';
       payload: 'light' | 'dark';
+    }
+  | {
+      type: 'SET_HEADER_ITEM';
+      payload: string;
     };
 
 export default function layoutReducer(
@@ -102,7 +108,16 @@ export default function layoutReducer(
       return {
         ...state,
         header: {
+          ...state.header,
           style: action.payload,
+        },
+      };
+    case 'SET_HEADER_ITEM':
+      return {
+        ...state,
+        header: {
+          ...state.header,
+          item: action.payload,
         },
       };
     default:
