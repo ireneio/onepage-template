@@ -1,4 +1,3 @@
-// import CrIcon from '@/public/img/cr.svg';
 import dayjs from 'dayjs';
 import { getNumberWithCommas, getTrimmedAddress } from '@/utils/formatHelper';
 import relativeTime from 'dayjs/plugin/relativeTime';
