@@ -81,12 +81,12 @@ const TemplateCarousel = ({
           );
         })}
       </Carousel>
-      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+      <div className="flex mt-[24px] lg:mt-[24px] w-full justify-center">
         {carouselItems.map((item, idx) => {
           return (
             <div
               key={idx}
-              className="w-[50px] lg:w-[100px] h-[1px]"
+              className="w-[50px] lg:w-[100px] h-[2px] cursor-pointer"
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
