@@ -25,10 +25,12 @@
 
 html {
   padding-right: 0 !important;
+  background: #000;
 }
 
 body {
   font-family: 'CircularStd-Book', sans-serif !important;
+  background: #000;
 }
 
 .carousel .control-dots {

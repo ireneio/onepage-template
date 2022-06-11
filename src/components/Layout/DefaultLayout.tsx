@@ -2,11 +2,12 @@ import Head from 'next/head';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import seo from '../../data/seo';
-import { useAppSelector } from '@/store';
+import { useAppDispatch, useAppSelector } from '@/store';
 import dynamic from 'next/dynamic';
 import HeaderMobile from './HeaderMobile';
 import FloatTopBtn from '../General/FloatTopBtn';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useWindowWidth } from '@/hooks/window';
 
 interface Props {
   children?: React.ReactNode;
@@ -22,10 +23,16 @@ export const BASE_SIDEBAR_PATH = 'Home';
 export const SIDEBAR_PATH_STORAGE_KEY = 'navigation_path';
 
 const DefaultLayout = ({ children, title }: Props) => {
+  const dispatch = useAppDispatch();
   const snackbarShow = useAppSelector((state) => state.layout.snackbar.show);
   const snackbarText = useAppSelector((state) => state.layout.snackbar.text);
   const snackbarTitle = useAppSelector((state) => state.layout.snackbar.title);
   const [openSidebar, setOpenSidebar] = useState(false);
+  const windowWidth = useWindowWidth();
+
+  useEffect(() => {
+    dispatch({ type: 'INIT_HEADER' });
+  }, []);
 
   return (
     <>
@@ -96,7 +103,17 @@ const DefaultLayout = ({ children, title }: Props) => {
           />
         </div>
         <div className="flex mt-[44px] lg:mt-[75px] relative justify-center">
-          <div className="mx-auto min-h-[75vh] w-full">{children}</div>
+          <div
+            className="mx-auto w-full"
+            style={{
+              minHeight:
+                windowWidth < 1366
+                  ? 'calc(100vh - 44px)'
+                  : 'calc(100vh - 75px)',
+            }}
+          >
+            {children}
+          </div>
         </div>
       </div>
     </>

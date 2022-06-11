@@ -55,6 +55,9 @@ type Action =
   | {
       type: 'SET_HEADER_ITEM';
       payload: string;
+    }
+  | {
+      type: 'INIT_HEADER';
     };
 
 export default function layoutReducer(
@@ -105,6 +108,7 @@ export default function layoutReducer(
         },
       };
     case 'SET_HEADER_STYLE':
+      window.localStorage.setItem('header_style', action.payload);
       return {
         ...state,
         header: {
@@ -113,11 +117,31 @@ export default function layoutReducer(
         },
       };
     case 'SET_HEADER_ITEM':
+      window.localStorage.setItem('header_item', action.payload);
       return {
         ...state,
         header: {
           ...state.header,
           item: action.payload,
+        },
+      };
+    case 'INIT_HEADER':
+      const item = window.localStorage.getItem('header_item');
+      const style = window.localStorage.getItem('header_style');
+      let _item = '#entry';
+      let _style = 'light';
+      if (item) {
+        _item = item;
+      }
+      if (style) {
+        _style = style;
+      }
+      return {
+        ...state,
+        header: {
+          ...state.header,
+          item: _item,
+          style: _style,
         },
       };
     default:

@@ -4,7 +4,7 @@ const HeaderMobile = ({
   onHamburgerClick: () => void;
 }) => {
   return (
-    <div className="h-[44px] w-[100vw] flex items-center justify-between z-[102]">
+    <div className="fixed top-0 left-0 h-[44px] w-[100vw] flex items-center justify-between z-[102] bg-[#252525]">
       <div className="px-[12px]">
         <img className="block h-8 w-auto" src={'/images/logo.png'} alt="LXBW" />
       </div>

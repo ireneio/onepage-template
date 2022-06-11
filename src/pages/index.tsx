@@ -1,11 +1,11 @@
-import AboutView from '@/components/Home/AboutView';
-import CooperationView from '@/components/Home/CooperationView';
-import IntroView from '@/components/Home/IntroView';
-import PartnersView from '@/components/Home/PartnersView';
-import ProductView from '@/components/Home/ProductView';
-import TemplateView from '@/components/Home/TemplateView';
-import ContactUsView from '@/components/Home/ContactUsView';
-import DefaultLayout from '@/components/Layout/DefaultLayout';
+import AboutView from '../components/Home/AboutView';
+import CooperationView from '../components/Home/CooperationView';
+import IntroView from '../components/Home/IntroView';
+import PartnersView from '../components/Home/PartnersView';
+import ProductView from '../components/Home/ProductView';
+import TemplateView from '../components/Home/TemplateView';
+import ContactUsView from '../components/Home/ContactUsView';
+import DefaultLayout from '../components/Layout/DefaultLayout';
 
 const Index = () => {
   return (
