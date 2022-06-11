@@ -18,7 +18,7 @@ const AboutView = () => {
             我们是真正能站在您与用户的角度考虑的平台，想您所想，急您所急。
             十一年的游戏研发团队，十五年的网络安全团队。
           </div>
-          <div className="grid grid-cols-2 grid-rows-2 gap-[24px]">
+          <div className="grid grid-cols-2 grid-rows-2 gap-[24px] mb-[16px] lg:mb-0">
             {about.map((feature, idx) => {
               return (
                 <div key={idx} className="text-center w-auto lg:w-[230px]">
