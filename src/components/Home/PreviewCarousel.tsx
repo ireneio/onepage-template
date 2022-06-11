@@ -1,7 +1,7 @@
-import { templatePreviews } from '@/data';
 import { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { templatePreviews } from '../../data';
 
 const PreviewCarousel = () => {
   const [carouselItems] = useState(templatePreviews);
