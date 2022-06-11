@@ -86,7 +86,7 @@ const TemplateCarouselMobile = ({
           return (
             <div
               key={idx}
-              className="w-[50px] lg:w-[100px] h-[1px]"
+              className="w-[50px] lg:w-[100px] h-[2px]"
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
