@@ -29,10 +29,10 @@ const Sidebar = ({ open, onSetOpen }: Props) => {
       className="mt-[-44px] overflow-hidden bg-[#B39B5C] shadow-xl hide-scrollbar"
     >
       <div
-        className="absolute right-[0] top-[-12px] px-[12px] text-[48px] text-[#FFF] cursor-pointer font-thin"
+        className="absolute right-[8px] top-[2px] py-[8px] text-[48px] text-[#FFF] cursor-pointer font-thin"
         onClick={() => onSetOpen(false)}
       >
-        x
+        <img src="/images/close.png" alt="close" width={32} height={32} />
       </div>
       <div className="mt-[100px]">
         {sidebarItems.map((item) => {

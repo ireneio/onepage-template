@@ -13,7 +13,7 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
     <Transition show={isOpen}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 overflow-y-hidden font-circularstdbook"
+        className="fixed inset-0 z-10 overflow-y-hidden font-circularstdbook w-[100vw] mx-auto"
         onClose={() => {
           setIsOpen(false);
         }}
@@ -29,6 +29,14 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
           >
             <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           </Transition.Child>
+          <div
+            className="absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]"
+            onClick={() => setIsOpen(false)}
+          >
+            <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px] text-[16px]">
+              关闭
+            </button>
+          </div>
           <span
             className="inline-block h-screen align-middle"
             aria-hidden="true"
@@ -36,10 +44,10 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             &#8203;
           </span>
           <div
-            className="absolute right-[12px] top-[0px] px-[12px] text-[48px] text-[#FFF] cursor-pointer font-thin"
+            className="hidden lg:block absolute right-[8px] top-[2px] py-[8px] text-[48px] text-[#FFF] cursor-pointer font-thin"
             onClick={() => setIsOpen(false)}
           >
-            x
+            <img src="/images/close.png" alt="close" width={32} height={32} />
           </div>
           <Transition.Child
             as={Fragment}
@@ -51,7 +59,7 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             leaveTo="opacity-0 scale-95"
           >
             <div
-              className="login_dialog_parent relative inline-block w-[60vw] my-12 overflow-hidden text-left align-middle transition-all
+              className="relative inline-block w-[60vw] my-12 overflow-hidden text-left align-middle transition-all
             transform shadow-xl rounded-[5px] bg-[#FFF] font-circularstdbook"
             >
               <div className="px-[2px] py-[2px] rounded-[5px]">
@@ -63,10 +71,15 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
                     >
                       title
                     </Dialog.Title> */}
-                    <div className="mt-0 px-[0]">
-                      <div className="min-h-full w-full flex flex-col justify-center overflow-hidden">
-                        <PreviewCarousel />
+                    {/* <Dialog.Description>
+                      <div className="absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]">
+                        <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px]">
+                          关闭
+                        </button>
                       </div>
+                    </Dialog.Description> */}
+                    <div className="mt-0 px-[0]">
+                      <PreviewCarousel />
                     </div>
                   </div>
                 </div>
