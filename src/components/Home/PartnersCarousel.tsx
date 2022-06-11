@@ -43,12 +43,12 @@ const PartnersCarousel = () => {
                   return (
                     <div
                       key={String(itemIdx) + String(idx) + uuid()}
-                      className="bg-[#363636] h-[100px] lg:h-[150px] 2xl:h-[200px] flex justify-center items-center"
+                      className="bg-[#363636] md:h-[140px] h-[90px] 2xl:h-[140px] flex justify-center items-center"
                     >
                       <img
                         src={item.image}
                         alt=""
-                        className="h-[100px] lg:h-[150px]"
+                        className="h-[90px] 2xl:h-[100px] md:h-[140px]"
                       />
                     </div>
                   );
@@ -58,7 +58,7 @@ const PartnersCarousel = () => {
           );
         })}
       </Carousel>
-      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+      <div className="flex mt-[24px] lg:mt-[48px] w-full justify-center">
         {carouselItems.map((item, idx) => {
           return (
             <div
