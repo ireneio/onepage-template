@@ -47,7 +47,12 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             className="hidden lg:block absolute right-[8px] top-[2px] py-[8px] text-[48px] text-[#FFF] cursor-pointer font-thin"
             onClick={() => setIsOpen(false)}
           >
-            <img src="/images/close.png" alt="close" width={32} height={32} />
+            <img
+              src="/images/icon_close.png"
+              alt="close"
+              width={32}
+              height={32}
+            />
           </div>
           <Transition.Child
             as={Fragment}
