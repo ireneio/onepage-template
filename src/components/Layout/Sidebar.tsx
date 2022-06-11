@@ -26,7 +26,7 @@ const Sidebar = ({ open, onSetOpen }: Props) => {
       variants={variants}
       animate={open ? 'show' : 'hide'}
       transition={{ duration: 0.3 }}
-      className="relative z-[103] mt-[0] overflow-hidden bg-[#B39B5C] shadow-xl hide-scrollbar"
+      className="fixed top-0 left-0 right-0 bottom-0 h-[100vh] z-[103] mt-[0] overflow-hidden bg-[#B39B5C] shadow-xl hide-scrollbar"
     >
       <div
         className="absolute right-[8px] top-[2px] py-[8px] text-[48px] text-[#FFF] cursor-pointer font-thin"
