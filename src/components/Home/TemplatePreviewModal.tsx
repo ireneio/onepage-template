@@ -30,7 +30,7 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           </Transition.Child>
           <div
-            className="absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]"
+            className="z-[100] absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]"
             onClick={() => setIsOpen(false)}
           >
             <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px] text-[16px]">
