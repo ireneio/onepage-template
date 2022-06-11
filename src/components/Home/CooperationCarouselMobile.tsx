@@ -1,75 +1,58 @@
 import { customerServices } from '@/data';
-import Slider from 'react-slick';
-
-function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: 'flex',
-        alignItems: 'center',
-        background: 'transparent',
-        zIndex: 12,
-        right: '0px',
-        height: '100%',
-        backgroundColor: 'rgba(255,255,255,.2)',
-      }}
-      onClick={onClick}
-    >
-      {/* <img src="/images/arrow_right.png" alt="" /> */}
-    </div>
-  );
-}
-
-function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: 'flex',
-        alignItems: 'center',
-        background: 'transparent',
-        zIndex: 10,
-        left: '0px',
-        height: '100%',
-        backgroundColor: 'rgba(255,255,255,.2)',
-      }}
-      onClick={onClick}
-    />
-  );
-}
-
-const settings = {
-  dots: true,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-};
+import { useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
 
 const CooperationCarouselMobile = () => {
+  const [current, setCurrent] = useState(0);
+
   return (
-    <div>
-      <Slider {...settings}>
+    <div className="relative">
+      <div
+        className="absolute left-[-42px] top-[25%]"
+        onClick={() => {
+          if (current > 0) {
+            setCurrent((prev) => prev - 1);
+          } else {
+            setCurrent(customerServices.length - 1);
+          }
+        }}
+      >
+        <img src="/images/arrow_left.png" alt="" width={40} height={40} />
+      </div>
+      <div
+        className="absolute right-[-42px] top-[25%]"
+        onClick={() => {
+          if (current < customerServices.length - 1) {
+            setCurrent((prev) => prev + 1);
+          } else {
+            setCurrent(0);
+          }
+        }}
+      >
+        <img src="/images/arrow_right.png" alt="" width={40} height={40} />
+      </div>
+      <Carousel
+        selectedItem={current}
+        ariaLabel="Carousel"
+        useKeyboardArrows
+        swipeable
+        stopOnHover
+        showStatus={false}
+        showArrows={true}
+        showIndicators={false}
+        showThumbs={true}
+        infiniteLoop
+        autoPlay
+        width="100%"
+        emulateTouch
+      >
         {customerServices.map((cs, idx) => {
           return (
-            <div key={idx} className="flex-1 relative h-[320px] bg-[#fff]">
+            <div key={idx} className="relative bg-[#fff]">
               <div>
-                <img
-                  src={cs.image}
-                  alt={cs.title}
-                  width={120}
-                  height={120}
-                  className="absolute top-[-18%] left-[50%] translate-x-[-50%]"
-                />
-                <div className="pt-[30px] px-[18px]">
-                  <div className="text-[#000000] text-[18px] font-bold text-center mt-[42px]">
+                <img src={cs.image} alt={cs.title} width={50} height={50} />
+                <div className="px-[18px]">
+                  <div className="text-[#000000] text-[18px] font-bold text-center mt-[12px]">
                     {cs.title}
                   </div>
                   <div className="w-[40px] h-[6px] bg-[#B39B5C] mx-auto mt-[4px]"></div>
@@ -81,7 +64,21 @@ const CooperationCarouselMobile = () => {
             </div>
           );
         })}
-      </Slider>
+      </Carousel>
+      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+        {customerServices.map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className="w-[50px] lg:w-[100px] h-[1px] mx-[4px]"
+              style={{
+                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
+              }}
+              onClick={() => setCurrent(idx)}
+            ></div>
+          );
+        })}
+      </div>
     </div>
   );
 };

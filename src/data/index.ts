@@ -127,24 +127,24 @@ export const sidebarItems = [
     en: 'products',
     cn: '产品介绍',
     tag: '03',
-    value: '#template',
+    value: '#products',
   },
   {
     en: 'BUSINESS',
     cn: '业务合作',
     tag: '04',
-    value: '#products',
+    value: '#cooperation',
   },
   {
     en: 'Cooperation',
     cn: '合作伙伴',
     tag: '05',
-    value: '#cooperation',
+    value: '#partners',
   },
   {
     en: 'about us',
     cn: '公司简介',
     tag: '06',
-    value: '#partners',
+    value: '#about',
   },
 ];

@@ -7,9 +7,16 @@ import CooperationCarouselMobile from './CooperationCarouselMobile';
 const CooperationView = () => {
   return (
     <div className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]">
-      <div className="w-full lg:w-[80%] mx-auto flex justify-center items-center mt-[32px]">
+      <div className="hidden lg:flex w-full lg:w-[80%] mx-auto justify-center items-center mt-[32px]">
         <img
           src="/images/banner_cooperation.png"
+          alt="cooperation"
+          className="h-auto lg:h-[22vh]"
+        />
+      </div>
+      <div className="lg:hidden w-[80%] mx-auto flex justify-center items-center mt-[32px]">
+        <img
+          src="/images/banner_cooperation_mobile.png"
           alt="cooperation"
           className="h-auto lg:h-[22vh]"
         />
@@ -40,7 +47,7 @@ const CooperationView = () => {
           );
         })}
       </div>
-      <div className="lg:hidden mt-[112px] px-[24px]">
+      <div className="lg:hidden mt-[12px] mx-[45px]">
         <CooperationCarouselMobile />
       </div>
       <div className="hidden lg:block">
