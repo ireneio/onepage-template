@@ -9,10 +9,15 @@ const HeaderMobile = ({
         <img className="block h-8 w-auto" src={'/images/logo.png'} alt="LXBW" />
       </div>
       <div
-        className="bg-[#B39B5C] w-[44px] h-[44px] cursor-pointer"
+        className="bg-[#B39B5C] w-[44px] h-[44px] cursor-pointer flex items-center justify-center"
         onClick={() => onHamburgerClick()}
       >
-        {/* TODO ICON */}
+        <img
+          src="/images/hamburger.png"
+          alt="hamburger"
+          width={24}
+          height={24}
+        />
       </div>
     </div>
   );
