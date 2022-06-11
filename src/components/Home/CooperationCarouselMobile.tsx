@@ -38,7 +38,7 @@ const CooperationCarouselMobile = () => {
         swipeable
         stopOnHover
         showStatus={false}
-        showArrows={true}
+        showArrows={false}
         showIndicators={false}
         showThumbs={true}
         infiniteLoop
