@@ -70,7 +70,7 @@ const CooperationCarouselMobile = () => {
           return (
             <div
               key={idx}
-              className="w-[50px] lg:w-[100px] h-[1px] mx-[4px]"
+              className="w-[50px] lg:w-[100px] h-[2px] mx-[4px]"
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
