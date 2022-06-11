@@ -24,13 +24,6 @@ const MouseHandle = ({
           dispatch({ type: 'SET_HEADER_ITEM', payload: headerValueOnScroll });
         }}
       >
-        {/* <img
-          src="/images/cursor_outline.png"
-          alt="cursor"
-          className={
-            headerStyleOnScroll === 'light' ? 'bg-[#181818] rounded-[50%]' : ''
-          }
-        /> */}
         <div
           className="w-[24px] h-[42px] rounded-[12px] border-[1px]"
           style={{
@@ -43,7 +36,14 @@ const MouseHandle = ({
           animate={{ y: -5 }}
           transition={{ repeatType: 'mirror', repeat: 1000000, duration: 0.6 }}
         >
-          <img src="/images/cursor_anim.png" alt="cursor" />
+          <img
+            src={
+              headerStyle === 'dark'
+                ? '/images/cursor_anim.png'
+                : '/images/cursor_anim_gold.png'
+            }
+            alt="cursor"
+          />
         </motion.div>
       </ScrollIntoView>
     </div>
