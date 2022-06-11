@@ -4,10 +4,7 @@ import SocialList from '../General/SocialList';
 
 const AboutView = () => {
   return (
-    <div
-      id="about"
-      className="w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[24px] lg:pt-[75px]"
-    >
+    <div className="w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[24px] lg:pt-[75px]">
       <div className="w-[80%] mx-auto flex justify-center items-center mt-[12px]">
         <img
           src="/images/banner_about.png"

@@ -6,7 +6,6 @@ import SocialList from '../General/SocialList';
 const ProductView = () => {
   return (
     <div
-      id="products"
       className="relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]"
       style={{ backgroundImage: 'url(/images/bg_product.png)' }}
     >

@@ -1,17 +1,31 @@
 import { services } from '@/data';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import ScrollIntoView from 'react-scroll-into-view';
 import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 
 const IntroView = () => {
+  const [windowHeight, setWindowHeight] = useState(0);
+
+  useEffect(() => {
+    const cb = () => {
+      setWindowHeight(window.innerHeight);
+    };
+    window.addEventListener('load', cb);
+    return () => {
+      window.removeEventListener('load', cb);
+    };
+  });
+
   return (
     <div
-      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center h-[100vh] flex items-center justify-center"
+      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
-        height: 'calc(100vh - 75px)',
+        height:
+          windowHeight < 768 ? 'calc(100vh - 44px)' : 'calc(100vh - 75px)',
       }}
     >
       <div className="text-center">
@@ -39,9 +53,9 @@ const IntroView = () => {
       </div>
       <ScrollIntoView selector="#template" className="lg:hidden">
         <motion.div
-          className="absolute left-[50%] translate-x-[-50%] bottom-[32px] cursor-pointer"
-          initial={{ y: 0 }}
-          animate={{ y: -5 }}
+          className="absolute left-[50%] bottom-[32px] cursor-pointer"
+          initial={{ y: 0, x: '-50%' }}
+          animate={{ y: -5, x: '-50%' }}
           transition={{ repeatType: 'mirror', repeat: 1000000, duration: 0.6 }}
         >
           <img

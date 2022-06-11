@@ -23,7 +23,13 @@ const MouseHandle = ({
           dispatch({ type: 'SET_HEADER_ITEM', payload: headerValueOnScroll });
         }}
       >
-        <img src="/images/cursor_outline.png" alt="cursor" />
+        <img
+          src="/images/cursor_outline.png"
+          alt="cursor"
+          className={
+            headerStyleOnScroll === 'light' ? 'bg-[#181818] rounded-[50%]' : ''
+          }
+        />
         <motion.div
           className="absolute bottom-[8px] left-[6px]"
           initial={{ y: 0 }}

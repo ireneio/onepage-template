@@ -1,126 +1,58 @@
-import { useAppSelector } from '@/store';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { sidebarItems } from '@/data';
+import { motion } from 'framer-motion';
+import ScrollIntoView from 'react-scroll-into-view';
 
-interface SidebarItem {
-  text: string;
-  value: string;
-  disabled?: boolean;
-  icon?: string;
-  children?: SidebarItem[];
-}
 interface Props {
-  items: SidebarItem[];
-  currentValue: string;
-  onItemClick?: (value: string) => void | Promise<void>;
+  onSetOpen: (value: boolean) => void | Promise<void>;
+  open: boolean;
 }
 
-const Sidebar = ({ items, currentValue, onItemClick }: Props) => {
-  const [innerHeight, setInnerHeight] = useState<string | number>(0);
-  const router = useRouter();
-  const sidebarPath = useAppSelector((state) => state.layout.navigation.path);
+const variants = {
+  show: {
+    x: 0,
+    z: 101,
+    height: '100vh',
+    width: '100vw',
+    padding: '20px 12px',
+    display: 'block',
+  },
+  hide: { x: '100%', z: -1, height: 0, width: 0, padding: 0, display: 'none' },
+};
 
-  useEffect(() => {
-    if (window) {
-      // const height = Math.max(document.body.getBoundingClientRect().height, 0);
-      const height =
-        window.document.documentElement.scrollHeight -
-        window.document.documentElement.clientHeight;
-
-      if (sidebarPath === 'Home') {
-        setInnerHeight(height);
-        // setInnerHeight('70vh');
-      } else {
-        setInnerHeight(window.document.documentElement.clientHeight);
-      }
-    }
-  }, [router.pathname, sidebarPath]);
-
+const Sidebar = ({ open, onSetOpen }: Props) => {
   return (
-    <div
-      className="overflow-auto px-[12px] py-[20px] bg-[#0C001C] shadow-xl hide-scrollbar relative z-[5]"
-      style={{ height: Number(innerHeight) - 120 - 75 }}
+    <motion.div
+      variants={variants}
+      animate={open ? 'show' : 'hide'}
+      transition={{ duration: 0.3 }}
+      className="mt-[-44px] overflow-hidden bg-[#B39B5C] shadow-xl hide-scrollbar"
     >
-      {items.map((item) => {
-        const isSelectedParent = currentValue.split('/')[0] === item.value;
-        return (
-          <div
-            key={item.value}
-            className="relative mb-[8px]"
-            onClick={() => {
-              if (!item.disabled) {
-                const child =
-                  !item.children || !item.children.length
-                    ? item.value
-                    : item.value + '/' + item.children[0].value;
-                onItemClick && onItemClick(child);
-              }
-            }}
-          >
-            <div
-              className="rounded-[5px] text-[#9497AA] flex items-center px-[18px] py-[8px] transition-all text-[16px]"
-              style={{
-                background: isSelectedParent ? 'rgba(148, 151, 170, .15)' : '',
-                color: item.disabled ? '#AAAAAA' : '#FFFFFF',
-                cursor: isSelectedParent
-                  ? 'pointer'
-                  : item.disabled
-                  ? 'not-allowed'
-                  : 'pointer',
-              }}
+      <div
+        className="absolute right-[0] top-[-12px] px-[12px] text-[48px] text-[#FFF] cursor-pointer font-thin"
+        onClick={() => onSetOpen(false)}
+      >
+        x
+      </div>
+      <div className="mt-[100px]">
+        {sidebarItems.map((item) => {
+          return (
+            <ScrollIntoView
+              key={item.value}
+              selector={item.value}
+              onClick={() => onSetOpen(false)}
             >
-              <div>
-                <img
-                  src={item.icon}
-                  alt={item.text}
-                  width="14px"
-                  height="14px"
-                />
+              <div className="text-[#FFFFFF] flex justify-between py-[15px] border-b border-[#FFF] relative cursor-pointer items-center">
+                <div className="text-[20px] pl-[26px] uppercase">{item.en}</div>
+                <div className="text-[15px]">{item.cn}</div>
+                <div className="absolute top-[12px] left-[-2px] text-[#c2b48e] opacity-90 text-[15px]">
+                  {item.tag}
+                </div>
               </div>
-              <div className="ml-[18px]">{item.text}</div>
-            </div>
-            {isSelectedParent && (
-              <div className="px-[38px]">
-                {item.children?.map((child) => {
-                  const isSelectedChild =
-                    currentValue.split('/')[1] === child.value;
-                  return (
-                    <div
-                      key={child.value}
-                      className="flex items-center transition-all py-[6px]"
-                      style={{
-                        cursor: isSelectedChild
-                          ? 'default'
-                          : child.disabled
-                          ? 'not-allowed'
-                          : 'pointer',
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (!child.disabled) {
-                          onItemClick &&
-                            onItemClick(item.value + '/' + child.value);
-                        }
-                      }}
-                    >
-                      {/* TODO icon */}
-                      <div></div>
-                      <div
-                        style={{
-                          color: isSelectedChild ? '#FC1F8E' : '#9497AA',
-                        }}
-                      >
-                        {child.text}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
+            </ScrollIntoView>
+          );
+        })}
+      </div>
+    </motion.div>
   );
 };
 

@@ -6,10 +6,7 @@ import CooperationCarouselMobile from './CooperationCarouselMobile';
 
 const CooperationView = () => {
   return (
-    <div
-      id="cooperation"
-      className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]"
-    >
+    <div className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]">
       <div className="w-full lg:w-[80%] mx-auto flex justify-center items-center mt-[32px]">
         <img
           src="/images/banner_cooperation.png"

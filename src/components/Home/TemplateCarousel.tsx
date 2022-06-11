@@ -12,6 +12,7 @@ const TemplateCarousel = ({
   device: 'pc' | 'mobile';
   onItemClick: (item: any) => void;
 }) => {
+  const [current, setCurrent] = useState(0);
   const [carouselItems, setCarouselItems] = useState([
     pcTemplates,
     pcTemplates,
@@ -34,6 +35,7 @@ const TemplateCarousel = ({
     <div>
       <Carousel
         ariaLabel="Carousel"
+        selectedItem={current}
         useKeyboardArrows
         swipeable
         stopOnHover
@@ -42,7 +44,7 @@ const TemplateCarousel = ({
         showIndicators={false}
         showThumbs={false}
         infiniteLoop
-        autoPlay
+        // autoPlay
         width="100%"
         emulateTouch
         renderIndicator={(onClick: any, selected: any, index: number) => {
@@ -79,6 +81,20 @@ const TemplateCarousel = ({
           );
         })}
       </Carousel>
+      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+        {carouselItems.map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className="w-[50px] lg:w-[100px] h-[1px]"
+              style={{
+                backgroundColor: current === idx ? '#B39B5C' : '#363636',
+              }}
+              onClick={() => setCurrent(idx)}
+            ></div>
+          );
+        })}
+      </div>
     </div>
   );
 };

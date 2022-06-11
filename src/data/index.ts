@@ -109,3 +109,42 @@ export const templatePreviews = [
   { image: '/images/template_preview.png', value: '' },
   { image: '/images/template_preview.png', value: '' },
 ];
+
+export const sidebarItems = [
+  {
+    en: "it's us",
+    cn: '首页',
+    tag: '01',
+    value: '#entry',
+  },
+  {
+    en: 'template',
+    cn: '包网模板',
+    tag: '02',
+    value: '#template',
+  },
+  {
+    en: 'products',
+    cn: '产品介绍',
+    tag: '03',
+    value: '#template',
+  },
+  {
+    en: 'BUSINESS',
+    cn: '业务合作',
+    tag: '04',
+    value: '#products',
+  },
+  {
+    en: 'Cooperation',
+    cn: '合作伙伴',
+    tag: '05',
+    value: '#cooperation',
+  },
+  {
+    en: 'about us',
+    cn: '公司简介',
+    tag: '06',
+    value: '#partners',
+  },
+];

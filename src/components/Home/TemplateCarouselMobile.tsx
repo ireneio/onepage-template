@@ -18,6 +18,7 @@ const TemplateCarouselMobile = ({
     pcTemplates,
     pcTemplates,
   ]);
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (device === 'pc') {
@@ -32,8 +33,9 @@ const TemplateCarouselMobile = ({
   };
 
   return (
-    <div>
+    <div className="relative">
       <Carousel
+        selectedItem={current}
         ariaLabel="Carousel"
         useKeyboardArrows
         swipeable
@@ -46,18 +48,6 @@ const TemplateCarouselMobile = ({
         autoPlay
         width="100%"
         emulateTouch
-        renderIndicator={(onClick: any, selected: any, index: number) => {
-          return (
-            <div
-              className="w-[80px] h-[5px] rounded-[5px] inline-block cursor-pointer absolute bottom-[0] translate-x-[-50%]"
-              style={{
-                backgroundColor: selected ? '#B39B5C' : '#E8E8E8',
-                left: `calc(50% + ${(index + 1) * 80}px)`,
-              }}
-              onClick={onClick}
-            />
-          );
-        }}
       >
         {flatten(carouselItems).map((item, idx) => {
           return (
@@ -67,6 +57,44 @@ const TemplateCarouselMobile = ({
           );
         })}
       </Carousel>
+      <div
+        className="absolute left-[-42px] top-[25%]"
+        onClick={() => {
+          if (current > 0) {
+            setCurrent((prev) => prev - 1);
+          } else {
+            setCurrent(carouselItems.length - 1);
+          }
+        }}
+      >
+        <img src="/images/arrow_left.png" alt="" width={40} height={40} />
+      </div>
+      <div
+        className="absolute right-[-42px] top-[25%]"
+        onClick={() => {
+          if (current < carouselItems.length - 1) {
+            setCurrent((prev) => prev + 1);
+          } else {
+            setCurrent(0);
+          }
+        }}
+      >
+        <img src="/images/arrow_right.png" alt="" width={40} height={40} />
+      </div>
+      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+        {carouselItems.map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className="w-[50px] lg:w-[100px] h-[1px]"
+              style={{
+                backgroundColor: current === idx ? '#B39B5C' : '#363636',
+              }}
+              onClick={() => setCurrent(idx)}
+            ></div>
+          );
+        })}
+      </div>
     </div>
   );
 };

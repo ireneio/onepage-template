@@ -59,7 +59,7 @@ const Header = () => {
           )}
         </ScrollIntoView>
       </div>
-      <div className="relative w-[40vw] ml-auto flex justify-between">
+      <div className="relative w-[45vw] ml-auto flex justify-between">
         {headers.map((header) => {
           return (
             <ScrollIntoView key={header.value} selector={header.value}>
@@ -70,8 +70,8 @@ const Header = () => {
                     currentHeader === header.value
                       ? '#B39B5C'
                       : headerMode === 'light'
-                        ? '#000000'
-                        : '#FFFFFF',
+                      ? '#000000'
+                      : '#FFFFFF',
                 }}
                 onClick={() => handleSetHeader(header)}
               >
