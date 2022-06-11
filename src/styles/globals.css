@@ -31,24 +31,6 @@ body {
   font-family: 'CircularStd-Book', sans-serif !important;
 }
 
-.wallet-solana>.wallet-adapter-button {
-  color: white !important;
-  font-family: inherit !important;
-  font-size: 16px !important;
-  border-radius: 5px;
-  line-height: 0 !important;
-  height: 40px !important;
-  font-weight: 700 !important;
-  padding: 16px 27px !important;
-  margin: 0 !important;
-  letter-spacing: 0 !important;
-  background-color: #13002b !important;
-}
-
-.wallet-solana>.wallet-adapter-button:hover {
-  background-color: transparent !important;
-}
-
 .carousel .control-dots {
   display: flex;
   align-items: center;
@@ -66,35 +48,6 @@ body {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
-}
-
-.floating-card-wrapper {
-  display: flex;
-  overflow-x: auto;
-}
-
-.floating-card-wrapper .bg-img {
-  background-size: cover;
-  background-position: center center;
-  transition: background-size 1.4s;
-  background-repeat: no-repeat;
-  background-color: #13002b;
-}
-
-.floating-card-wrapper li {
-  vertical-align: middle;
-  transition-duration: 0.1s;
-  cursor: pointer;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
-  /* position: absolute; */
-  z-index: 10000;
-  position: relative;
-}
-
-.floating-card-wrapper .content {
-  width: 100%;
-  padding: 10px 10px 10px 10px;
-  background-color: #13002b;
 }
 
 .switch-input {
@@ -185,7 +138,7 @@ body {
   transition: filter 0.5s 2s ease-in;
 }
 
-@keyframes example {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -193,11 +146,4 @@ body {
   to {
     opacity: 1;
   }
-}
-
-.collection_video {
-  height: 100%;
-  width: 177.77777778vh;
-  min-width: 100%;
-  min-height: 56.25vw;
 }
