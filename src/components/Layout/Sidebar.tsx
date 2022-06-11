@@ -1,6 +1,7 @@
 import { sidebarItems } from '@/data';
 import { motion } from 'framer-motion';
 import ScrollIntoView from 'react-scroll-into-view';
+import SocialList from '../General/SocialList';
 
 interface Props {
   onSetOpen: (value: boolean) => void | Promise<void>;
@@ -16,7 +17,7 @@ const variants = {
     padding: '20px 12px',
     display: 'block',
   },
-  hide: { x: '100%', z: -1, height: 0, width: 0, padding: 0, display: 'none' },
+  hide: { x: '-100%', z: -1, padding: 0, display: 'none' },
 };
 
 const Sidebar = ({ open, onSetOpen }: Props) => {
@@ -51,6 +52,18 @@ const Sidebar = ({ open, onSetOpen }: Props) => {
             </ScrollIntoView>
           );
         })}
+      </div>
+      <div className="relative w-full flex flex-wrap justify-center mt-[42px]">
+        <div className="flex items-center">
+          <div className="w-[30px] h-[1px] bg-[#C2B48E]"></div>
+          <div className="ml-[14px] mr-[14px] text-[#FFFFFF] text-[15px] uppercase ">
+            contact us
+          </div>
+          <div className="w-[30px] h-[1px] bg-[#C2B48E]"></div>
+        </div>
+        <div className="basis-[100%] flex justify-center mt-[24px]">
+          <SocialList className="static" isNav />
+        </div>
       </div>
     </motion.div>
   );

@@ -88,7 +88,7 @@ const TemplateCarousel = ({
               key={idx}
               className="w-[50px] lg:w-[100px] h-[1px]"
               style={{
-                backgroundColor: current === idx ? '#B39B5C' : '#363636',
+                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
               onClick={() => setCurrent(idx)}
             ></div>

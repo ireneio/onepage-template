@@ -9,7 +9,13 @@ const contacts = [
   { image: '/images/ct_bbm.png', value: '' },
 ];
 
-const SocialList = ({ className }: { className?: string }) => {
+const SocialList = ({
+  className,
+  isNav,
+}: {
+  className?: string;
+  isNav?: boolean;
+}) => {
   const headerStyle = useAppSelector((state) => state.layout.header.style);
 
   return (
@@ -27,7 +33,14 @@ const SocialList = ({ className }: { className?: string }) => {
             target="_blank"
             rel="noreferrer"
             className="cursor-pointer rounded-[50%]"
-            style={{ backgroundColor: headerStyle === 'light' ? '#ddd' : '' }}
+            style={{
+              backgroundColor: isNav
+                ? '#FFFFFF'
+                : headerStyle === 'light'
+                ? '#ddd'
+                : '',
+              opacity: isNav ? 0.2 : 1,
+            }}
           >
             <img src={contact.image} alt="" width={30} height={30} />
           </a>
