@@ -9,7 +9,7 @@ const PartnersView = () => {
       className="relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]"
       style={{ backgroundImage: 'url(/images/bg_partners.png)' }}
     >
-      <div className="w-[80%] mx-auto flex justify-center items-center mt-[32px]">
+      <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
         <img
           src="/images/banner_partners.png"
           alt="partners"

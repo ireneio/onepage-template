@@ -17,7 +17,7 @@ const TemplateView = () => {
 
   return (
     <div className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]">
-      <div className="w-[90%] lg:w-[80%] mx-auto flex justify-center items-center mt-[32px]">
+      <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
         <img
           src="/images/banner_template.png"
           alt="template"
