@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app';
 import { Provider as ReduxProvider } from 'react-redux';
 import store from '../store';
 
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 function App({ Component, pageProps }: AppProps) {
   if (process.env.NODE_ENV === 'production') {
     console.log =
