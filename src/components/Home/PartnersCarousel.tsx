@@ -38,8 +38,6 @@ const PartnersCarousel = () => {
                 className="grid gap-[12px] lg:gap-[32px] grid-cols-2 lg:grid-cols-4 grid-rows-4 lg:grid-rows-2 w-[80%] justify-between items-start mx-auto mt-[22px] flex-wrap"
               >
                 {array.map((item, itemIdx) => {
-                  // console.log(String(itemIdx) + String(idx) + uuid());
-
                   return (
                     <div
                       key={String(itemIdx) + String(idx) + uuid()}

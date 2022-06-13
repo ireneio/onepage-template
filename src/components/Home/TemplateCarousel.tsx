@@ -28,7 +28,6 @@ const TemplateCarousel = ({
   };
 
   const handleMouseLeave = () => {
-    console.log('leave');
     setCurrentHover(-1);
   };
 
