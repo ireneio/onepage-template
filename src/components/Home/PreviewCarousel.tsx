@@ -9,7 +9,7 @@ const PreviewCarousel = ({
   carouselItems: any[];
 }) => {
   return (
-    <div className="relative h-[100vh]">
+    <div className="abddde">
       <Carousel
         ariaLabel="Carousel"
         selectedItem={current}
@@ -34,36 +34,12 @@ const PreviewCarousel = ({
               <img
                 src={preview.image}
                 alt="template preview"
-                className="min-h-[100vh]"
+                className="min-h-[100vh] object-cover"
               />
             </div>
           );
         })}
       </Carousel>
-      {/* <div
-        className="absolute left-[0] top-[25%] z-[10001]"
-        onClick={() => {
-          if (current > 0) {
-            setCurrent((prev) => prev - 1);
-          } else {
-            setCurrent(carouselItems.length - 1);
-          }
-        }}
-      >
-        <img src="/images/arrow_left.png" alt="" width={40} height={40} />
-      </div>
-      <div
-        className="absolute right-[-42px] top-[25%]"
-        onClick={() => {
-          if (current < carouselItems.length - 1) {
-            setCurrent((prev) => prev + 1);
-          } else {
-            setCurrent(0);
-          }
-        }}
-      >
-        <img src="/images/arrow_right.png" alt="" width={40} height={40} />
-      </div> */}
     </div>
   );
 };

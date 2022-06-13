@@ -111,6 +111,12 @@ export const templatePreviews = [
   { image: '/images/template_preview.png', value: '' },
 ];
 
+export const templatePageCount = 8;
+
+export const pcTemplates = Array(templatePageCount).fill(0);
+
+export const mobileTemplates = Array(templatePageCount).fill(0);
+
 export const sidebarItems = [
   {
     en: "it's us",

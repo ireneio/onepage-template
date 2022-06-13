@@ -1,32 +1,17 @@
-import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import flatten from 'lodash/flatten';
 
-const pcTemplates = Array(8).fill(0);
-const mobileTemplates = Array(8).fill(0);
-
 const TemplateCarouselMobile = ({
-  device,
   onItemClick,
+  carouselItems,
+  current,
+  setCurrent,
 }: {
-  device: 'pc' | 'mobile';
   onItemClick: (item: any) => void;
+  carouselItems: any[];
+  current: number;
+  setCurrent: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const [carouselItems, setCarouselItems] = useState([
-    pcTemplates,
-    pcTemplates,
-    pcTemplates,
-  ]);
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    if (device === 'pc') {
-      setCarouselItems([pcTemplates, pcTemplates, pcTemplates]);
-    } else {
-      setCarouselItems([mobileTemplates, mobileTemplates, mobileTemplates]);
-    }
-  }, [device]);
-
   const handleItemClick = (item: any) => {
     onItemClick && onItemClick(item);
   };
@@ -37,12 +22,17 @@ const TemplateCarouselMobile = ({
         selectedItem={current}
         ariaLabel="Carousel"
         useKeyboardArrows
-        swipeable
+        onChange={(idx) => {
+          console.log(idx);
+
+          setCurrent(idx);
+        }}
+        // swipeable={false}
         stopOnHover
         showStatus={false}
         showArrows={false}
         showIndicators={false}
-        showThumbs={true}
+        showThumbs={false}
         infiniteLoop
         autoPlay
         width="100%"
@@ -52,26 +42,27 @@ const TemplateCarouselMobile = ({
           return (
             <div key={idx} onClick={() => handleItemClick(item)}>
               <img src={'/images/template_1.png'} alt="" />
+              {/* <div className='text-[28px] text-[#000]'>{idx}</div> */}
             </div>
           );
         })}
       </Carousel>
       <div
-        className="absolute left-[-42px] top-[25%]"
+        className="absolute left-[-48px] top-[25%]"
         onClick={() => {
           if (current > 0) {
             setCurrent((prev) => prev - 1);
           } else {
-            setCurrent(carouselItems.length - 1);
+            setCurrent(flatten(carouselItems).length - 1);
           }
         }}
       >
         <img src="/images/arrow_left.png" alt="" width={40} height={40} />
       </div>
       <div
-        className="absolute right-[-42px] top-[25%]"
+        className="absolute right-[-48px] top-[25%]"
         onClick={() => {
-          if (current < carouselItems.length - 1) {
+          if (current < flatten(carouselItems).length - 1) {
             setCurrent((prev) => prev + 1);
           } else {
             setCurrent(0);
@@ -79,20 +70,6 @@ const TemplateCarouselMobile = ({
         }}
       >
         <img src="/images/arrow_right.png" alt="" width={40} height={40} />
-      </div>
-      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
-        {carouselItems.map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              className="w-[50px] lg:w-[100px] h-[2px]"
-              style={{
-                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
-              }}
-              onClick={() => setCurrent(idx)}
-            ></div>
-          );
-        })}
       </div>
     </div>
   );

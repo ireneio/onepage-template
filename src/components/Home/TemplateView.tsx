@@ -1,5 +1,11 @@
-import { devices } from '@/data';
-import { useState } from 'react';
+import {
+  devices,
+  mobileTemplates,
+  pcTemplates,
+  templatePageCount,
+} from '@/data';
+import { flatten } from 'lodash';
+import { useEffect, useState } from 'react';
 import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
@@ -10,6 +16,20 @@ import TemplatePreviewModal from './TemplatePreviewModal';
 const TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
   const [showPreview, setShowPreview] = useState(false);
+  const [carouselItems, setCarouselItems] = useState([
+    pcTemplates,
+    pcTemplates,
+    pcTemplates,
+  ]);
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (selectedDevice === 'pc') {
+      setCarouselItems([pcTemplates, pcTemplates, pcTemplates]);
+    } else {
+      setCarouselItems([mobileTemplates, mobileTemplates, mobileTemplates]);
+    }
+  }, [selectedDevice]);
 
   const handlePreview = () => {
     setShowPreview(true);
@@ -54,23 +74,46 @@ const TemplateView = () => {
           onItemClick={() => handlePreview()}
         />
       </div>
-      <div className="lg:hidden mx-[45px]">
+      <div className="lg:hidden mx-[60px] mt-[32px]">
         <TemplateCarouselMobile
-          device={selectedDevice}
           onItemClick={() => handlePreview()}
+          carouselItems={carouselItems}
+          current={current}
+          setCurrent={setCurrent}
         />
       </div>
-      {/* <div className="grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap">
-      {Array(8)
-        .fill(0)
-        .map((template, idx) => {
+      <div className="mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar">
+        {flatten(carouselItems)
+          .slice(current)
+          .map((item, idx) => {
+            return (
+              <div
+                key={idx}
+                className="w-[120px] h-[56px] flex-shrink-0"
+                onClick={() => setCurrent(idx)}
+              >
+                <img src={'/images/template_1.png'} alt="" />
+              </div>
+            );
+          })}
+      </div>
+      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+        {carouselItems.map((item, idx) => {
           return (
-            <div key={idx} className="h-[150px]">
-              <img src={'/images/template_1.png'} alt="" />
-            </div>
+            <div
+              key={idx}
+              className="w-[50px] lg:w-[100px] h-[2px]"
+              style={{
+                backgroundColor:
+                  Math.floor(current / templatePageCount) === idx
+                    ? '#B39B5C'
+                    : '#E8E8E8',
+              }}
+              onClick={() => setCurrent(idx)}
+            ></div>
           );
         })}
-    </div> */}
+      </div>
       <div className="hidden lg:block">
         <Cr />
         <MouseHandle

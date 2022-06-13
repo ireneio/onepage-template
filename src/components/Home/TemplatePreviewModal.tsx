@@ -27,12 +27,12 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
     <Transition show={isOpen}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 font-circularstdbook w-[100vw] mx-auto"
+        className="fixed inset-0 z-[1000] font-circularstdbook w-[100vw] mx-auto"
         onClose={() => {
           setIsOpen(false);
         }}
       >
-        <div className="min-h-screen px-4 text-center">
+        <div className="min-h-screen text-center">
           <Transition.Child
             enter="ease-out duration-300"
             enterFrom="opacity-0"
@@ -53,12 +53,6 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
               </button>
             )}
           </div>
-          <span
-            className="inline-block h-screen align-middle"
-            aria-hidden="true"
-          >
-            &#8203;
-          </span>
           <div
             className="hidden lg:block absolute right-[8px] top-[2px] py-[8px] text-[48px] text-[#FFF] cursor-pointer font-thin"
             onClick={() => setIsOpen(false)}
@@ -80,52 +74,35 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             leaveTo="opacity-0 scale-95"
           >
             <div
-              className="relative inline-block w-[80vw] overflow-hidden text-left align-middle transition-all
+              className="relative inline-block w-[100vw] lg:w-[80vw] overflow-hidden text-left align-middle transition-all
             transform rounded-[5px] bg-transparent font-circularstdbook"
             >
               <div className="px-[2px] py-[2px] rounded-[5px]">
-                <div className="relative flex items-center w-full justify-center">
-                  <div>
-                    {/* <Dialog.Title
-                      as="h3"
-                      className="text-2xl font-bold leading-6 text-white pb-2 flex flex-col items-center"
-                    >
-                      title
-                    </Dialog.Title> */}
-                    {/* <Dialog.Description>
-                      <div className="absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]">
-                        <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px]">
-                          关闭
-                        </button>
-                      </div>
-                    </Dialog.Description> */}
-                    <div className="mt-0 px-[0] w-[60vw] mx-auto">
-                      <PreviewCarousel
-                        current={current}
-                        carouselItems={templatePreviews}
-                      />
-                    </div>
-                    <div
-                      className="absolute right-[12px] top-[50%] cursor-pointer"
-                      onClick={() => handleCurrent(1)}
-                    >
-                      <img
-                        src="/images/arrow_right.png"
-                        alt=""
-                        className="w-[38px] h-[38px]"
-                      />
-                    </div>
-                    <div
-                      className="absolute left-[12px] top-[50%] cursor-pointer"
-                      onClick={() => handleCurrent(-1)}
-                    >
-                      <img
-                        src="/images/arrow_left.png"
-                        alt=""
-                        className="w-[38px] h-[38px]"
-                      />
-                    </div>
-                  </div>
+                <div className="mt-0 px-[0] w-[100vw] lg:w-[60vw] mx-auto">
+                  <PreviewCarousel
+                    current={current}
+                    carouselItems={templatePreviews}
+                  />
+                </div>
+                <div
+                  className="absolute right-[12px] top-[50%] cursor-pointer"
+                  onClick={() => handleCurrent(1)}
+                >
+                  <img
+                    src="/images/arrow_right.png"
+                    alt=""
+                    className="w-[38px] h-[38px]"
+                  />
+                </div>
+                <div
+                  className="absolute left-[12px] top-[50%] cursor-pointer"
+                  onClick={() => handleCurrent(-1)}
+                >
+                  <img
+                    src="/images/arrow_left.png"
+                    alt=""
+                    className="w-[38px] h-[38px]"
+                  />
                 </div>
               </div>
             </div>
