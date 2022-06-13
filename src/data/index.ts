@@ -26,12 +26,13 @@ export const customerServices = [
 ];
 
 export const services = [
-  { image: '/images/first_live.png', value: '' },
-  { image: '/images/first_qp.png', value: '' },
-  { image: '/images/first_fish.png', value: '' },
-  { image: '/images/first_slot.png', value: '' },
-  { image: '/images/first_game.png', value: '' },
-  { image: '/images/first_sport.png', value: '' },
+  { image: '/images/first_live.png', value: '真人' },
+  { image: '/images/first_qp.png', value: '棋牌' },
+  { image: '/images/first_fish.png', value: '捕鱼' },
+  { image: '/images/first_slot.png', value: '电子' },
+  { image: '/images/first_sport.png', value: '体育' },
+  { image: '/images/first_game.png', value: '电竞' },
+  { image: '/images/first_lottery.png', value: '彩票' },
 ];
 
 export const games = [
@@ -116,35 +117,41 @@ export const sidebarItems = [
     cn: '首页',
     tag: '01',
     value: '#entry',
+    theme: 'dark',
   },
   {
     en: 'template',
     cn: '包网模板',
     tag: '02',
     value: '#template',
+    theme: 'light',
   },
   {
     en: 'products',
     cn: '产品介绍',
     tag: '03',
     value: '#products',
+    theme: 'dark',
   },
   {
     en: 'BUSINESS',
     cn: '业务合作',
     tag: '04',
     value: '#cooperation',
+    theme: 'light',
   },
   {
     en: 'Cooperation',
     cn: '合作伙伴',
     tag: '05',
     value: '#partners',
+    theme: 'dark',
   },
   {
     en: 'about us',
     cn: '公司简介',
     tag: '06',
     value: '#about',
+    theme: 'light',
   },
 ];

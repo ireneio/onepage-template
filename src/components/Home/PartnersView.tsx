@@ -6,7 +6,7 @@ import PartnersCarousel from './PartnersCarousel';
 const PartnersView = () => {
   return (
     <div
-      className="relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]"
+      className="relative w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px] lg:pb-0 lg:pt-[75px]"
       style={{ backgroundImage: 'url(/images/bg_partners.png)' }}
     >
       <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">

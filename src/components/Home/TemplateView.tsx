@@ -16,7 +16,7 @@ const TemplateView = () => {
   };
 
   return (
-    <div className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]">
+    <div className="relative w-full lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
       <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
         <img
           src="/images/banner_template.png"
@@ -24,12 +24,12 @@ const TemplateView = () => {
           className="h-auto lg:h-[18vh]"
         />
       </div>
-      <div className="flex text-[14px] w-[200px] mx-auto justify-center mt-[12px] mb-[12px]">
+      <div className="grid grid-cols-2 gap-[12px] text-[14px] w-[200px] mx-auto justify-center mt-[16px] mb-[0px]">
         {devices.map((device) => {
           return (
             <div
               key={device.value}
-              className="mr-[18px] cursor-pointer"
+              className="cursor-pointer text-center"
               onClick={() => setSelectedDevice(device.value as 'pc' | 'mobile')}
             >
               <div
@@ -37,12 +37,13 @@ const TemplateView = () => {
                   color:
                     selectedDevice === device.value ? '#B39B5C' : '#BCBCBC',
                 }}
+                className="text-[20px] text-center"
               >
                 {device.text}
+                {selectedDevice === device.value && (
+                  <div className="w-full h-[2px] bg-[#B39B5C]"></div>
+                )}
               </div>
-              {selectedDevice === device.value && (
-                <div className="w-full h-[2px] bg-[#B39B5C]"></div>
-              )}
             </div>
           );
         })}

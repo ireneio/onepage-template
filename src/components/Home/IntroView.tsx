@@ -1,6 +1,7 @@
 import { services } from '@/data';
 import { useWindowWidth } from '@/hooks/window';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import ScrollIntoView from 'react-scroll-into-view';
 import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
@@ -8,8 +9,17 @@ import SocialList from '../General/SocialList';
 
 const IntroView = () => {
   const windowWidth = useWindowWidth();
+  const [currentHover, setCurrentHover] = useState(-1);
 
-  console.log('windowWidth', windowWidth);
+  const handleMouseEnter = (idx: number) => {
+    if (currentHover !== idx) {
+      setCurrentHover(idx);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setCurrentHover(-1);
+  };
 
   return (
     <div
@@ -25,7 +35,7 @@ const IntroView = () => {
         <div className="text-[24px] lg:text-[48px] text-[#FFFFFF]">
           最全面的包网服务商
         </div>
-        <div className="text-[38px] lg:text-[80px] text-[#FFFFFF]">
+        <div className="text-[38px] lg:text-[80px] text-[#FFFFFF] font-bold">
           建站，从未如此<span className="text-[#B39B5C]">简单</span>
         </div>
         <div className="text-[#EDEDED] text-[15px] lg:text-[24px] font-light">
@@ -34,11 +44,28 @@ const IntroView = () => {
         <div className="text-[#EDEDED] text-[15px] lg:text-[24px] font-light">
           事为先，人为重，共创共赢，您的明智选择
         </div>
-        <div className="flex justify-between items-center mt-[48px] w-[46vw] mx-auto">
+        <div className="flex justify-between items-center mt-[48px] mx-auto">
           {services.map((service, idx) => {
             return (
-              <div key={idx}>
+              <div
+                key={idx}
+                className="relative cursor-pointer flex items-center justify-center"
+                onMouseOver={() => handleMouseEnter(idx)}
+                onMouseLeave={() => handleMouseLeave()}
+              >
                 <img src={service.image} alt="" />
+                {currentHover === idx && (
+                  <img
+                    src="/images/hover.png"
+                    alt=""
+                    className="absolute top-0 left-0 opacity-100"
+                  />
+                )}
+                {currentHover === idx && (
+                  <div className="text-[18px] font-bold absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                    {service.value}
+                  </div>
+                )}
               </div>
             );
           })}

@@ -43,13 +43,9 @@ const PartnersCarousel = () => {
                   return (
                     <div
                       key={String(itemIdx) + String(idx) + uuid()}
-                      className="bg-[#363636] md:h-[140px] h-[90px] 2xl:h-[150px] flex justify-center items-center"
+                      className="bg-[#363636] flex justify-center items-center"
                     >
-                      <img
-                        src={item.image}
-                        alt=""
-                        className="h-[90px] 2xl:h-[100px] md:h-[140px]"
-                      />
+                      <img src={item.image} alt="" />
                     </div>
                   );
                 })}

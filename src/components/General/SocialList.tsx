@@ -35,14 +35,20 @@ const SocialList = ({
             className="cursor-pointer rounded-[50%]"
             style={{
               backgroundColor: isNav
-                ? '#FFFFFF'
+                ? '#181818'
                 : headerStyle === 'light'
-                ? '#ddd'
+                ? '#ccc'
                 : '',
               opacity: isNav ? 0.2 : 1,
             }}
           >
-            <img src={contact.image} alt="" width={30} height={30} />
+            <img
+              src={contact.image}
+              alt=""
+              width={30}
+              height={30}
+              className="hover:opacity-[0.8]"
+            />
           </a>
         );
       })}

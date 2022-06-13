@@ -18,6 +18,19 @@ const TemplateCarousel = ({
     pcTemplates,
     pcTemplates,
   ]);
+  const [currentHover, setCurrentHover] = useState(-1);
+
+  const handleMouseEnter = (e: any, idx: number) => {
+    e.stopPropagation();
+    if (currentHover !== idx) {
+      setCurrentHover(idx);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    console.log('leave');
+    setCurrentHover(-1);
+  };
 
   useEffect(() => {
     if (device === 'pc') {
@@ -37,28 +50,19 @@ const TemplateCarousel = ({
         ariaLabel="Carousel"
         selectedItem={current}
         useKeyboardArrows
-        swipeable
+        // swipeable={false}
         stopOnHover
         showStatus={false}
         showArrows={true}
         showIndicators={false}
         showThumbs={false}
+        onChange={(index) => {
+          setCurrent(index);
+        }}
         infiniteLoop
         // autoPlay
         width="100%"
         emulateTouch
-        renderIndicator={(onClick: any, selected: any, index: number) => {
-          return (
-            <div
-              className="w-[80px] h-[5px] rounded-[5px] inline-block cursor-pointer absolute bottom-[0] translate-x-[-50%]"
-              style={{
-                backgroundColor: selected ? '#B39B5C' : '#E8E8E8',
-                left: `calc(50% + ${(index + 1) * 80}px)`,
-              }}
-              onClick={onClick}
-            />
-          );
-        }}
       >
         {carouselItems.map((array, idx) => {
           return (
@@ -70,10 +74,29 @@ const TemplateCarousel = ({
                 return (
                   <div
                     key={itemIdx}
-                    className="h-[150px]"
+                    className="h-[150px] w-[200px] mt-[12px] relative"
                     onClick={() => handleItemClick(item)}
+                    onMouseOver={(e) => handleMouseEnter(e, itemIdx)}
+                    onMouseLeave={() => handleMouseLeave()}
                   >
-                    <img src={'/images/template_1.png'} alt="" />
+                    <img
+                      src={'/images/template_1.png'}
+                      alt=""
+                      className="h-[150px] w-[200px] object-cover"
+                    />
+                    {currentHover === itemIdx && (
+                      <div>
+                        <div className="absolute top-0 left-0 h-[150px] w-[200px] bg-[#181818] opacity-30 flex items-center justify-center"></div>
+                        <div className="absolute top-0 left-0 h-[150px] w-[200px] opacity-100 flex items-center justify-center">
+                          <div
+                            className="bg-no-repeat bg-cover w-[48px] h-[48px]"
+                            style={{
+                              backgroundImage: 'url(/images/search.png)',
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -81,7 +104,7 @@ const TemplateCarousel = ({
           );
         })}
       </Carousel>
-      <div className="flex mt-[24px] lg:mt-[24px] w-full justify-center">
+      <div className="flex mt-[8px] lg:mt-[8px] w-full justify-center">
         {carouselItems.map((item, idx) => {
           return (
             <div

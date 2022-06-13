@@ -1,21 +1,23 @@
-import { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { templatePreviews } from '../../data';
 
-const PreviewCarousel = () => {
-  const [carouselItems] = useState(templatePreviews);
-  // const [current, setCurrent] = useState(0);
-
+const PreviewCarousel = ({
+  current,
+  carouselItems,
+}: {
+  current: number;
+  carouselItems: any[];
+}) => {
   return (
-    <div className="relative w-[80vw]">
+    <div className="relative h-[100vh]">
       <Carousel
         ariaLabel="Carousel"
+        selectedItem={current}
         useKeyboardArrows
         swipeable
         stopOnHover
         showStatus={false}
-        showArrows={true}
+        showArrows={false}
         showIndicators={false}
         showThumbs={false}
         infiniteLoop
@@ -25,11 +27,14 @@ const PreviewCarousel = () => {
       >
         {carouselItems.map((preview, idx) => {
           return (
-            <div key={idx} className="flex items-center">
+            <div
+              key={idx}
+              className="flex items-center min-h-[100vh] overflow-auto"
+            >
               <img
                 src={preview.image}
                 alt="template preview"
-                className="object-cover h-[60vh]"
+                className="min-h-[100vh]"
               />
             </div>
           );

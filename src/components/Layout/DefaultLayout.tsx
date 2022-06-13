@@ -8,6 +8,7 @@ import HeaderMobile from './HeaderMobile';
 import FloatTopBtn from '../General/FloatTopBtn';
 import { useEffect, useState } from 'react';
 import { useWindowWidth } from '@/hooks/window';
+import SideScroller from '../General/SideScroller';
 
 interface Props {
   children?: React.ReactNode;
@@ -86,6 +87,9 @@ const DefaultLayout = ({ children, title }: Props) => {
           show={snackbarShow}
           title={snackbarTitle}
         />
+        <div className="hidden lg:block fixed right-[18px] top-[50%] translate-y-[-50%] z-[100]">
+          <SideScroller />
+        </div>
         <div className="hidden lg:block">
           <Header />
         </div>

@@ -12,12 +12,10 @@ const variants = {
   show: {
     x: 0,
     z: 101,
-    height: '100vh',
-    width: '100vw',
     padding: '20px 12px',
     display: 'block',
   },
-  hide: { x: '-100%', z: -1, padding: 0, display: 'none' },
+  hide: { x: '100%', z: -1, padding: 0, display: 'none' },
 };
 
 const Sidebar = ({ open, onSetOpen }: Props) => {
@@ -42,7 +40,7 @@ const Sidebar = ({ open, onSetOpen }: Props) => {
               selector={item.value}
               onClick={() => onSetOpen(false)}
             >
-              <div className="text-[#FFFFFF] flex justify-between py-[15px] border-b border-[#FFF] relative cursor-pointer items-center">
+              <div className="text-[#FFFFFF] flex justify-between py-[15px] border-b border-[#C2B48E] relative cursor-pointer items-center">
                 <div className="text-[20px] pl-[26px] uppercase">{item.en}</div>
                 <div className="text-[15px]">{item.cn}</div>
                 <div className="absolute top-[12px] left-[-2px] text-[#c2b48e] opacity-90 text-[15px]">

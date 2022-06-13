@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import PreviewCarousel from './PreviewCarousel';
+import { useWindowWidth } from '@/hooks/window';
+import { templatePreviews } from '@/data';
 
 type Props = {
   isOpen: boolean;
@@ -9,11 +10,24 @@ type Props = {
 };
 
 const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
+  const windowWidth = useWindowWidth();
+  const [current, setCurrent] = useState(0);
+
+  const handleCurrent = (idx: number) => {
+    if (idx === 1 && current === templatePreviews.length - 1) {
+      setCurrent(0);
+    } else if (idx === -1 && current === 0) {
+      setCurrent(templatePreviews.length - 1);
+      return;
+    }
+    setCurrent((prev) => prev + idx);
+  };
+
   return (
     <Transition show={isOpen}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-10 overflow-y-hidden font-circularstdbook w-[100vw] mx-auto"
+        className="fixed inset-0 z-10 font-circularstdbook w-[100vw] mx-auto"
         onClose={() => {
           setIsOpen(false);
         }}
@@ -33,9 +47,11 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             className="z-[100] absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]"
             onClick={() => setIsOpen(false)}
           >
-            <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px] text-[16px]">
-              关闭
-            </button>
+            {windowWidth < 768 && (
+              <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px] text-[16px]">
+                关闭
+              </button>
+            )}
           </div>
           <span
             className="inline-block h-screen align-middle"
@@ -64,8 +80,8 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             leaveTo="opacity-0 scale-95"
           >
             <div
-              className="relative inline-block w-[60vw] my-12 overflow-hidden text-left align-middle transition-all
-            transform shadow-xl rounded-[5px] bg-[#FFF] font-circularstdbook"
+              className="relative inline-block w-[80vw] overflow-hidden text-left align-middle transition-all
+            transform rounded-[5px] bg-transparent font-circularstdbook"
             >
               <div className="px-[2px] py-[2px] rounded-[5px]">
                 <div className="relative flex items-center w-full justify-center">
@@ -83,8 +99,31 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
                         </button>
                       </div>
                     </Dialog.Description> */}
-                    <div className="mt-0 px-[0]">
-                      <PreviewCarousel />
+                    <div className="mt-0 px-[0] w-[60vw] mx-auto">
+                      <PreviewCarousel
+                        current={current}
+                        carouselItems={templatePreviews}
+                      />
+                    </div>
+                    <div
+                      className="absolute right-[12px] top-[50%] cursor-pointer"
+                      onClick={() => handleCurrent(1)}
+                    >
+                      <img
+                        src="/images/arrow_right.png"
+                        alt=""
+                        className="w-[38px] h-[38px]"
+                      />
+                    </div>
+                    <div
+                      className="absolute left-[12px] top-[50%] cursor-pointer"
+                      onClick={() => handleCurrent(-1)}
+                    >
+                      <img
+                        src="/images/arrow_left.png"
+                        alt=""
+                        className="w-[38px] h-[38px]"
+                      />
                     </div>
                   </div>
                 </div>

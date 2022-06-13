@@ -4,7 +4,7 @@ import SocialList from '../General/SocialList';
 
 const AboutView = () => {
   return (
-    <div className="w-full h-auto lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[24px] lg:pt-[75px]">
+    <div className="w-full h-auto lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
       <div className="w-[80%] mx-auto flex justify-center items-center mt-[12px]">
         <img
           src="/images/banner_about.png"
@@ -14,7 +14,7 @@ const AboutView = () => {
       </div>
       <div className="justify-between flex flex-wrap px-[24px] lg:px-[140px]">
         <div className="text-[#000000] basis-[100%] lg:basis-[50%] order-2 lg:order-1">
-          <div className="font-semibold mb-[32px] 2xl:pr-[140px] text-center lg:text-left">
+          <div className="font-semibold mb-[32px] 2xl:pr-[140px] text-center lg:text-left text-[#363636]">
             我们是真正能站在您与用户的角度考虑的平台，想您所想，急您所急。
             十一年的游戏研发团队，十五年的网络安全团队。
           </div>
@@ -25,7 +25,7 @@ const AboutView = () => {
                   <div className="flex justify-center">
                     <img src={feature.image} alt="" width={32} height={32} />
                   </div>
-                  <div className="font-bold text-[14px] lg:text-[18px]">
+                  <div className="font-bold text-[14px] lg:text-[18px] mt-[12px] mb-[8px]">
                     {feature.title}
                   </div>
                   <div className="text-[12px] text-[#5b5b5b]">
