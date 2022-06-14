@@ -37,18 +37,6 @@ const TemplateView = () => {
     setPreviewItem(reduce[idx].enlarged);
   };
 
-  useEffect(() => {
-    console.log('current', current);
-    // console.log('carouselItems[0].length', carouselItems[0].length);
-
-    console.log('len', current % flatten(carouselItems).length);
-
-    // console.log(
-    //   'Math.floor(current / (flatten(arr).length))',
-    //   Math.floor(flatten(carouselItems).length / 8),
-    // );
-  }, [current]);
-
   return (
     <div className="relative w-full lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
       <div className="w-[80%] mx-auto flex justify-center items-center">
@@ -100,7 +88,6 @@ const TemplateView = () => {
       </div>
       <div className="lg:hidden mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar">
         {flatten(carouselItems)
-          .slice(current)
           .map((item, idx) => {
             return (
               <div
