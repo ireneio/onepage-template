@@ -39,8 +39,7 @@ const TemplateCarouselMobile = ({
         {flatten(carouselItems).map((item, idx) => {
           return (
             <div key={idx} onClick={() => handleItemClick(item)}>
-              <img src={'/images/template_1.png'} alt="" />
-              {/* <div className='text-[28px] text-[#000]'>{idx}</div> */}
+              <img src={item.image} alt="" />
             </div>
           );
         })}

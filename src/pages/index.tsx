@@ -16,9 +16,6 @@ const Index = () => {
   const dispatch = useAppDispatch();
   const cb = () => {
     const viewHeight = window.innerHeight;
-    console.log(viewHeight);
-    console.log(window.scrollY);
-
     if (window.scrollY < viewHeight) {
       dispatch({ type: 'SET_HEADER_ITEM', payload: sidebarItems[0].value });
       dispatch({

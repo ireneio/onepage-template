@@ -1,22 +1,15 @@
-import { useAppSelector } from '@/store';
+import { contacts } from '@/data';
+import { useWindowWidth } from '@/hooks/window';
 import { twMerge } from 'tailwind-merge';
-
-const contacts = [
-  { image: '/images/ct_wx.png', value: '' },
-  { image: '/images/ct_telegram.png', value: '' },
-  { image: '/images/ct_skype.png', value: '' },
-  { image: '/images/ct_whasapp.png', value: '' },
-  { image: '/images/ct_bbm.png', value: '' },
-];
 
 const SocialList = ({
   className,
-  isNav,
-}: {
+}: // isNav,
+{
   className?: string;
   isNav?: boolean;
 }) => {
-  const headerStyle = useAppSelector((state) => state.layout.header.style);
+  const windowWidth = useWindowWidth();
 
   return (
     <div
@@ -33,17 +26,13 @@ const SocialList = ({
             target="_blank"
             rel="noreferrer"
             className="cursor-pointer rounded-[50%]"
-            style={{
-              backgroundColor: isNav
-                ? '#181818'
-                : headerStyle === 'light'
-                ? '#ccc'
-                : '',
-              opacity: isNav ? 0.2 : 1,
-            }}
           >
             <img
-              src={contact.image}
+              src={
+                windowWidth < 768
+                  ? contact.image
+                  : contact.image.split('.').join('_pc.')
+              }
               alt=""
               width={30}
               height={30}

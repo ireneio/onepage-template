@@ -63,13 +63,13 @@ export const games = [
 
 export const partners = [
   { image: '/images/partners_ag.png', value: '' },
-  { image: '/images/partners_ag.png', value: '' },
-  { image: '/images/partners_ag.png', value: '' },
-  { image: '/images/partners_ag.png', value: '' },
-  { image: '/images/partners_ag.png', value: '' },
-  { image: '/images/partners_ag.png', value: '' },
-  { image: '/images/partners_ag.png', value: '' },
-  { image: '/images/partners_ag.png', value: '' },
+  { image: '/images/partners_bbn.png', value: '' },
+  { image: '/images/partners_cq9.png', value: '' },
+  { image: '/images/partners_mg.png', value: '' },
+  { image: '/images/partners_ob.png', value: '' },
+  { image: '/images/partners_pt.png', value: '' },
+  { image: '/images/partners_sb.png', value: '' },
+  { image: '/images/partners_sun.png', value: '' },
 ];
 
 export const about = [
@@ -103,19 +103,46 @@ export const devices = [
   { text: '移动端', value: 'mobile' },
 ];
 
-export const templatePreviews = [
-  { image: '/images/template_preview.png', value: '' },
-  { image: '/images/template_preview.png', value: '' },
-  { image: '/images/template_preview.png', value: '' },
-  { image: '/images/template_preview.png', value: '' },
-  { image: '/images/template_preview.png', value: '' },
-];
+export const pcTemplates = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  .map((val, idx) => {
+    const num = idx + 1;
+    return {
+      image: `/t${num}/t${num}_pcs.png`,
+      enlarged: `/t${num}/t${num}_pc.png`,
+    };
+  })
+  .reduce(
+    (acc: any[], curr: any, idx: number) => {
+      if (idx < 8) {
+        acc[0].push(curr);
+      } else {
+        acc[1].push(curr);
+      }
+      return acc;
+    },
+    [[], []],
+  );
 
-export const templatePageCount = 8;
-
-export const pcTemplates = Array(templatePageCount).fill(0);
-
-export const mobileTemplates = Array(templatePageCount).fill(0);
+export const mobileTemplates = Array(13)
+  .fill(0)
+  .map((val, idx) => {
+    const num = idx + 1;
+    return {
+      image: `/t${num}/t${num}_apps.png`,
+      enlarged: `/t${num}/t${num}_app.png`,
+    };
+  })
+  .reduce(
+    (acc: any[], curr: any, idx: number) => {
+      if (idx < 8) {
+        acc[0].push(curr);
+      } else {
+        acc[1].push(curr);
+      }
+      return acc;
+    },
+    [[], []],
+  );
 
 export const sidebarItems = [
   {
@@ -160,4 +187,12 @@ export const sidebarItems = [
     value: '#about',
     theme: 'light',
   },
+];
+
+export const contacts = [
+  { image: '/images/ct_wx.png', value: '' },
+  { image: '/images/ct_telegram.png', value: '' },
+  { image: '/images/ct_skype.png', value: '' },
+  { image: '/images/ct_whasapp.png', value: '' },
+  { image: '/images/ct_bbm.png', value: '' },
 ];

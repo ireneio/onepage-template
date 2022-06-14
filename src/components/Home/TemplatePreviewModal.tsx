@@ -1,27 +1,39 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import PreviewCarousel from './PreviewCarousel';
 import { useWindowWidth } from '@/hooks/window';
-import { templatePreviews } from '@/data';
 
 type Props = {
+  item: string;
   isOpen: boolean;
+  carouselItems: any[];
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setUpdateItem: (index: number) => void;
 };
 
-const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
+const TemplatePreviewModal = ({
+  item,
+  isOpen,
+  setIsOpen,
+  setUpdateItem,
+  carouselItems,
+}: Props) => {
   const windowWidth = useWindowWidth();
   const [current, setCurrent] = useState(0);
 
   const handleCurrent = (idx: number) => {
-    if (idx === 1 && current === templatePreviews.length - 1) {
+    if (idx === 1 && current === carouselItems.length - 1) {
       setCurrent(0);
+      setUpdateItem(0);
     } else if (idx === -1 && current === 0) {
-      setCurrent(templatePreviews.length - 1);
+      setCurrent(carouselItems.length - 1);
+      setUpdateItem(carouselItems.length - 1);
       return;
     }
     setCurrent((prev) => prev + idx);
+    setUpdateItem(current + idx);
   };
+
+  console.log('item', item);
 
   return (
     <Transition show={isOpen}>
@@ -79,10 +91,9 @@ const TemplatePreviewModal = ({ isOpen, setIsOpen }: Props) => {
             >
               <div className="px-[2px] py-[2px] rounded-[5px]">
                 <div className="mt-0 px-[0] w-[100vw] lg:w-[60vw] mx-auto">
-                  <PreviewCarousel
-                    current={current}
-                    carouselItems={templatePreviews}
-                  />
+                  <div className="h-[100vh] max-w-[1200px] overflow-auto">
+                    <img src={item} alt="template preview" />
+                  </div>
                 </div>
                 <div
                   className="absolute right-[12px] top-[50%] cursor-pointer"

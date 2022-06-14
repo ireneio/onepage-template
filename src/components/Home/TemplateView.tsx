@@ -1,9 +1,4 @@
-import {
-  devices,
-  mobileTemplates,
-  pcTemplates,
-  templatePageCount,
-} from '@/data';
+import { devices, mobileTemplates, pcTemplates } from '@/data';
 import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
 import Cr from '../General/Cr';
@@ -16,23 +11,30 @@ import TemplatePreviewModal from './TemplatePreviewModal';
 const TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
   const [showPreview, setShowPreview] = useState(false);
-  const [carouselItems, setCarouselItems] = useState([
-    pcTemplates,
-    pcTemplates,
-    pcTemplates,
-  ]);
+  const [previewItem, setPreviewItem] = useState('');
+  const [carouselItems, setCarouselItems] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (selectedDevice === 'pc') {
-      setCarouselItems([pcTemplates, pcTemplates, pcTemplates]);
+      setCarouselItems(pcTemplates);
     } else {
-      setCarouselItems([mobileTemplates, mobileTemplates, mobileTemplates]);
+      setCarouselItems(mobileTemplates);
     }
   }, [selectedDevice]);
 
-  const handlePreview = () => {
+  const handlePreview = (item: any) => {
+    setPreviewItem(item.enlarged);
     setShowPreview(true);
+  };
+
+  const handlePreviewModalUpdateItem = (idx: number) => {
+    const reduce = carouselItems.reduce((acc, curr) => {
+      const _acc = acc.concat([...curr]);
+      return _acc;
+    }, []);
+
+    setPreviewItem(reduce[idx].enlarged);
   };
 
   return (
@@ -70,13 +72,15 @@ const TemplateView = () => {
       </div>
       <div className="hidden lg:block">
         <TemplateCarousel
-          device={selectedDevice}
-          onItemClick={() => handlePreview()}
+          onItemClick={(item) => handlePreview(item)}
+          carouselItems={carouselItems}
+          setCurrent={setCurrent}
+          current={current}
         />
       </div>
       <div className="lg:hidden mx-[60px] mt-[32px]">
         <TemplateCarouselMobile
-          onItemClick={() => handlePreview()}
+          onItemClick={(item) => handlePreview(item)}
           carouselItems={carouselItems}
           current={current}
           setCurrent={setCurrent}
@@ -95,7 +99,7 @@ const TemplateView = () => {
                 {current !== idx && (
                   <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
                 )}
-                <img src={'/images/template_1.png'} alt="" />
+                <img src={item.image} alt="" />
               </div>
             );
           })}
@@ -107,10 +111,7 @@ const TemplateView = () => {
               key={idx}
               className="w-[50px] lg:w-[100px] h-[2px]"
               style={{
-                backgroundColor:
-                  Math.floor(current / templatePageCount) === idx
-                    ? '#B39B5C'
-                    : '#E8E8E8',
+                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
               onClick={() => setCurrent(idx)}
             ></div>
@@ -127,7 +128,10 @@ const TemplateView = () => {
         <SocialList />
         <TemplatePreviewModal
           isOpen={showPreview}
+          item={previewItem}
+          carouselItems={carouselItems}
           setIsOpen={(val) => setShowPreview(val)}
+          setUpdateItem={(idx) => handlePreviewModalUpdateItem(idx)}
         />
       </div>
     </div>

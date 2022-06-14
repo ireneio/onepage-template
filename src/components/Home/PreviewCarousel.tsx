@@ -31,10 +31,11 @@ const PreviewCarousel = ({
               key={idx}
               className="flex items-center min-h-[100vh] overflow-auto"
             >
+              <div className="h-[100vh] max-w-[1200px] overflow-auto"></div>
               <img
-                src={preview.image}
+                src={preview}
                 alt="template preview"
-                className="min-h-[100vh] object-contain max-w-[1200px] overflow-auto"
+                // className="min-h-[100vh] object-cover max-w-[1200px] overflow-auto"
               />
             </div>
           );

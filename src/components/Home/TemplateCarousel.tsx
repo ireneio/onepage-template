@@ -1,23 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const pcTemplates = Array(8).fill(0);
-const mobileTemplates = Array(8).fill(0);
-
 const TemplateCarousel = ({
-  device,
   onItemClick,
+  carouselItems,
+  setCurrent,
+  current,
 }: {
-  device: 'pc' | 'mobile';
   onItemClick: (item: any) => void;
+  carouselItems: any[];
+  current: number;
+  setCurrent: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const [current, setCurrent] = useState(0);
-  const [carouselItems, setCarouselItems] = useState([
-    pcTemplates,
-    pcTemplates,
-    pcTemplates,
-  ]);
   const [currentHover, setCurrentHover] = useState(-1);
 
   const handleMouseEnter = (e: any, idx: number) => {
@@ -31,14 +26,6 @@ const TemplateCarousel = ({
     setCurrentHover(-1);
   };
 
-  useEffect(() => {
-    if (device === 'pc') {
-      setCarouselItems([pcTemplates, pcTemplates, pcTemplates]);
-    } else {
-      setCarouselItems([mobileTemplates, mobileTemplates, mobileTemplates]);
-    }
-  }, [device]);
-
   const handleItemClick = (item: any) => {
     onItemClick && onItemClick(item);
   };
@@ -49,27 +36,27 @@ const TemplateCarousel = ({
         ariaLabel="Carousel"
         selectedItem={current}
         useKeyboardArrows
-        // swipeable={false}
+        autoPlay={false}
+        swipeable={true}
         stopOnHover
         showStatus={false}
-        showArrows={true}
+        showArrows={false}
         showIndicators={false}
         showThumbs={false}
         onChange={(index) => {
           setCurrent(index);
         }}
         infiniteLoop
-        // autoPlay
         width="100%"
         emulateTouch
       >
-        {carouselItems.map((array, idx) => {
+        {carouselItems.map((array: any, idx) => {
           return (
             <div
               key={idx}
               className="hidden lg:grid gap-[12px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap"
             >
-              {array.map((item, itemIdx) => {
+              {array.map((item: any, itemIdx: number) => {
                 return (
                   <div
                     key={itemIdx}
@@ -79,7 +66,7 @@ const TemplateCarousel = ({
                     onMouseLeave={() => handleMouseLeave()}
                   >
                     <img
-                      src={'/images/template_1.png'}
+                      src={item?.image}
                       alt=""
                       className="h-[150px] w-[200px] object-cover"
                     />
