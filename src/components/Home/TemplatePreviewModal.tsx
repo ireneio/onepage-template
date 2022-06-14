@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { useWindowWidth } from '@/hooks/window';
+import { flatten } from 'lodash';
 
 type Props = {
   item: string;
@@ -21,19 +22,21 @@ const TemplatePreviewModal = ({
   const [current, setCurrent] = useState(0);
 
   const handleCurrent = (idx: number) => {
-    if (idx === 1 && current === carouselItems.length - 1) {
+    const flattenedLength = flatten(carouselItems).length;
+    if (idx === 1 && current === flattenedLength - 1) {
       setCurrent(0);
       setUpdateItem(0);
+      return;
     } else if (idx === -1 && current === 0) {
-      setCurrent(carouselItems.length - 1);
-      setUpdateItem(carouselItems.length - 1);
+      setCurrent(flattenedLength - 1);
+      setUpdateItem(flattenedLength - 1);
+      return;
+    } else {
+      setUpdateItem(current + idx);
+      setCurrent((prev) => prev + idx);
       return;
     }
-    setCurrent((prev) => prev + idx);
-    setUpdateItem(current + idx);
   };
-
-  console.log('item', item);
 
   return (
     <Transition show={isOpen}>
@@ -91,8 +94,9 @@ const TemplatePreviewModal = ({
             >
               <div className="px-[2px] py-[2px] rounded-[5px]">
                 <div className="mt-0 px-[0] w-[100vw] lg:w-[60vw] mx-auto">
-                  <div className="h-[100vh] max-w-[1200px] overflow-auto">
+                  <div className="h-[100vh] max-w-[1200px] overflow-auto relative">
                     <img src={item} alt="template preview" />
+                    <div className="h-[100vh] w-full top-0 left-0 opacity-70 bg-[#000]"></div>
                   </div>
                 </div>
                 <div

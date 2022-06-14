@@ -87,21 +87,20 @@ const TemplateView = () => {
         />
       </div>
       <div className="lg:hidden mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar">
-        {flatten(carouselItems)
-          .map((item, idx) => {
-            return (
-              <div
-                key={idx}
-                className="w-[120px] h-[60px] flex-shrink-0 relative mx-[6px]"
-                onClick={() => setCurrent(idx)}
-              >
-                {current !== idx && (
-                  <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
-                )}
-                <img src={item.image} alt="" />
-              </div>
-            );
-          })}
+        {flatten(carouselItems).map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className="w-[120px] h-[60px] flex-shrink-0 relative mx-[6px]"
+              onClick={() => setCurrent(idx)}
+            >
+              {current !== idx && (
+                <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
+              )}
+              <img src={item.image} alt="" />
+            </div>
+          );
+        })}
       </div>
       <div className="mt-[24px] lg:mt-[28px] w-full justify-center hidden lg:flex">
         {carouselItems.map((item, idx) => {

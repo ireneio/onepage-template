@@ -35,7 +35,7 @@ const CooperationCarouselMobile = () => {
         selectedItem={current}
         ariaLabel="Carousel"
         useKeyboardArrows
-        swipeable
+        swipeable={false}
         stopOnHover
         showStatus={false}
         showArrows={false}
