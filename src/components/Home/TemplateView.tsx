@@ -1,4 +1,5 @@
 import { devices, mobileTemplates, pcTemplates } from '@/data';
+import { useWindowWidth } from '@/hooks/window';
 import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
 import Cr from '../General/Cr';
@@ -14,6 +15,7 @@ const TemplateView = () => {
   const [previewItem, setPreviewItem] = useState('');
   const [carouselItems, setCarouselItems] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
+  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     if (selectedDevice === 'pc') {
@@ -105,13 +107,19 @@ const TemplateView = () => {
           })}
       </div>
       <div className="flex mt-[24px] lg:mt-[28px] w-full justify-center">
-        {carouselItems.map((item, idx) => {
+        {carouselItems.map((item, idx, arr) => {
           return (
             <div
               key={idx}
               className="w-[50px] lg:w-[100px] h-[2px]"
               style={{
-                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
+                backgroundColor: (
+                  windowWidth > 768
+                    ? current === idx
+                    : Math.floor(current / arr[0].length)
+                )
+                  ? '#B39B5C'
+                  : '#E8E8E8',
               }}
               onClick={() => setCurrent(idx)}
             ></div>
