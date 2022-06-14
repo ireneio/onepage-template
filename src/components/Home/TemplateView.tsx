@@ -1,5 +1,4 @@
 import { devices, mobileTemplates, pcTemplates } from '@/data';
-import { useWindowWidth } from '@/hooks/window';
 import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
 import Cr from '../General/Cr';
@@ -15,7 +14,6 @@ const TemplateView = () => {
   const [previewItem, setPreviewItem] = useState('');
   const [carouselItems, setCarouselItems] = useState<any[]>([]);
   const [current, setCurrent] = useState(0);
-  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     if (selectedDevice === 'pc') {
@@ -38,6 +36,18 @@ const TemplateView = () => {
 
     setPreviewItem(reduce[idx].enlarged);
   };
+
+  useEffect(() => {
+    console.log('current', current);
+    // console.log('carouselItems[0].length', carouselItems[0].length);
+
+    console.log('len', current % flatten(carouselItems).length);
+
+    // console.log(
+    //   'Math.floor(current / (flatten(arr).length))',
+    //   Math.floor(flatten(carouselItems).length / 8),
+    // );
+  }, [current]);
 
   return (
     <div className="relative w-full lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
@@ -106,20 +116,28 @@ const TemplateView = () => {
             );
           })}
       </div>
-      <div className="flex mt-[24px] lg:mt-[28px] w-full justify-center">
-        {carouselItems.map((item, idx, arr) => {
+      <div className="mt-[24px] lg:mt-[28px] w-full justify-center hidden lg:flex">
+        {carouselItems.map((item, idx) => {
           return (
             <div
               key={idx}
               className="w-[50px] lg:w-[100px] h-[2px]"
               style={{
-                backgroundColor: (
-                  windowWidth > 768
-                    ? current === idx
-                    : Math.floor(current / arr[0].length)
-                )
-                  ? '#B39B5C'
-                  : '#E8E8E8',
+                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
+              }}
+              onClick={() => setCurrent(idx)}
+            ></div>
+          );
+        })}
+      </div>
+      <div className="mt-[24px] lg:mt-[28px] w-full justify-center lg:hidden flex">
+        {flatten(carouselItems).map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className="w-[12px] lg:w-[100px] h-[2px]"
+              style={{
+                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
               onClick={() => setCurrent(idx)}
             ></div>
