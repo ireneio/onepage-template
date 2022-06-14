@@ -37,24 +37,28 @@ const Header = () => {
 
   return (
     <div
-      className="z-[10] shadow-lg fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto"
-      style={{
-        backgroundColor: headerMode === 'light' ? '#FFFFFF' : 'rgba(0,0,0,.8)',
-      }}
+      className="z-[10] bg-transparent shadow-lg fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto"
+      // style={{
+      //   backgroundColor: headerMode === 'light' ? '#FFFFFF' : 'rgba(0,0,0,.8)',
+      // }}
     >
       <div className="cursor-pointer w-[200px]">
         <ScrollIntoView selector="#entry" onClick={() => handleGoHomePage()}>
           {headerMode === 'dark' ? (
             <img
-              className="block h-8 w-auto"
+              className="block"
               src={'/images/logo.png'}
               alt="LXBW"
+              width={250}
+              height={58}
             />
           ) : (
             <img
-              className="block h-8 w-auto"
+              className="block"
               src={'/images/logo_dark.png'}
               alt="LXBW"
+              width={250}
+              height={58}
             />
           )}
         </ScrollIntoView>

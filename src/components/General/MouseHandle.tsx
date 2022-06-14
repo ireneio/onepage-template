@@ -25,7 +25,7 @@ const MouseHandle = ({
         }}
       >
         <div
-          className="w-[24px] h-[42px] rounded-[12px] border-[1px]"
+          className="w-[24px] h-[42px] rounded-[12px] border-[2px]"
           style={{
             borderColor: headerStyle === 'light' ? '#aaa' : 'a5a5a5',
           }}

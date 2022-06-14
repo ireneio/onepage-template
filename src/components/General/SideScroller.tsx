@@ -104,11 +104,11 @@ const SideScroller = () => {
                       ? '#B39B5C'
                       : headerStyle === 'light'
                       ? headerItem === item.value
-                        ? '#000'
-                        : '#D9D9D9'
+                        ? '#313131'
+                        : '#BCBCBC'
                       : headerItem === item.value
-                      ? '#B39B5C'
-                      : '#3C3C3C',
+                      ? '#FFFFFF'
+                      : '#747474',
                 }}
                 onMouseOver={() => handleMouseEnter(idx)}
                 onMouseLeave={() => handleMouseLeave()}
