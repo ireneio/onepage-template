@@ -50,7 +50,10 @@ const CooperationCarouselMobile = () => {
           return (
             <div key={idx} className="relative bg-[#fff]">
               <div>
-                <img src={cs.image} alt={cs.title} width={50} height={50} />
+                <div
+                  className="bg-contain bg-center bg-no-repeat w-[120px] h-[120px] mx-auto"
+                  style={{ backgroundImage: `url(${cs.image})` }}
+                ></div>
                 <div className="px-[18px]">
                   <div className="text-[#000000] text-[18px] font-bold text-center mt-[12px]">
                     {cs.title}

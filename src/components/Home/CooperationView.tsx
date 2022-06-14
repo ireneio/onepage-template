@@ -7,20 +7,26 @@ import CooperationCarouselMobile from './CooperationCarouselMobile';
 const CooperationView = () => {
   return (
     <div className="relative w-full lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
-      <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
+      <div
+        // id="cooperation"
+        className="w-[80%] mx-auto flex justify-center items-center mt-[18px]"
+      >
         <img
           src="/images/banner_cooperation_mobile.png"
           alt="template"
           className="h-auto lg:h-[18vh]"
         />
       </div>
-      <div className="hidden lg:flex text-[#363636] w-full justify-center text-[16px] 2xl:text-[18px] px-[300px] mt-[12px]">
+      <div className="hidden lg:flex text-[#363636] w-full justify-center text-[16px] 2xl:text-[18px] px-[200px] mt-[12px]">
         一直秉承诚信可靠、服务周到的企业宗旨为广大客户服务。以超专业的服务素质、最先进完备的网上游戏系统，每天为成千上万的用户提供难忘的游戏体验。
       </div>
-      <div className="hidden lg:grid gap-[44px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[72px] lg:mt-[42px] 2xl:mt-[42px] flex-wrap">
+      <div className="hidden lg:grid gap-[44px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[72px] lg:mt-[52px] 2xl:mt-[60px] flex-wrap">
         {customerServices.map((cs, idx) => {
           return (
-            <div key={idx} className="flex-1 relative h-[320px] bg-[#eee]">
+            <div
+              key={idx}
+              className="flex-1 relative min-h-[320px] bg-[#eee] px-[12px] py-[12px]"
+            >
               <div>
                 <img
                   src={cs.image}

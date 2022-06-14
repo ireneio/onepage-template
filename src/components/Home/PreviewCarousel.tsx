@@ -21,7 +21,7 @@ const PreviewCarousel = ({
         showIndicators={false}
         showThumbs={false}
         infiniteLoop
-        autoPlay
+        autoPlay={false}
         width="100%"
         emulateTouch
       >
@@ -34,7 +34,7 @@ const PreviewCarousel = ({
               <img
                 src={preview.image}
                 alt="template preview"
-                className="min-h-[100vh] object-cover"
+                className="min-h-[100vh] object-contain max-w-[1200px] overflow-auto"
               />
             </div>
           );

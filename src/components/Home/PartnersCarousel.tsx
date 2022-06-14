@@ -30,17 +30,17 @@ const PartnersCarousel = () => {
         emulateTouch
         onChange={(e) => handleChange(e)}
       >
-        {carouselItems.map((array, idx) => {
+        {carouselItems.map((array) => {
           return (
             <>
               <div
-                key={idx}
+                key={uuid()}
                 className="grid gap-[12px] lg:gap-[32px] grid-cols-2 lg:grid-cols-4 grid-rows-4 lg:grid-rows-2 w-[80%] justify-between items-start mx-auto mt-[22px] flex-wrap"
               >
-                {array.map((item, itemIdx) => {
+                {array.map((item) => {
                   return (
                     <div
-                      key={String(itemIdx) + String(idx) + uuid()}
+                      key={uuid()}
                       className="bg-[#363636] flex justify-center items-center"
                     >
                       <img src={item.image} alt="" />

@@ -67,13 +67,13 @@ const TemplateCarousel = ({
           return (
             <div
               key={idx}
-              className="hidden lg:grid gap-[32px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap cursor-pointer"
+              className="hidden lg:grid gap-[12px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap"
             >
               {array.map((item, itemIdx) => {
                 return (
                   <div
                     key={itemIdx}
-                    className="h-[150px] w-[200px] mt-[12px] relative"
+                    className="h-[150px] w-[200px] mt-[12px] relative cursor-pointer"
                     onClick={() => handleItemClick(item)}
                     onMouseOver={(e) => handleMouseEnter(e, itemIdx)}
                     onMouseLeave={() => handleMouseLeave()}
@@ -103,20 +103,6 @@ const TemplateCarousel = ({
           );
         })}
       </Carousel>
-      <div className="flex mt-[8px] lg:mt-[8px] w-full justify-center">
-        {carouselItems.map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              className="w-[50px] lg:w-[100px] h-[2px] cursor-pointer"
-              style={{
-                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
-              }}
-              onClick={() => setCurrent(idx)}
-            ></div>
-          );
-        })}
-      </div>
     </div>
   );
 };

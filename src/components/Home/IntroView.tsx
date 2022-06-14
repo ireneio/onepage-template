@@ -35,7 +35,7 @@ const IntroView = () => {
         <div className="text-[24px] lg:text-[48px] text-[#FFFFFF]">
           最全面的包网服务商
         </div>
-        <div className="text-[38px] lg:text-[80px] text-[#FFFFFF] font-bold">
+        <div className="mt-[50px] lg:mt-0 mb-[50px] lg:mb-0 text-[38px] lg:text-[80px] text-[#FFFFFF] font-bold">
           建站，从未如此<span className="text-[#B39B5C]">简单</span>
         </div>
         <div className="text-[#EDEDED] text-[15px] lg:text-[24px] font-light">

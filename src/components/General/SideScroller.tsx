@@ -23,7 +23,7 @@ const SideScroller = () => {
   const handleSwitch = (theme: 'light' | 'dark', item: string) => {
     dispatch({ type: 'SET_HEADER_ITEM', payload: item });
     dispatch({ type: 'SET_HEADER_STYLE', payload: theme });
-    window.location.href = item;
+    // window.location.href = item;
   };
 
   const handlePrev = () => {

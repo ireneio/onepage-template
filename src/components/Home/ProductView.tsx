@@ -9,7 +9,10 @@ const ProductView = () => {
       className="relative w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pb-0 lg:pt-[75px] pb-[24px]"
       style={{ backgroundImage: 'url(/images/bg_product.png)' }}
     >
-      <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
+      <div
+        // id="products"
+        className="w-[80%] mx-auto flex justify-center items-center mt-[18px]"
+      >
         <img
           src="/images/banner_product.png"
           alt="product"

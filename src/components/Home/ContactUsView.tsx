@@ -3,7 +3,10 @@ import SocialList from '../General/SocialList';
 
 const ContactUsView = () => {
   return (
-    <div className="lg:hidden relative w-full h-[35vh] bg-[#252525] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]">
+    <div
+      // id="contact"
+      className="lg:hidden relative w-full h-[35vh] bg-[#252525] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px]"
+    >
       <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
         <img
           src="/images/banner_contact.png"

@@ -23,8 +23,6 @@ const TemplateCarouselMobile = ({
         ariaLabel="Carousel"
         useKeyboardArrows
         onChange={(idx) => {
-          console.log(idx);
-
           setCurrent(idx);
         }}
         // swipeable={false}
@@ -34,7 +32,7 @@ const TemplateCarouselMobile = ({
         showIndicators={false}
         showThumbs={false}
         infiniteLoop
-        autoPlay
+        autoPlay={false}
         width="100%"
         emulateTouch
       >

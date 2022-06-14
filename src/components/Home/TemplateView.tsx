@@ -37,7 +37,7 @@ const TemplateView = () => {
 
   return (
     <div className="relative w-full lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
-      <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
+      <div className="w-[80%] mx-auto flex justify-center items-center">
         <img
           src="/images/banner_template.png"
           alt="template"
@@ -89,15 +89,18 @@ const TemplateView = () => {
             return (
               <div
                 key={idx}
-                className="w-[120px] h-[56px] flex-shrink-0"
+                className="w-[120px] h-[60px] flex-shrink-0 relative mx-[6px]"
                 onClick={() => setCurrent(idx)}
               >
+                {current !== idx && (
+                  <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
+                )}
                 <img src={'/images/template_1.png'} alt="" />
               </div>
             );
           })}
       </div>
-      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+      <div className="flex mt-[24px] lg:mt-[28px] w-full justify-center">
         {carouselItems.map((item, idx) => {
           return (
             <div
