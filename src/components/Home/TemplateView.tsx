@@ -16,6 +16,19 @@ const TemplateView = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
+    if (window) {
+      const div = document.getElementById('infinite_scroller');
+      if (div) {
+        const image: string = flatten(carouselItems)[current]?.image;
+        const target = document.getElementById(image);
+        if (target) {
+          div.scrollTo({ left: Number(target?.clientWidth) * current });
+        }
+      }
+    }
+  }, [current, carouselItems]);
+
+  useEffect(() => {
     if (selectedDevice === 'pc') {
       setCarouselItems(pcTemplates);
     } else {
@@ -86,18 +99,24 @@ const TemplateView = () => {
           setCurrent={setCurrent}
         />
       </div>
-      <div className="lg:hidden mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar">
+      <div
+        id="infinite_scroller"
+        className="lg:hidden mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar"
+      >
         {flatten(carouselItems).map((item, idx) => {
           return (
             <div
               key={idx}
+              id={item.image}
               className="w-[120px] h-[60px] flex-shrink-0 relative mx-[6px]"
               onClick={() => setCurrent(idx)}
             >
-              {current !== idx && (
-                <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
-              )}
-              <img src={item.image} alt="" />
+              <div>
+                {current !== idx && (
+                  <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
+                )}
+                <img src={item.image} alt="" />
+              </div>
             </div>
           );
         })}

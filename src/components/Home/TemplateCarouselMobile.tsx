@@ -31,6 +31,7 @@ const TemplateCarouselMobile = ({
         showArrows={false}
         showIndicators={false}
         showThumbs={false}
+        swipeable={false}
         infiniteLoop
         autoPlay={false}
         width="100%"

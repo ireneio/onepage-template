@@ -37,7 +37,7 @@ const TemplateCarousel = ({
         selectedItem={current}
         useKeyboardArrows
         autoPlay={false}
-        swipeable={true}
+        swipeable={false}
         stopOnHover
         showStatus={false}
         showArrows={false}
