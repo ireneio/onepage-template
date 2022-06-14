@@ -42,7 +42,7 @@ const CooperationCarouselMobile = () => {
         showIndicators={false}
         showThumbs={true}
         infiniteLoop
-        autoPlay
+        autoPlay={false}
         width="100%"
         emulateTouch
       >

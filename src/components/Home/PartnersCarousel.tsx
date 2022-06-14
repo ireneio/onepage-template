@@ -25,7 +25,7 @@ const PartnersCarousel = () => {
         showIndicators={false}
         showThumbs={false}
         infiniteLoop
-        autoPlay
+        autoPlay={false}
         width="100%"
         emulateTouch
         onChange={(e) => handleChange(e)}
