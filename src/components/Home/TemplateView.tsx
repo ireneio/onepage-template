@@ -82,7 +82,7 @@ const TemplateView = () => {
           setCurrent={setCurrent}
         />
       </div>
-      <div className="mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar">
+      <div className="lg:hidden mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar">
         {flatten(carouselItems)
           .slice(current)
           .map((item, idx) => {

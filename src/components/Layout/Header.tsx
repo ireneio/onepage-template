@@ -26,14 +26,14 @@ const Header = () => {
     dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });
   };
 
-  const handleSetHeader = (header: {
-    text: string;
-    value: string;
-    header: 'light' | 'dark';
-  }) => {
-    dispatch({ type: 'SET_HEADER_ITEM', payload: header.value });
-    dispatch({ type: 'SET_HEADER_STYLE', payload: header.header });
-  };
+  // const handleSetHeader = (header: {
+  //   text: string;
+  //   value: string;
+  //   header: 'light' | 'dark';
+  // }) => {
+  //   dispatch({ type: 'SET_HEADER_ITEM', payload: header.value });
+  //   dispatch({ type: 'SET_HEADER_STYLE', payload: header.header });
+  // };
 
   return (
     <div
@@ -73,7 +73,7 @@ const Header = () => {
                       ? '#000000'
                       : '#FFFFFF',
                 }}
-                onClick={() => handleSetHeader(header)}
+                // onClick={() => handleSetHeader(header)}
               >
                 {header.text}
               </div>

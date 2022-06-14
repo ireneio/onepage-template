@@ -9,8 +9,10 @@ import DefaultLayout from '../components/Layout/DefaultLayout';
 import { useEffect } from 'react';
 import { useAppDispatch } from '@/store';
 import { sidebarItems } from '@/data';
+import { useWindowWidth } from '@/hooks/window';
 
 const Index = () => {
+  const windowWidth = useWindowWidth();
   const dispatch = useAppDispatch();
   const cb = () => {
     const viewHeight = window.innerHeight;
@@ -68,13 +70,15 @@ const Index = () => {
     }
   };
   useEffect(() => {
-    if (window) {
+    if (window && windowWidth > 768) {
       window.addEventListener('scroll', cb);
     }
     return () => {
-      window.removeEventListener('scroll', cb);
+      if (window && windowWidth > 768) {
+        window.removeEventListener('scroll', cb);
+      }
     };
-  }, []);
+  }, [windowWidth]);
 
   return (
     <DefaultLayout>
