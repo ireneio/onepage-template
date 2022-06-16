@@ -35,15 +35,20 @@ const H5PartnersCarousel = () => {
             <>
               <div
                 key={uuid()}
-                className="grid gap-[12px] grid-cols-2 grid-rows-4 w-[80%] justify-between items-start mx-auto mt-[22px] flex-wrap"
+                className="grid gap-[12px] grid-cols-2 grid-rows-4 w-[80%] justify-center items-start mx-auto mt-[22px] flex-wrap"
               >
                 {array.map((item) => {
                   return (
                     <div
                       key={uuid()}
-                      className="bg-[#363636] flex justify-center items-center"
+                      className="flex justify-center items-center"
                     >
-                      <img src={item.image} alt="" />
+                      <img
+                        src={item.image}
+                        alt=""
+                        className="h-[100px]"
+                        style={{ width: 150 }}
+                      />
                     </div>
                   );
                 })}
