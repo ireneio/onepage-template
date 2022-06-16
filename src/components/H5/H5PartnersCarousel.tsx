@@ -46,8 +46,8 @@ const H5PartnersCarousel = () => {
                       <img
                         src={item.image}
                         alt=""
-                        className="h-[100px]"
-                        style={{ width: 150 }}
+                        className="h-[100px] object-contain"
+                        style={{ maxWidth: 150 }}
                       />
                     </div>
                   );
