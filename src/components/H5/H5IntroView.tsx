@@ -20,11 +20,12 @@ const H5IntroView = () => {
 
   return (
     <div
-      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[100vh]"
+      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
         marginTop: windowWidth <= 375 ? 88 : 44,
-        paddingBottom: windowWidth <= 375 ? 88 : 44,
+        height:
+          windowWidth <= 375 ? 'calc(100vh - 88px)' : 'calc(100vh - 44px)',
       }}
     >
       <div className="text-center mt-[-56px]">
@@ -68,7 +69,7 @@ const H5IntroView = () => {
         </div>
         <ScrollIntoView selector="#template">
           <motion.div
-            className="absolute left-[50%] bottom-[104px] cursor-pointer"
+            className="absolute left-[50%] bottom-[60px] cursor-pointer"
             initial={{ y: 0, x: '-50%' }}
             animate={{ y: -5, x: '-50%' }}
             transition={{
