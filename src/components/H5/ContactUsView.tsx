@@ -14,7 +14,7 @@ const ContactUsView = () => {
       <div className="mt-[40px]">
         <SocialList className="static flex items-center justify-around w-[80vw] mx-auto" />
       </div>
-      <Cr className="aboslute bottom-[12px] left-0 w-[100vw] text-center text-[#8b8b8b]" />
+      <Cr className="relative mt-[40px] pb-[12px] left-0 w-[100vw] text-center text-[#8b8b8b]" />
     </div>
   );
 };
