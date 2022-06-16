@@ -31,7 +31,7 @@ const SocialList = ({
           >
             <img
               src={
-                windowWidth < 768
+                windowWidth < 1366
                   ? contact.image
                   : headerStyle === 'dark'
                   ? contact.image.split('.').join('_pc.')
