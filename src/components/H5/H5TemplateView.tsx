@@ -48,7 +48,7 @@ const H5TemplateView = () => {
 
   return (
     <div
-      id="template"
+      // id="template"
       className="relative w-full bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px]"
     >
       <div className="w-[80%] mx-auto flex justify-center items-center">

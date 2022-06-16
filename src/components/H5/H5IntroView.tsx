@@ -20,12 +20,11 @@ const H5IntroView = () => {
 
   return (
     <div
-      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[calc(100vh-44px)]"
+      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[100vh]"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
         marginTop: windowWidth <= 375 ? 88 : 44,
-        // paddingBottom: windowWidth <= 375 ? 88 : 44,
-        height: windowWidth <= 375 ? 'calc(100vh - 44px)' : 'calc(100vh)',
+        paddingBottom: windowWidth <= 375 ? 88 : 44,
       }}
     >
       <div className="text-center mt-[-56px]">

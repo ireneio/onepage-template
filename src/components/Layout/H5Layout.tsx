@@ -66,7 +66,7 @@ const H5Layout = ({ children, title }: Props) => {
           }}
         />
         <Sidebar onSetOpen={(val) => setOpenSidebar(val)} open={openSidebar} />
-        <div className="flex mt-[44px] relative justify-center">
+        <div className="flex relative justify-center">
           <div className="mx-auto w-full">{children}</div>
         </div>
       </div>
