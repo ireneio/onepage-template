@@ -1,7 +1,7 @@
 import { devices, mobileTemplates, pcTemplates } from '@/data';
 import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
-import TemplateCarouselMobile from '../Home/TemplateCarouselMobile';
+import TemplateCarouselMobile from './TemplateCarouselMobile';
 import TemplatePreviewModal from '../Home/TemplatePreviewModal';
 
 const H5TemplateView = () => {

@@ -1,4 +1,4 @@
-import CooperationCarouselMobile from '../Home/CooperationCarouselMobile';
+import CooperationCarouselMobile from './CooperationCarouselMobile';
 
 const H5CooperationView = () => {
   return (
