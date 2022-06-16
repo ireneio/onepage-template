@@ -54,13 +54,13 @@ const TemplateCarousel = ({
           return (
             <div
               key={idx}
-              className="hidden lg:grid gap-[12px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[12px] flex-wrap"
+              className="hidden lg:grid gap-[16px] grid-cols-4 w-[80%] justify-between items-start mx-auto flex-wrap"
             >
               {array.map((item: any, itemIdx: number) => {
                 return (
                   <div
                     key={itemIdx}
-                    className="h-[150px] w-[200px] mt-[12px] relative cursor-pointer"
+                    className="w-full mt-[12px] relative cursor-pointer"
                     onClick={() => handleItemClick(item)}
                     onMouseOver={(e) => handleMouseEnter(e, itemIdx)}
                     onMouseLeave={() => handleMouseLeave()}
@@ -68,12 +68,12 @@ const TemplateCarousel = ({
                     <img
                       src={item?.image}
                       alt=""
-                      className="h-[150px] w-[200px] object-cover"
+                      className="w-[400px] h-[226px] object-cover"
                     />
                     {currentHover === itemIdx && (
                       <div>
-                        <div className="absolute top-0 left-0 h-[150px] w-[200px] bg-[#181818] opacity-30 flex items-center justify-center"></div>
-                        <div className="absolute top-0 left-0 h-[150px] w-[200px] opacity-100 flex items-center justify-center">
+                        <div className="absolute top-0 left-0 w-full h-full bg-[#181818] opacity-30 flex items-center justify-center"></div>
+                        <div className="absolute top-0 left-0 w-full h-full opacity-100 flex items-center justify-center">
                           <div
                             className="bg-no-repeat bg-cover w-[48px] h-[48px]"
                             style={{

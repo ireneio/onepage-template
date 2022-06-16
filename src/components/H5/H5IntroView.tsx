@@ -1,13 +1,10 @@
 import { services } from '@/data';
-import { useWindowWidth } from '@/hooks/window';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 import ScrollIntoView from 'react-scroll-into-view';
-import Cr from '../General/Cr';
-import MouseHandle from '../General/MouseHandle';
-import SocialList from '../General/SocialList';
+import { motion } from 'framer-motion';
+import { useWindowWidth } from '@/hooks/window';
 
-const IntroView = () => {
+const H5IntroView = () => {
   const windowWidth = useWindowWidth();
   const [currentHover, setCurrentHover] = useState(-1);
 
@@ -23,15 +20,15 @@ const IntroView = () => {
 
   return (
     <div
-      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[100vh]"
+      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[calc(100vh-44px)]"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
-        height:
-          windowWidth < 1366 ? 'calc(100vh - 44px)' : 'calc(100vh - 75px)',
-        paddingTop: windowWidth < 1366 ? '44px' : '75px',
+        marginTop: windowWidth <= 375 ? 88 : 44,
+        // paddingBottom: windowWidth <= 375 ? 88 : 44,
+        height: windowWidth <= 375 ? 'calc(100vh - 44px)' : 'calc(100vh)',
       }}
     >
-      <div className="text-center mt-[-100px]">
+      <div className="text-center mt-[-56px]">
         <div className="text-[24px] lg:text-[48px] text-[#FFFFFF]">
           最全面的包网服务商
         </div>
@@ -70,33 +67,28 @@ const IntroView = () => {
             );
           })}
         </div>
-      </div>
-      <ScrollIntoView selector="#template" className="lg:hidden">
-        <motion.div
-          className="absolute left-[50%] bottom-[60px] cursor-pointer"
-          initial={{ y: 0, x: '-50%' }}
-          animate={{ y: -5, x: '-50%' }}
-          transition={{ repeatType: 'mirror', repeat: 1000000, duration: 0.6 }}
-        >
-          <img
-            src="/images/float_arrow.png"
-            alt="arrow"
-            width={20}
-            height={20}
-          />
-        </motion.div>
-      </ScrollIntoView>
-      <div className="hidden lg:block">
-        <Cr />
-        <MouseHandle
-          anchor="#template"
-          headerStyleOnScroll="light"
-          headerValueOnScroll="#template"
-        />
-        <SocialList />
+        <ScrollIntoView selector="#template">
+          <motion.div
+            className="absolute left-[50%] bottom-[104px] cursor-pointer"
+            initial={{ y: 0, x: '-50%' }}
+            animate={{ y: -5, x: '-50%' }}
+            transition={{
+              repeatType: 'mirror',
+              repeat: 1000000,
+              duration: 0.6,
+            }}
+          >
+            <img
+              src="/images/float_arrow.png"
+              alt="arrow"
+              width={20}
+              height={20}
+            />
+          </motion.div>
+        </ScrollIntoView>
       </div>
     </div>
   );
 };
 
-export default IntroView;
+export default H5IntroView;

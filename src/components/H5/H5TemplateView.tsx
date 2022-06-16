@@ -1,14 +1,10 @@
 import { devices, mobileTemplates, pcTemplates } from '@/data';
 import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
-import Cr from '../General/Cr';
-import MouseHandle from '../General/MouseHandle';
-import SocialList from '../General/SocialList';
-import TemplateCarousel from './TemplateCarousel';
-import TemplateCarouselMobile from './TemplateCarouselMobile';
-import TemplatePreviewModal from './TemplatePreviewModal';
+import TemplateCarouselMobile from '../Home/TemplateCarouselMobile';
+import TemplatePreviewModal from '../Home/TemplatePreviewModal';
 
-const TemplateView = () => {
+const H5TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
   const [showPreview, setShowPreview] = useState(false);
   const [previewItem, setPreviewItem] = useState('');
@@ -51,7 +47,10 @@ const TemplateView = () => {
   };
 
   return (
-    <div className="relative w-full lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
+    <div
+      id="template"
+      className="relative w-full bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px]"
+    >
       <div className="w-[80%] mx-auto flex justify-center items-center">
         <img
           src="/images/banner_template.png"
@@ -83,14 +82,6 @@ const TemplateView = () => {
           );
         })}
       </div>
-      <div className="hidden lg:block">
-        <TemplateCarousel
-          onItemClick={(item) => handlePreview(item)}
-          carouselItems={carouselItems}
-          setCurrent={setCurrent}
-          current={current}
-        />
-      </div>
       <div className="lg:hidden mx-[60px] mt-[32px]">
         <TemplateCarouselMobile
           onItemClick={(item) => handlePreview(item)}
@@ -101,7 +92,7 @@ const TemplateView = () => {
       </div>
       <div
         id="infinite_scroller"
-        className="lg:hidden mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar"
+        className="mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar overflow-y-hidden"
       >
         {flatten(carouselItems).map((item, idx) => {
           return (
@@ -121,26 +112,12 @@ const TemplateView = () => {
           );
         })}
       </div>
-      <div className="mt-[24px] w-full justify-center hidden lg:flex lg:mt-[40px]">
-        {carouselItems.map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              className="w-[50px] lg:w-[100px] h-[2px]"
-              style={{
-                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
-              }}
-              onClick={() => setCurrent(idx)}
-            ></div>
-          );
-        })}
-      </div>
-      <div className="mt-[24px] lg:mt-[28px] w-full justify-center lg:hidden flex">
+      <div className="mt-[24px] w-full justify-center flex">
         {flatten(carouselItems).map((item, idx) => {
           return (
             <div
               key={idx}
-              className="w-[12px] lg:w-[100px] h-[2px]"
+              className="w-[12px] h-[2px]"
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
@@ -149,24 +126,15 @@ const TemplateView = () => {
           );
         })}
       </div>
-      <div className="hidden lg:block">
-        <Cr />
-        <MouseHandle
-          anchor="#products"
-          headerStyleOnScroll="light"
-          headerValueOnScroll="#products"
-        />
-        <SocialList />
-        <TemplatePreviewModal
-          isOpen={showPreview}
-          item={previewItem}
-          carouselItems={carouselItems}
-          setIsOpen={(val) => setShowPreview(val)}
-          setUpdateItem={(idx) => handlePreviewModalUpdateItem(idx)}
-        />
-      </div>
+      <TemplatePreviewModal
+        isOpen={showPreview}
+        item={previewItem}
+        carouselItems={carouselItems}
+        setIsOpen={(val) => setShowPreview(val)}
+        setUpdateItem={(idx) => handlePreviewModalUpdateItem(idx)}
+      />
     </div>
   );
 };
 
-export default TemplateView;
+export default H5TemplateView;

@@ -1,5 +1,6 @@
 import { contacts } from '@/data';
 import { useWindowWidth } from '@/hooks/window';
+import { useAppSelector } from '@/store';
 import { twMerge } from 'tailwind-merge';
 
 const SocialList = ({
@@ -9,6 +10,7 @@ const SocialList = ({
   className?: string;
   isNav?: boolean;
 }) => {
+  const headerStyle = useAppSelector((state) => state.layout.header.style);
   const windowWidth = useWindowWidth();
 
   return (
@@ -31,7 +33,9 @@ const SocialList = ({
               src={
                 windowWidth < 768
                   ? contact.image
-                  : contact.image.split('.').join('_pc.')
+                  : headerStyle === 'dark'
+                  ? contact.image.split('.').join('_pc.')
+                  : contact.image
               }
               alt=""
               width={30}

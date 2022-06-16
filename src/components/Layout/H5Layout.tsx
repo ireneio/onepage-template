@@ -1,39 +1,17 @@
+import seo from '@/data/seo';
 import Head from 'next/head';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import seo from '../../data/seo';
-import { useAppDispatch, useAppSelector } from '@/store';
-import dynamic from 'next/dynamic';
-import HeaderMobile from './HeaderMobile';
+import { useState } from 'react';
 import FloatTopBtn from '../General/FloatTopBtn';
-import { useEffect, useState } from 'react';
-import { useWindowWidth } from '@/hooks/window';
-import SideScroller from '../General/SideScroller';
+import HeaderMobile from './HeaderMobile';
+import Sidebar from './Sidebar';
 
 interface Props {
   children?: React.ReactNode;
   title?: string;
 }
 
-const DynamicSnackbar = dynamic(
-  () => import('../../components/Shared/Snackbar'),
-  { ssr: false },
-);
-
-export const BASE_SIDEBAR_PATH = 'Home';
-export const SIDEBAR_PATH_STORAGE_KEY = 'navigation_path';
-
-const DefaultLayout = ({ children, title }: Props) => {
-  const dispatch = useAppDispatch();
-  const snackbarShow = useAppSelector((state) => state.layout.snackbar.show);
-  const snackbarText = useAppSelector((state) => state.layout.snackbar.text);
-  const snackbarTitle = useAppSelector((state) => state.layout.snackbar.title);
+const H5Layout = ({ children, title }: Props) => {
   const [openSidebar, setOpenSidebar] = useState(false);
-  const windowWidth = useWindowWidth();
-
-  useEffect(() => {
-    dispatch({ type: 'INIT_HEADER' });
-  }, []);
 
   return (
     <>
@@ -81,47 +59,19 @@ const DefaultLayout = ({ children, title }: Props) => {
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
           />
         </Head>
-        {/* <FloatTopBtn /> */}
-        <DynamicSnackbar
-          text={snackbarText}
-          show={snackbarShow}
-          title={snackbarTitle}
+        <FloatTopBtn />
+        <HeaderMobile
+          onHamburgerClick={() => {
+            setOpenSidebar(true);
+          }}
         />
-        <div className="hidden lg:block fixed right-[18px] top-[50%] translate-y-[-50%] z-[100]">
-          <SideScroller />
-        </div>
-        <div className="hidden lg:block">
-          <Header />
-        </div>
-        <div className="lg:hidden">
-          <HeaderMobile
-            onHamburgerClick={() => {
-              setOpenSidebar(true);
-            }}
-          />
-        </div>
-        <div className="lg:hidden">
-          <Sidebar
-            onSetOpen={(val) => setOpenSidebar(val)}
-            open={openSidebar}
-          />
-        </div>
-        <div className="flex mt-[44px] lg:mt-[75px] relative justify-center">
-          <div
-            className="mx-auto w-full"
-            style={{
-              minHeight:
-                windowWidth < 1366
-                  ? 'calc(100vh - 44px)'
-                  : 'calc(100vh - 75px)',
-            }}
-          >
-            {children}
-          </div>
+        <Sidebar onSetOpen={(val) => setOpenSidebar(val)} open={openSidebar} />
+        <div className="flex mt-[44px] relative justify-center">
+          <div className="mx-auto w-full">{children}</div>
         </div>
       </div>
     </>
   );
 };
 
-export default DefaultLayout;
+export default H5Layout;

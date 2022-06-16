@@ -47,7 +47,10 @@ const TemplatePreviewModal = ({
           setIsOpen(false);
         }}
       >
-        <div className="min-h-screen text-center">
+        <div
+          className="min-h-screen text-center"
+          onClick={() => setIsOpen(false)}
+        >
           <Transition.Child
             enter="ease-out duration-300"
             enterFrom="opacity-0"
@@ -56,7 +59,7 @@ const TemplatePreviewModal = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+            <Dialog.Overlay className="fixed inset-0 bg-black opacity-[.8]" />
           </Transition.Child>
           <div
             className="z-[100] absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]"
@@ -75,8 +78,8 @@ const TemplatePreviewModal = ({
             <img
               src="/images/icon_close.png"
               alt="close"
-              width={32}
-              height={32}
+              // width={32}
+              // height={32}
             />
           </div>
           <Transition.Child
@@ -92,31 +95,40 @@ const TemplatePreviewModal = ({
               className="relative inline-block w-[100vw] lg:w-[80vw] overflow-hidden text-left align-middle transition-all
             transform rounded-[5px] bg-transparent font-circularstdbook"
             >
-              <div className="px-[2px] py-[2px] rounded-[5px]">
-                <div className="mt-0 px-[0] w-[100vw] lg:w-[60vw] mx-auto">
-                  <div className="h-[100vh] max-w-[1200px] overflow-auto relative">
-                    <img src={item} alt="template preview" />
-                    <div className="h-[100vh] w-full top-0 left-0 opacity-70 bg-[#000]"></div>
+              <div className="px-[2px] py-[2px] rounded-[5px] mx-auto">
+                <div className="mt-0 px-[0] mx-auto">
+                  <div className="h-[100vh] max-w-[1200px] overflow-auto relative mx-auto">
+                    <img
+                      src={item}
+                      alt="template preview"
+                      className="mx-auto relative z-[2]"
+                    />
                   </div>
                 </div>
                 <div
                   className="absolute right-[12px] top-[50%] cursor-pointer"
-                  onClick={() => handleCurrent(1)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCurrent(1);
+                  }}
                 >
                   <img
                     src="/images/arrow_right.png"
                     alt=""
-                    className="w-[38px] h-[38px]"
+                    // className="w-[38px] h-[38px]"
                   />
                 </div>
                 <div
                   className="absolute left-[12px] top-[50%] cursor-pointer"
-                  onClick={() => handleCurrent(-1)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCurrent(-1);
+                  }}
                 >
                   <img
                     src="/images/arrow_left.png"
                     alt=""
-                    className="w-[38px] h-[38px]"
+                    // className="w-[38px] h-[38px]"
                   />
                 </div>
               </div>

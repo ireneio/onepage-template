@@ -36,12 +36,7 @@ const Header = () => {
   // };
 
   return (
-    <div
-      className="z-[10] bg-transparent shadow-lg fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto"
-      // style={{
-      //   backgroundColor: headerMode === 'light' ? '#FFFFFF' : 'rgba(0,0,0,.8)',
-      // }}
-    >
+    <div className="z-[10] bg-transparent fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto">
       <div className="cursor-pointer w-[200px]">
         <ScrollIntoView selector="#entry" onClick={() => handleGoHomePage()}>
           {headerMode === 'dark' ? (
