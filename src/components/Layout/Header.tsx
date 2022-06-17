@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/store';
+import { useEffect } from 'react';
 import ScrollIntoView from 'react-scroll-into-view';
 
 interface Header {
@@ -22,6 +23,10 @@ const Header = () => {
   const headerMode = useAppSelector((state) => state.layout.header.style);
 
   console.log(headerMode);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
+  }, []);
 
   const handleGoHomePage = () => {
     dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });

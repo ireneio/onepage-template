@@ -21,14 +21,12 @@ const AnimationWrapper = ({
   bg?: string;
   headerStyle: 'light' | 'dark';
 }) => {
-  const dispatch = useAppDispatch();
   const control = useAnimation();
   const [ref, inView] = useInView();
 
   useEffect(() => {
     if (inView) {
       control.start('end');
-      dispatch({ type: 'SET_HEADER_STYLE', payload: headerStyle });
     } else {
       control.set('start');
     }
