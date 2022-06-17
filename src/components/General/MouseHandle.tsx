@@ -20,8 +20,13 @@ const MouseHandle = ({
         selector={anchor}
         className="relative cursor-pointer"
         onClick={() => {
-          dispatch({ type: 'SET_HEADER_STYLE', payload: headerStyleOnScroll });
-          dispatch({ type: 'SET_HEADER_ITEM', payload: headerValueOnScroll });
+          setTimeout(() => {
+            dispatch({
+              type: 'SET_HEADER_STYLE',
+              payload: headerStyleOnScroll,
+            });
+            dispatch({ type: 'SET_HEADER_ITEM', payload: headerValueOnScroll });
+          }, 2000);
         }}
       >
         <div

@@ -26,6 +26,7 @@ const Header = () => {
 
   useEffect(() => {
     dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
+    dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });
   }, []);
 
   const handleGoHomePage = () => {
