@@ -6,20 +6,17 @@ import SocialList from '../General/SocialList';
 const ProductView = () => {
   return (
     <div
-      className="relative w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pb-0 lg:pt-[75px] pb-[24px]"
+      className="relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
       style={{ backgroundImage: 'url(/images/bg_product.png)' }}
     >
-      <div
-        // id="products"
-        className="w-[80%] mx-auto flex justify-center items-center mt-[18px]"
-      >
+      <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
         <img
           src="/images/banner_product.png"
           alt="product"
           className="h-auto lg:h-[18vh]"
         />
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-[44px] w-[80%] justify-between items-start mx-auto mt-[48px] lg:mt-[10vh] flex-wrap">
+      <div className="grid grid-cols-4 gap-[44px] w-[80%] justify-between items-start mx-auto mt-[10vh] flex-wrap">
         {games.map((game, idx) => {
           return (
             <div key={idx} className="text-[#FFFFFF] text-center flex-1">
@@ -31,25 +28,23 @@ const ProductView = () => {
                   height={100}
                 />
               </div>
-              <div className="text-[15px] lg:text-[18px] mt-[24px] font-bold">
+              <div className="text-[18px] mt-[24px] font-bold">
                 {game.title}
               </div>
-              <div className="text-[12px] lg:text-[16px] mt-[24px] text-center">
+              <div className="text-[16px] mt-[24px] text-center">
                 {game.description}
               </div>
             </div>
           );
         })}
       </div>
-      <div className="hidden lg:block">
-        <Cr />
-        <MouseHandle
-          anchor="#cooperation"
-          headerStyleOnScroll="dark"
-          headerValueOnScroll="#cooperation"
-        />
-        <SocialList />
-      </div>
+      <Cr />
+      <MouseHandle
+        anchor="#cooperation"
+        headerStyleOnScroll="dark"
+        headerValueOnScroll="#cooperation"
+      />
+      <SocialList />
     </div>
   );
 };

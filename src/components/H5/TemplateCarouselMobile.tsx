@@ -18,6 +18,30 @@ const TemplateCarouselMobile = ({
 
   return (
     <div className="relative">
+      <div
+        className="absolute left-[-48px] top-[50%] translate-y-[-50%] rounded-full"
+        onClick={() => {
+          if (current > 0) {
+            setCurrent((prev) => prev - 1);
+          } else {
+            setCurrent(carouselItems.length - 1);
+          }
+        }}
+      >
+        <img src="/images/arrow_left.png" alt="" width={40} height={40} />
+      </div>
+      <div
+        className="absolute right-[-48px] top-[50%] translate-y-[-50%] rounded-full"
+        onClick={() => {
+          if (current < carouselItems.length - 1) {
+            setCurrent((prev) => prev + 1);
+          } else {
+            setCurrent(0);
+          }
+        }}
+      >
+        <img src="/images/arrow_right.png" alt="" width={40} height={40} />
+      </div>
       <Carousel
         selectedItem={current}
         ariaLabel="Carousel"

@@ -5,8 +5,8 @@ import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import TemplateCarousel from './TemplateCarousel';
-import TemplateCarouselMobile from './TemplateCarouselMobile';
-import TemplatePreviewModal from './TemplatePreviewModal';
+import TemplateCarouselMobile from '../H5/TemplateCarouselMobile';
+import TemplatePreviewModal from '../Home/TemplatePreviewModal';
 
 const TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
@@ -51,7 +51,7 @@ const TemplateView = () => {
   };
 
   return (
-    <div className="relative w-full lg:h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] lg:pt-[75px] pb-[24px] lg:pb-0">
+    <div className="relative h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[75px] pb-[24px] lg:pb-0">
       <div className="w-[80%] mx-auto flex justify-center items-center">
         <img
           src="/images/banner_template.png"
@@ -91,42 +91,12 @@ const TemplateView = () => {
           current={current}
         />
       </div>
-      <div className="lg:hidden mx-[60px] mt-[32px]">
-        <TemplateCarouselMobile
-          onItemClick={(item) => handlePreview(item)}
-          carouselItems={carouselItems}
-          current={current}
-          setCurrent={setCurrent}
-        />
-      </div>
-      <div
-        id="infinite_scroller"
-        className="lg:hidden mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar"
-      >
-        {flatten(carouselItems).map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              id={item.image}
-              className="w-[120px] h-[60px] flex-shrink-0 relative mx-[6px]"
-              onClick={() => setCurrent(idx)}
-            >
-              <div>
-                {current !== idx && (
-                  <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
-                )}
-                <img src={item.image} alt="" />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="mt-[24px] w-full justify-center hidden lg:flex lg:mt-[40px]">
+      <div className="w-full justify-center flex mt-[40px]">
         {carouselItems.map((item, idx) => {
           return (
             <div
               key={idx}
-              className="w-[50px] lg:w-[100px] h-[2px]"
+              className="w-[100px] h-[2px]"
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}
@@ -135,36 +105,20 @@ const TemplateView = () => {
           );
         })}
       </div>
-      <div className="mt-[24px] lg:mt-[28px] w-full justify-center lg:hidden flex">
-        {flatten(carouselItems).map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              className="w-[12px] lg:w-[100px] h-[2px]"
-              style={{
-                backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
-              }}
-              onClick={() => setCurrent(idx)}
-            ></div>
-          );
-        })}
-      </div>
-      <div className="hidden lg:block">
-        <Cr />
-        <MouseHandle
-          anchor="#products"
-          headerStyleOnScroll="light"
-          headerValueOnScroll="#products"
-        />
-        <SocialList />
-        <TemplatePreviewModal
-          isOpen={showPreview}
-          item={previewItem}
-          carouselItems={carouselItems}
-          setIsOpen={(val) => setShowPreview(val)}
-          setUpdateItem={(idx) => handlePreviewModalUpdateItem(idx)}
-        />
-      </div>
+      <Cr />
+      <MouseHandle
+        anchor="#products"
+        headerStyleOnScroll="light"
+        headerValueOnScroll="#products"
+      />
+      <SocialList />
+      <TemplatePreviewModal
+        isOpen={showPreview}
+        item={previewItem}
+        carouselItems={carouselItems}
+        setIsOpen={(val) => setShowPreview(val)}
+        setUpdateItem={(idx) => handlePreviewModalUpdateItem(idx)}
+      />
     </div>
   );
 };

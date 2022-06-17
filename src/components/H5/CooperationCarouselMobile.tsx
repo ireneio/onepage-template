@@ -8,7 +8,7 @@ const CooperationCarouselMobile = () => {
   return (
     <div className="relative">
       <div
-        className="absolute left-[-42px] top-[25%] bg-[#CCC] rounded-full"
+        className="absolute left-[-42px] top-[25%] rounded-full"
         onClick={() => {
           if (current > 0) {
             setCurrent((prev) => prev - 1);
@@ -20,7 +20,7 @@ const CooperationCarouselMobile = () => {
         <img src="/images/arrow_left.png" alt="" width={40} height={40} />
       </div>
       <div
-        className="absolute right-[-42px] top-[25%] bg-[#CCC] rounded-full"
+        className="absolute right-[-42px] top-[25%] rounded-full"
         onClick={() => {
           if (current < customerServices.length - 1) {
             setCurrent((prev) => prev + 1);

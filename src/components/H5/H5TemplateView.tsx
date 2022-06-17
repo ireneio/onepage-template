@@ -82,7 +82,7 @@ const H5TemplateView = () => {
           );
         })}
       </div>
-      <div className="lg:hidden mx-[60px] mt-[32px]">
+      <div className="mx-[60px] mt-[32px]">
         <TemplateCarouselMobile
           onItemClick={(item) => handlePreview(item)}
           carouselItems={carouselItems}

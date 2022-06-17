@@ -35,14 +35,11 @@ const PartnersCarousel = () => {
             <>
               <div
                 key={uuid()}
-                className="grid gap-[12px] lg:gap-[32px] grid-cols-2 lg:grid-cols-4 grid-rows-4 lg:grid-rows-2 w-[80%] justify-between items-start mx-auto mt-[22px] flex-wrap"
+                className="grid gap-[32px] grid-cols-4 grid-rows-2 w-[80%] mx-auto mt-[22px] flex-wrap"
               >
                 {array.map((item) => {
                   return (
-                    <div
-                      key={uuid()}
-                      className="bg-[#363636] flex justify-center items-center"
-                    >
+                    <div key={uuid()}>
                       <img src={item.image} alt="" />
                     </div>
                   );

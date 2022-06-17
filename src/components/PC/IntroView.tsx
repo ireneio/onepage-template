@@ -26,22 +26,20 @@ const IntroView = () => {
       className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[100vh]"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
-        height:
-          windowWidth < 1366 ? 'calc(100vh - 44px)' : 'calc(100vh - 75px)',
-        paddingTop: windowWidth < 1366 ? '44px' : '75px',
+        // height:
+        //   windowWidth < 1366 ? 'calc(100vh - 44px)' : 'calc(100vh - 75px)',
+        // paddingTop: windowWidth < 1366 ? '44px' : '75px',
       }}
     >
       <div className="text-center mt-[-100px]">
-        <div className="text-[24px] lg:text-[48px] text-[#FFFFFF]">
-          最全面的包网服务商
-        </div>
-        <div className="mt-[12px] lg:mt-0 mb-[20px] lg:mb-0 text-[38px] lg:text-[80px] text-[#FFFFFF] font-bold">
+        <div className="text-[48px] text-[#FFFFFF]">最全面的包网服务商</div>
+        <div className="mt-0 mb-0 text-[80px] text-[#FFFFFF] font-bold">
           建站，从未如此<span className="text-[#B39B5C]">简单</span>
         </div>
-        <div className="text-[#EDEDED] text-[15px] lg:text-[24px] font-light">
+        <div className="text-[#EDEDED] text-[24px] font-light">
           个性化定制，独特创新的视觉呈现
         </div>
-        <div className="text-[#EDEDED] text-[15px] lg:text-[24px] font-light">
+        <div className="text-[#EDEDED] text-[24px] font-light">
           事为先，人为重，共创共赢，您的明智选择
         </div>
         <div className="flex justify-between items-center mt-[48px] mx-auto">
@@ -86,15 +84,13 @@ const IntroView = () => {
           />
         </motion.div>
       </ScrollIntoView>
-      <div className="hidden lg:block">
-        <Cr />
-        <MouseHandle
-          anchor="#template"
-          headerStyleOnScroll="light"
-          headerValueOnScroll="#template"
-        />
-        <SocialList />
-      </div>
+      <Cr />
+      <MouseHandle
+        anchor="#template"
+        headerStyleOnScroll="light"
+        headerValueOnScroll="#template"
+      />
+      <SocialList />
     </div>
   );
 };
