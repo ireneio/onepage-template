@@ -21,6 +21,8 @@ const Header = () => {
   const currentHeader = useAppSelector((state) => state.layout.header.item);
   const headerMode = useAppSelector((state) => state.layout.header.style);
 
+  console.log(headerMode);
+
   const handleGoHomePage = () => {
     dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
     dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });

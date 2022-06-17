@@ -1,7 +1,3 @@
-import {
-  BASE_SIDEBAR_PATH,
-  SIDEBAR_PATH_STORAGE_KEY,
-} from '@/components/Layout/DefaultLayout';
 import store from '..';
 
 interface LayoutState {
@@ -22,7 +18,7 @@ interface LayoutState {
 
 const initialState: LayoutState = {
   navigation: {
-    path: BASE_SIDEBAR_PATH,
+    path: '',
   },
   snackbar: {
     title: 'Alert',
@@ -66,10 +62,6 @@ export default function layoutReducer(
 ) {
   switch (action.type) {
     case 'SET_NAVIGATION_PATH':
-      window.localStorage.setItem(
-        SIDEBAR_PATH_STORAGE_KEY,
-        JSON.stringify(action.payload),
-      );
       return {
         ...state,
         navigation: {
