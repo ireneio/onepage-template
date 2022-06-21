@@ -15,7 +15,7 @@ const CooperationView = () => {
             className="h-[18vh]"
           />
         </div>
-        <div className="flex text-[#363636] w-full justify-center text-[18px] px-[200px] mt-[12px] mb-[150px]">
+        <div className="flex text-[#363636] w-full justify-center text-[18px] px-[200px] mt-[12px] mb-[100px]">
           一直秉承诚信可靠、服务周到的企业宗旨为广大客户服务。以超专业的服务素质、最先进完备的网上游戏系统，每天为成千上万的用户提供难忘的游戏体验。
         </div>
         <div className="grid gap-[44px] grid-cols-4 w-[80%] justify-between items-start mx-auto mt-[60px] flex-wrap">

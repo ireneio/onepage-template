@@ -5,7 +5,7 @@ import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import TemplateCarousel from './TemplateCarousel';
-import TemplatePreviewModal from '../Home/TemplatePreviewModal';
+import TemplatePreviewModal from './TemplatePreviewModal';
 import AnimationWrapperChild from './AnimationWrapperChild';
 
 const TemplateView = () => {

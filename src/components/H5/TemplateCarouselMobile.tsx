@@ -24,7 +24,7 @@ const TemplateCarouselMobile = ({
           if (current > 0) {
             setCurrent((prev) => prev - 1);
           } else {
-            setCurrent(carouselItems.length - 1);
+            setCurrent(flatten(carouselItems).length - 1);
           }
         }}
       >
@@ -33,7 +33,7 @@ const TemplateCarouselMobile = ({
       <div
         className="absolute right-[-48px] top-[50%] translate-y-[-50%] rounded-full"
         onClick={() => {
-          if (current < carouselItems.length - 1) {
+          if (current < flatten(carouselItems).length - 1) {
             setCurrent((prev) => prev + 1);
           } else {
             setCurrent(0);

@@ -15,7 +15,7 @@ const AboutView = () => {
           />
         </div>
         <div className="justify-between flex flex-wrap px-[24px] lg:px-[140px]">
-          <div className="basis-[50%] order-1">
+          <div className="basis-[50%] order-1 pt-[50px] px-[50px]">
             <div className="font-semibold mb-[62px] text-center text-[#363636]">
               我们是真正能站在您与用户的角度考虑的平台，想您所想，急您所急。
               十一年的游戏研发团队，十五年的网络安全团队。

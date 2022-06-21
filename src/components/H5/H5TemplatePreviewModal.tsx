@@ -105,32 +105,6 @@ const TemplatePreviewModal = ({
                     />
                   </div>
                 </div>
-                <div
-                  className="absolute right-[12px] top-[50%] cursor-pointer"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCurrent(1);
-                  }}
-                >
-                  <img
-                    src="/images/arrow_right.png"
-                    alt=""
-                    // className="w-[38px] h-[38px]"
-                  />
-                </div>
-                <div
-                  className="absolute left-[12px] top-[50%] cursor-pointer"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCurrent(-1);
-                  }}
-                >
-                  <img
-                    src="/images/arrow_left.png"
-                    alt=""
-                    // className="w-[38px] h-[38px]"
-                  />
-                </div>
               </div>
             </div>
           </Transition.Child>

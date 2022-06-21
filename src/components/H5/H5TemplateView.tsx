@@ -2,7 +2,7 @@ import { devices, mobileTemplates, pcTemplates } from '@/data';
 import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
 import TemplateCarouselMobile from './TemplateCarouselMobile';
-import TemplatePreviewModal from '../Home/TemplatePreviewModal';
+import H5TemplatePreviewModal from './H5TemplatePreviewModal';
 
 const H5TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
@@ -126,7 +126,7 @@ const H5TemplateView = () => {
           );
         })}
       </div>
-      <TemplatePreviewModal
+      <H5TemplatePreviewModal
         isOpen={showPreview}
         item={previewItem}
         carouselItems={carouselItems}

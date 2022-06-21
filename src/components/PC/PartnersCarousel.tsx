@@ -13,7 +13,7 @@ const PartnersCarousel = () => {
   };
 
   return (
-    <div>
+    <div className="max-w-[1325px] mx-auto">
       <Carousel
         ariaLabel="Carousel"
         selectedItem={current}

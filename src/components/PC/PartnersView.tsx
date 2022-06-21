@@ -13,7 +13,7 @@ const PartnersView = () => {
       >
         <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
           <img
-            src="/images/banner_partners.png"
+            src="/images/banner_partners_pc.png"
             alt="partners"
             className="h-[18vh]"
           />
