@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 const variants = {
   start: {
-    y: '1000%',
+    y: '100%',
     opacity: 0,
     // display: 'none',
   },
