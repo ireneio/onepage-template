@@ -3,7 +3,7 @@ import AnimationWrapperChild from '../PC/AnimationWrapperChild';
 
 const H5AboutView = () => {
   return (
-    <div className="w-full relative z-[6] h-auto bg-[#FFFFFF] text-[#FFFFFF] pt-[24px] pb-[24px]">
+    <div className="w-full relative z-[6] h-auto bg-[#FFFFFF] text-[#FFFFFF] pt-[24px] pb-[24px] overflow-hidden">
       <AnimationWrapperChild delay={0}>
         <div className="w-[80%] mx-auto flex justify-center items-center mt-[12px] mb-[30px]">
           <img

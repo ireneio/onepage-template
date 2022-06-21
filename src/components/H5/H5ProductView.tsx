@@ -4,7 +4,7 @@ import AnimationWrapperChild from '../PC/AnimationWrapperChild';
 const H5ProductView = () => {
   return (
     <div
-      className="relative z-[4] w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px]"
+      className="relative z-[4] w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px] overflow-hidden"
       style={{ backgroundImage: 'url(/images/bg_product.png)' }}
     >
       <AnimationWrapperChild delay={0.3}>

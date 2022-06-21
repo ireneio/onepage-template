@@ -4,7 +4,7 @@ import H5PartnersCarousel from './H5PartnersCarousel';
 const H5PartnersView = () => {
   return (
     <div
-      className="relative z-[5] w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px] lg:pb-0 lg:pt-[75px]"
+      className="relative z-[5] w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px] lg:pb-0 lg:pt-[75px] overflow-hidden"
       style={{ backgroundImage: 'url(/images/bg_partners.png)' }}
     >
       <AnimationWrapperChild delay={0.3}>
