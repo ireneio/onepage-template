@@ -22,9 +22,9 @@ const SideScroller = () => {
 
   const handleSwitch = (theme: 'light' | 'dark', item: string) => {
     setTimeout(() => {
-      dispatch({ type: 'SET_HEADER_ITEM', payload: item });
-      dispatch({ type: 'SET_HEADER_STYLE', payload: theme });
-    }, 2000);
+      // dispatch({ type: 'SET_HEADER_ITEM', payload: item });
+      // dispatch({ type: 'SET_HEADER_STYLE', payload: theme });
+    });
   };
 
   const handlePrev = () => {
