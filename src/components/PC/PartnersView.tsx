@@ -6,30 +6,38 @@ import PartnersCarousel from './PartnersCarousel';
 
 const PartnersView = () => {
   return (
-    <AnimationWrapperChild headerStyle="dark" headerItem="#partners">
-      <div
-        className="relative h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
-        style={{ backgroundImage: 'url(/images/bg_partners.png)' }}
+    <div
+      className="relative h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
+      style={{ backgroundImage: 'url(/images/bg_partners.png)' }}
+    >
+      <AnimationWrapperChild
+        headerStyle="dark"
+        headerItem="#partners"
+        delay={0.3}
       >
-        <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
-          <img
-            src="/images/banner_partners_pc.png"
-            alt="partners"
-            className="h-[18vh]"
-          />
-        </div>
-        <div className="mt-[12px]">
-          <PartnersCarousel />
-        </div>
-        <Cr />
-        <MouseHandle
-          anchor="#about"
-          headerStyleOnScroll="light"
-          headerValueOnScroll="#about"
-        />
-        <SocialList />
-      </div>
-    </AnimationWrapperChild>
+        <AnimationWrapperChild delay={0.1}>
+          <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
+            <img
+              src="/images/banner_partners_pc.png"
+              alt="partners"
+              className="h-[18vh]"
+            />
+          </div>
+        </AnimationWrapperChild>
+        <AnimationWrapperChild delay={0.2}>
+          <div className="mt-[12px]">
+            <PartnersCarousel />
+          </div>
+        </AnimationWrapperChild>
+      </AnimationWrapperChild>
+      <Cr />
+      <MouseHandle
+        anchor="#about"
+        headerStyleOnScroll="light"
+        headerValueOnScroll="#about"
+      />
+      <SocialList />
+    </div>
   );
 };
 

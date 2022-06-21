@@ -7,12 +7,12 @@ const variants = {
   start: {
     y: '1000%',
     opacity: 0,
-    display: 'none',
+    // display: 'none',
   },
   end: {
     y: 0,
     opacity: 1,
-    display: 'block',
+    // display: 'block',
   },
 };
 
