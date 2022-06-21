@@ -3,6 +3,7 @@ import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
 import TemplateCarouselMobile from './TemplateCarouselMobile';
 import H5TemplatePreviewModal from './H5TemplatePreviewModal';
+import AnimationWrapperChild from '../PC/AnimationWrapperChild';
 
 const H5TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
@@ -47,71 +48,76 @@ const H5TemplateView = () => {
   };
 
   return (
-    <div
-      // id="template"
-      className="relative w-full bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px]"
-    >
-      <div className="w-[80%] mx-auto flex justify-center items-center">
-        <img
-          src="/images/banner_template.png"
-          alt="template"
-          className="h-auto lg:h-[18vh]"
-        />
-      </div>
-      <div className="grid grid-cols-2 gap-[12px] text-[14px] w-[200px] mx-auto justify-center mt-[16px] mb-[40px]">
-        {devices.map((device) => {
-          return (
-            <div
-              key={device.value}
-              className="cursor-pointer text-center"
-              onClick={() => setSelectedDevice(device.value as 'pc' | 'mobile')}
-            >
+    <div className="relative z-[2] w-full bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px]">
+      <AnimationWrapperChild delay={0.3}>
+        <div className="w-[80%] mx-auto flex justify-center items-center">
+          <img
+            src="/images/banner_template.png"
+            alt="template"
+            className="h-auto lg:h-[18vh]"
+          />
+        </div>
+      </AnimationWrapperChild>
+      <AnimationWrapperChild delay={0.5}>
+        <div className="grid grid-cols-2 gap-[12px] text-[14px] w-[200px] mx-auto justify-center mt-[16px] mb-[40px]">
+          {devices.map((device) => {
+            return (
               <div
-                style={{
-                  color:
-                    selectedDevice === device.value ? '#B39B5C' : '#BCBCBC',
-                }}
-                className="text-[20px] text-center"
+                key={device.value}
+                className="cursor-pointer text-center"
+                onClick={() =>
+                  setSelectedDevice(device.value as 'pc' | 'mobile')
+                }
               >
-                {device.text}
-                {selectedDevice === device.value && (
-                  <div className="w-full h-[2px] bg-[#B39B5C]"></div>
-                )}
+                <div
+                  style={{
+                    color:
+                      selectedDevice === device.value ? '#B39B5C' : '#BCBCBC',
+                  }}
+                  className="text-[20px] text-center"
+                >
+                  {device.text}
+                  {selectedDevice === device.value && (
+                    <div className="w-full h-[2px] bg-[#B39B5C]"></div>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="mx-[60px] mt-[32px]">
-        <TemplateCarouselMobile
-          onItemClick={(item) => handlePreview(item)}
-          carouselItems={carouselItems}
-          current={current}
-          setCurrent={setCurrent}
-        />
-      </div>
-      <div
-        id="infinite_scroller"
-        className="mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar overflow-y-hidden"
-      >
-        {flatten(carouselItems).map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              id={item.image}
-              className="w-[120px] h-[60px] flex-shrink-0 relative mx-[6px]"
-              onClick={() => setCurrent(idx)}
-            >
-              <div>
-                {current !== idx && (
-                  <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
-                )}
-                <img src={item.image} alt="" />
+            );
+          })}
+        </div>
+      </AnimationWrapperChild>
+      <AnimationWrapperChild delay={0.8}>
+        <div className="mx-[60px] mt-[32px]">
+          <TemplateCarouselMobile
+            onItemClick={(item) => handlePreview(item)}
+            carouselItems={carouselItems}
+            current={current}
+            setCurrent={setCurrent}
+          />
+        </div>
+        <div
+          id="infinite_scroller"
+          className="mt-[24px] overflow-x-scroll w-[100vw] scroll-smooth flex hide-scrollbar overflow-y-hidden"
+        >
+          {flatten(carouselItems).map((item, idx) => {
+            return (
+              <div
+                key={idx}
+                id={item.image}
+                className="w-[120px] h-[60px] flex-shrink-0 relative mx-[6px]"
+                onClick={() => setCurrent(idx)}
+              >
+                <div>
+                  {current !== idx && (
+                    <div className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#000000] opacity-60 transition-all"></div>
+                  )}
+                  <img src={item.image} alt="" />
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </AnimationWrapperChild>
       <div className="mt-[24px] w-full justify-center flex">
         {flatten(carouselItems).map((item, idx) => {
           return (
