@@ -14,12 +14,16 @@ const H5AboutView = () => {
         </div>
       </AnimationWrapperChild>
       <div className="justify-between flex flex-wrap px-[24px] lg:px-[140px]">
-        <div className="basis-[100%] flex order-1 mb-[16px] mt-[12px] justify-center items-center">
-          <img
-            src="/images/about_intro_right.png"
-            alt=""
-            className="w-[190px]"
-          />
+        <div className="basis-[100%] order-1">
+          <AnimationWrapperChild delay={0.3}>
+            <div className="flex mb-[16px] mt-[12px] justify-center items-center">
+              <img
+                src="/images/about_intro_right.png"
+                alt=""
+                className="w-[190px]"
+              />
+            </div>
+          </AnimationWrapperChild>
         </div>
         <div className="basis-[100%] order-2">
           <AnimationWrapperChild delay={0.3}>
