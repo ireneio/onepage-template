@@ -16,7 +16,7 @@ const PartnersView = () => {
         delay={0.3}
       >
         <AnimationWrapperChild delay={0.1}>
-          <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
+          <div className="mx-auto flex justify-center items-center mt-[18px]">
             <img
               src="/images/banner_partners_pc.png"
               alt="partners"

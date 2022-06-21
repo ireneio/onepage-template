@@ -42,7 +42,7 @@ const AboutView = () => {
                       <div className="font-bold text-[18px] mt-[12px] mb-[8px] text-[#363636]">
                         {feature.title}
                       </div>
-                      <div className="text-[12px] text-[#5b5b5b]">
+                      <div className="text-[14px] text-[#5b5b5b]">
                         {feature.description}
                       </div>
                     </div>
