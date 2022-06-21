@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <DefaultLayout>
       <div className="snap-y snap-mandatory h-[100vh] w-[100vw] overflow-y-scroll">
-        <div className="bg-[#181818] snap-start h-[101vh]">
+        <div className="bg-[#181818] snap-start h-[100vh]">
           <div id="entry">
             <IntroView />
           </div>

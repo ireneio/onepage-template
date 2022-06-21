@@ -1,7 +1,7 @@
 import { about } from '@/data';
 import Cr from '../General/Cr';
 import SocialList from '../General/SocialList';
-import AnimationWrapperChild from './AnimationWrapperChild';
+import AnimationWrapperChild from '../General/AnimationWrapperChild';
 
 const AboutView = () => {
   return (

@@ -1,7 +1,7 @@
 import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
-import AnimationWrapperChild from './AnimationWrapperChild';
+import AnimationWrapperChild from '../General/AnimationWrapperChild';
 import PartnersCarousel from './PartnersCarousel';
 
 const PartnersView = () => {

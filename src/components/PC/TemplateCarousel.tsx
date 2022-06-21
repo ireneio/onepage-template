@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -7,13 +7,24 @@ const TemplateCarousel = ({
   carouselItems,
   setCurrent,
   current,
+  selectedDevice,
 }: {
   onItemClick: (item: any) => void;
   carouselItems: any[];
   current: number;
+  selectedDevice: string;
   setCurrent: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const [currentHover, setCurrentHover] = useState(-1);
+  const [gridBlock, setGridBlock] = useState(8);
+
+  useEffect(() => {
+    if (selectedDevice === 'pc') {
+      setGridBlock(4);
+    } else if (selectedDevice === 'mobile') {
+      setGridBlock(6);
+    }
+  }, [selectedDevice]);
 
   const handleMouseEnter = (e: any, idx: number) => {
     e.stopPropagation();
@@ -37,7 +48,7 @@ const TemplateCarousel = ({
         selectedItem={current}
         useKeyboardArrows
         autoPlay={false}
-        swipeable={false}
+        swipeable={true}
         stopOnHover
         showStatus={false}
         showArrows={false}
@@ -54,7 +65,10 @@ const TemplateCarousel = ({
           return (
             <div
               key={idx}
-              className="hidden lg:grid gap-[16px] grid-cols-4 w-[80%] justify-between items-start mx-auto flex-wrap"
+              className="grid gap-[24px] grid-cols-6 w-[80%] justify-between items-start mx-auto flex-wrap"
+              style={{
+                gridTemplateColumns: `repeat(${gridBlock}, minmax(0, 1fr))`,
+              }}
             >
               {array.map((item: any, itemIdx: number) => {
                 return (
@@ -68,7 +82,11 @@ const TemplateCarousel = ({
                     <img
                       src={item?.image}
                       alt=""
-                      className="w-[400px] h-[226px] object-cover"
+                      className="w-[225px] h-[486px] object-cover"
+                      style={{
+                        width: selectedDevice === 'mobile' ? 225 : 400,
+                        height: selectedDevice === 'mobile' ? 486 : 226,
+                      }}
                     />
                     {currentHover === itemIdx && (
                       <div>

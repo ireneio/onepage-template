@@ -34,11 +34,11 @@ const AnimationWrapper = ({
 
   return (
     <motion.div
-      initial={'start'}
-      animate={control}
-      transition={{ duration: 1.5 }}
-      ref={ref}
-      variants={fadeInVariants}
+      // initial={'start'}
+      // animate={control}
+      // transition={{ duration: 1.5 }}
+      // ref={ref}
+      // variants={fadeInVariants}
       className="snap-start h-[100vh]"
       style={{ backgroundColor: bg || '#000' }}
     >

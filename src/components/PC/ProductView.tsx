@@ -2,7 +2,7 @@ import { games } from '@/data';
 import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
-import AnimationWrapperChild from './AnimationWrapperChild';
+import AnimationWrapperChild from '../General/AnimationWrapperChild';
 
 const ProductView = () => {
   return (
@@ -14,8 +14,9 @@ const ProductView = () => {
         headerStyle="dark"
         headerItem="#products"
         delay={0.3}
+        disableOnScrollUp
       >
-        <AnimationWrapperChild delay={0.1}>
+        <AnimationWrapperChild delay={0.1} disableOnScrollUp>
           <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
             <img
               src="/images/banner_product.png"
@@ -24,7 +25,7 @@ const ProductView = () => {
             />
           </div>
         </AnimationWrapperChild>
-        <AnimationWrapperChild delay={0.2}>
+        <AnimationWrapperChild delay={0.2} disableOnScrollUp>
           <div className="grid grid-cols-4 gap-[44px] w-[80%] justify-between items-start mx-auto mt-[10vh] flex-wrap">
             {games.map((game, idx) => {
               return (

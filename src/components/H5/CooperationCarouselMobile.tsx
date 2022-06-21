@@ -8,7 +8,7 @@ const CooperationCarouselMobile = () => {
   return (
     <div className="relative">
       <div
-        className="absolute left-[-42px] top-[25%] rounded-full"
+        className="absolute z-[2] left-[-22px] top-[25%] rounded-full"
         onClick={() => {
           if (current > 0) {
             setCurrent((prev) => prev - 1);
@@ -20,7 +20,7 @@ const CooperationCarouselMobile = () => {
         <img src="/images/arrow_left.png" alt="" width={40} height={40} />
       </div>
       <div
-        className="absolute right-[-42px] top-[25%] rounded-full"
+        className="absolute z-[2] right-[-22px] top-[25%] rounded-full"
         onClick={() => {
           if (current < customerServices.length - 1) {
             setCurrent((prev) => prev + 1);
@@ -68,12 +68,12 @@ const CooperationCarouselMobile = () => {
           );
         })}
       </Carousel>
-      <div className="flex mt-[24px] lg:mt-[72px] w-full justify-center">
+      <div className="flex mt-[24px] w-full justify-center">
         {customerServices.map((item, idx) => {
           return (
             <div
               key={idx}
-              className="w-[50px] lg:w-[100px] h-[2px] mx-[4px]"
+              className="w-[50px] h-[2px] mx-[4px]"
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
               }}

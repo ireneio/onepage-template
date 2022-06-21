@@ -144,6 +144,29 @@ export const mobileTemplates = Array(13)
     [[], []],
   );
 
+export const mobileTemplatesPc = Array(13)
+  .fill(0)
+  .map((val, idx) => {
+    const num = idx + 1;
+    return {
+      image: `/images/templates/t${num}_apps_pc.png`,
+      enlarged: `/images/templates/t${num}_app.png`,
+    };
+  })
+  .reduce(
+    (acc: any[], curr: any, idx: number) => {
+      if (idx < 6) {
+        acc[0].push(curr);
+      } else if (idx < 12) {
+        acc[1].push(curr);
+      } else {
+        acc[2].push(curr);
+      }
+      return acc;
+    },
+    [[], [], []],
+  );
+
 export const sidebarItems = [
   {
     en: "it's us",

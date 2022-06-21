@@ -6,7 +6,7 @@ import ScrollIntoView from 'react-scroll-into-view';
 import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
-import AnimationWrapperChild from './AnimationWrapperChild';
+import AnimationWrapperChild from '../General/AnimationWrapperChild';
 
 const IntroView = () => {
   const windowWidth = useWindowWidth();
@@ -27,9 +27,6 @@ const IntroView = () => {
       className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[100vh]"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
-        // height:
-        //   windowWidth < 1366 ? 'calc(100vh - 44px)' : 'calc(100vh - 75px)',
-        // paddingTop: windowWidth < 1366 ? '44px' : '75px',
       }}
     >
       <AnimationWrapperChild headerStyle="dark" headerItem="#entry" delay={0.3}>
