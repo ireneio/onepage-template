@@ -16,22 +16,6 @@ const variants = {
   },
 };
 
-const variants2 = {
-  start: {
-    width: '50vw',
-    height: '50vh',
-    y: '1000%',
-  },
-  end: {
-    width: '100vw',
-    height: '100vh',
-    y: '100%',
-    transitionEnd: {
-      display: 'none',
-    },
-  },
-};
-
 const AnimationWrapperChild = ({
   children,
   headerStyle,
@@ -61,13 +45,6 @@ const AnimationWrapperChild = ({
 
   return (
     <div ref={ref}>
-      {/* <motion.div
-        initial={'start'}
-        animate={control}
-        transition={{ delay: 0.8, duration: 0.5 }}
-        variants={variants2}
-        className="absolute top-0 left-0 border-4 border-[#000] shadow-inner"
-      ></motion.div> */}
       <motion.div
         initial={'start'}
         animate={control}
