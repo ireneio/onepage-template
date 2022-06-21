@@ -21,11 +21,13 @@ const AnimationWrapperChild = ({
   headerStyle,
   headerItem,
   delay,
+  duration,
 }: {
   children: React.ReactNode;
   headerStyle?: 'light' | 'dark';
   headerItem?: string;
   delay?: number;
+  duration?: number;
 }) => {
   const dispatch = useAppDispatch();
   const control = useAnimation();
@@ -48,7 +50,7 @@ const AnimationWrapperChild = ({
       <motion.div
         initial={'start'}
         animate={control}
-        transition={{ delay: delay || 0.5, duration: 0.8 }}
+        transition={{ delay: delay || 0.5, duration: duration || 1.5 }}
         variants={variants}
         className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center lg:pb-0"
       >
