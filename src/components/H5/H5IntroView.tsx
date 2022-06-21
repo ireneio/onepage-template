@@ -20,6 +20,7 @@ const H5IntroView = () => {
 
   return (
     <div
+      id="entry"
       className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
