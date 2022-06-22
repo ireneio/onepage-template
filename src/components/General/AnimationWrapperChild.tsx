@@ -95,7 +95,7 @@ const AnimationWrapperChild = ({
         animate={control}
         transition={{ delay: delay || 0.5, duration: duration || 1.5 }}
         variants={variants}
-        className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center lg:pb-0"
+        className="text-[#FFFFFF] bg-no-repeat bg-cover bg-center"
       >
         {children}
       </motion.div>
