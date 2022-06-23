@@ -107,8 +107,8 @@ export const pcTemplates = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   .map((val, idx) => {
     const num = idx + 1;
     return {
-      image: `/t${num}/t${num}_pcs.png`,
-      enlarged: `/t${num}/t${num}_pc.png`,
+      image: `/images/templates/t${num}_pcs.png`,
+      enlarged: `/images/templates/t${num}_pc.png`,
     };
   })
   .reduce(
@@ -128,8 +128,8 @@ export const mobileTemplates = Array(13)
   .map((val, idx) => {
     const num = idx + 1;
     return {
-      image: `/t${num}/t${num}_apps.png`,
-      enlarged: `/t${num}/t${num}_app.png`,
+      image: `/images/templates/t${num}_apps.png`,
+      enlarged: `/images/templates/t${num}_app.png`,
     };
   })
   .reduce(
@@ -142,6 +142,29 @@ export const mobileTemplates = Array(13)
       return acc;
     },
     [[], []],
+  );
+
+export const mobileTemplatesPc = Array(13)
+  .fill(0)
+  .map((val, idx) => {
+    const num = idx + 1;
+    return {
+      image: `/images/templates/t${num}_apps_pc.png`,
+      enlarged: `/images/templates/t${num}_app.png`,
+    };
+  })
+  .reduce(
+    (acc: any[], curr: any, idx: number) => {
+      if (idx < 6) {
+        acc[0].push(curr);
+      } else if (idx < 12) {
+        acc[1].push(curr);
+      } else {
+        acc[2].push(curr);
+      }
+      return acc;
+    },
+    [[], [], []],
   );
 
 export const sidebarItems = [

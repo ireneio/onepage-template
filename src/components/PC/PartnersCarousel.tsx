@@ -18,7 +18,7 @@ const PartnersCarousel = () => {
         ariaLabel="Carousel"
         selectedItem={current}
         useKeyboardArrows
-        swipeable
+        swipeable={true}
         stopOnHover
         showStatus={false}
         showArrows={false}
@@ -27,7 +27,7 @@ const PartnersCarousel = () => {
         infiniteLoop
         autoPlay={false}
         width="100%"
-        emulateTouch
+        emulateTouch={true}
         onChange={(e) => handleChange(e)}
       >
         {carouselItems.map((array) => {
@@ -35,7 +35,7 @@ const PartnersCarousel = () => {
             <>
               <div
                 key={uuid()}
-                className="grid gap-[32px] grid-cols-4 grid-rows-2 w-[80%] mx-auto mt-[22px] flex-wrap"
+                className="grid gap-[32px] grid-cols-4 grid-rows-2 mx-auto mt-[22px] flex-wrap mr-[32px]"
               >
                 {array.map((item) => {
                   return (

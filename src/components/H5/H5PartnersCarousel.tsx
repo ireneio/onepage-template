@@ -30,17 +30,17 @@ const H5PartnersCarousel = () => {
         emulateTouch
         onChange={(e) => handleChange(e)}
       >
-        {carouselItems.map((array) => {
+        {carouselItems.map((array, idx) => {
           return (
             <>
               <div
-                key={uuid()}
+                key={idx}
                 className="grid gap-[12px] grid-cols-2 grid-rows-4 w-[80%] justify-center items-start mx-auto mt-[22px] flex-wrap"
               >
-                {array.map((item) => {
+                {array.map((item, itemIdx) => {
                   return (
                     <div
-                      key={uuid()}
+                      key={itemIdx + item.image}
                       className="flex justify-center items-center"
                     >
                       <img
@@ -61,7 +61,7 @@ const H5PartnersCarousel = () => {
         {carouselItems.map((item, idx) => {
           return (
             <div
-              key={uuid()}
+              key={idx}
               className="w-[50px] h-[1px]"
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#363636',

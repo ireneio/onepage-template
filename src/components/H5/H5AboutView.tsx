@@ -1,5 +1,5 @@
 import { about } from '@/data';
-import AnimationWrapperChild from '../PC/AnimationWrapperChild';
+import AnimationWrapperChild from '../General/AnimationWrapperChild';
 
 const H5AboutView = () => {
   return (
@@ -7,7 +7,7 @@ const H5AboutView = () => {
       id="about"
       className="w-full relative z-[6] h-auto bg-[#FFFFFF] text-[#FFFFFF] pt-[24px] pb-[24px] overflow-hidden"
     >
-      <AnimationWrapperChild delay={0}>
+      <AnimationWrapperChild delay={0} disableOnScrollUp>
         <div className="w-[80%] mx-auto flex justify-center items-center mt-[12px] mb-[30px]">
           <img
             src="/images/banner_about.png"
@@ -18,7 +18,7 @@ const H5AboutView = () => {
       </AnimationWrapperChild>
       <div className="justify-between flex flex-wrap px-[24px] lg:px-[140px]">
         <div className="basis-[100%] order-1">
-          <AnimationWrapperChild delay={0.3}>
+          <AnimationWrapperChild delay={0.3} disableOnScrollUp>
             <div className="flex mb-[16px] mt-[12px] justify-center items-center">
               <img
                 src="/images/about_intro_right.png"

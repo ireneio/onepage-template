@@ -1,4 +1,4 @@
-import { devices, mobileTemplates, pcTemplates } from '@/data';
+import { devices, mobileTemplatesPc, pcTemplates } from '@/data';
 import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
 import Cr from '../General/Cr';
@@ -6,14 +6,14 @@ import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import TemplateCarousel from './TemplateCarousel';
 import TemplatePreviewModal from './TemplatePreviewModal';
-import AnimationWrapperChild from './AnimationWrapperChild';
+import AnimationWrapperChild from '../General/AnimationWrapperChild';
 
 const TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
   const [showPreview, setShowPreview] = useState(false);
   const [previewItem, setPreviewItem] = useState('');
   const [carouselItems, setCarouselItems] = useState<any[]>([]);
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(-1);
 
   useEffect(() => {
     if (window) {
@@ -32,8 +32,9 @@ const TemplateView = () => {
     if (selectedDevice === 'pc') {
       setCarouselItems(pcTemplates);
     } else {
-      setCarouselItems(mobileTemplates);
+      setCarouselItems(mobileTemplatesPc);
     }
+    setCurrent(0);
   }, [selectedDevice]);
 
   const handlePreview = (item: any) => {
@@ -43,7 +44,7 @@ const TemplateView = () => {
 
   const handlePreviewModalUpdateItem = (idx: number) => {
     const reduce = carouselItems.reduce((acc, curr) => {
-      const _acc = acc.concat([...curr]);
+      const _acc: any[] = acc.concat([...curr]);
       return _acc;
     }, []);
 
@@ -99,6 +100,7 @@ const TemplateView = () => {
               carouselItems={carouselItems}
               setCurrent={setCurrent}
               current={current}
+              selectedDevice={selectedDevice}
             />
           </div>
           <div className="w-full justify-center flex mt-[40px]">

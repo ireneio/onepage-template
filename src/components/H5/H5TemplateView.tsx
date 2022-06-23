@@ -3,7 +3,7 @@ import { flatten } from 'lodash';
 import { useEffect, useState } from 'react';
 import TemplateCarouselMobile from './TemplateCarouselMobile';
 import H5TemplatePreviewModal from './H5TemplatePreviewModal';
-import AnimationWrapperChild from '../PC/AnimationWrapperChild';
+import AnimationWrapperChild from '../General/AnimationWrapperChild';
 
 const H5TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
@@ -52,7 +52,7 @@ const H5TemplateView = () => {
       id="template"
       className="relative z-[2] w-full bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px] overflow-hidden"
     >
-      <AnimationWrapperChild delay={0.3}>
+      <AnimationWrapperChild delay={0.3} disableOnScrollUp>
         <div className="w-[80%] mx-auto flex justify-center items-center">
           <img
             src="/images/banner_template.png"
@@ -61,7 +61,7 @@ const H5TemplateView = () => {
           />
         </div>
       </AnimationWrapperChild>
-      <AnimationWrapperChild delay={0.5}>
+      <AnimationWrapperChild delay={0.5} disableOnScrollUp>
         <div className="grid grid-cols-2 gap-[12px] text-[14px] w-[200px] mx-auto justify-center mt-[16px] mb-[40px]">
           {devices.map((device) => {
             return (
@@ -89,7 +89,7 @@ const H5TemplateView = () => {
           })}
         </div>
       </AnimationWrapperChild>
-      <AnimationWrapperChild delay={0.8}>
+      <AnimationWrapperChild delay={0.8} disableOnScrollUp>
         <div className="mx-[60px] mt-[32px]">
           <TemplateCarouselMobile
             onItemClick={(item) => handlePreview(item)}
