@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { throttle } from 'lodash';
 
 const TemplateCarousel = ({
   onItemClick,
@@ -41,8 +42,67 @@ const TemplateCarousel = ({
     onItemClick && onItemClick(item);
   };
 
+  const wheelEventCb = (e: any) => {
+    e.stopPropagation();
+    console.log(e.deltaX);
+    const scrollingLeft = e.deltaX > 0;
+
+    let isWheeled = false;
+    function cb() {
+      console.log('wheeled');
+      console.log('scrollingLeft', scrollingLeft);
+
+      console.log(current, carouselItems.length - 1);
+      isWheeled = true;
+      if (scrollingLeft) {
+        if (current === 0) {
+          setCurrent(carouselItems.length - 1);
+        } else {
+          setCurrent((prev) => prev + 1);
+        }
+      } else {
+        if (current === carouselItems.length - 1) {
+          setCurrent(0);
+        } else {
+          setCurrent((prev) => prev - 1);
+        }
+      }
+      const tid = setTimeout(() => {
+        isWheeled = false;
+        clearTimeout(tid);
+      }, 1200);
+    }
+    if (!isWheeled) {
+      cb();
+    }
+  };
+
+  const handleMouseOverParent = () => {
+    console.log('mouseover');
+
+    // function attachListener() {
+    //   const el = window.document.getElementById('carousel_parent');
+    //   if (el) {
+    //     el.addEventListener('wheel', wheelEventCb);
+    //   }
+    // }
+    // attachListener();
+  };
+
+  const handleMouseLeaveParent = () => {
+    // const el = window.document.getElementById('carousel_parent');
+    // if (el) {
+    //   el.removeEventListener('wheel', wheelEventCb);
+    // }
+  };
+
   return (
-    <div className="max-w-[1325px] mx-auto">
+    <div
+      id="carousel_parent"
+      className="max-w-[1325px] mx-auto"
+      onMouseOver={() => handleMouseOverParent()}
+      onMouseLeave={() => handleMouseLeaveParent()}
+    >
       <Carousel
         ariaLabel="Carousel"
         selectedItem={current}
@@ -55,7 +115,7 @@ const TemplateCarousel = ({
         showIndicators={false}
         showThumbs={false}
         onChange={(index) => {
-          setCurrent(index);
+          // setCurrent(index);
         }}
         infiniteLoop
         width="100%"
