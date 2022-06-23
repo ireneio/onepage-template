@@ -21,7 +21,7 @@ export const isMobile = () => {
 export const MOBILE_VIEWWIDTH = 768;
 
 export const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth] = useState(MOBILE_VIEWWIDTH);
+  const [windowWidth, setWindowWidth] = useState(1366);
   const router = useRouter();
 
   useEffect(() => {
