@@ -115,7 +115,7 @@ const TemplateCarousel = ({
         showIndicators={false}
         showThumbs={false}
         onChange={(index) => {
-          // setCurrent(index);
+          setCurrent(index);
         }}
         infiniteLoop
         width="100%"
