@@ -42,7 +42,7 @@ const TemplateCarousel = ({
   };
 
   return (
-    <div>
+    <div className="max-w-[1325px] mx-auto">
       <Carousel
         ariaLabel="Carousel"
         selectedItem={current}
@@ -65,7 +65,7 @@ const TemplateCarousel = ({
           return (
             <div
               key={idx}
-              className="grid gap-[24px] grid-cols-6 w-[80%] justify-between items-start mx-auto flex-wrap"
+              className="grid gap-[24px] grid-cols-6 justify-between items-start flex-wrap mr-[24px]"
               style={{
                 gridTemplateColumns: `repeat(${gridBlock}, minmax(0, 1fr))`,
               }}
