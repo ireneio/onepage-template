@@ -6,8 +6,20 @@ import ProductView from '../components/PC/ProductView';
 import TemplateView from '../components/PC/TemplateView';
 import DefaultLayout from '../components/Layout/DefaultLayout';
 import AnimationWrapper from '@/components/PC/AnimationWrapper';
+import { useEffect } from 'react';
+import { MOBILE_VIEWWIDTH, useWindowWidth } from '@/hooks/window';
+import { useRouter } from 'next/router';
 
 const Index = () => {
+  const router = useRouter();
+  const windowWidth = useWindowWidth();
+
+  useEffect(() => {
+    if (windowWidth <= MOBILE_VIEWWIDTH) {
+      router.push('/h5')
+    }
+  }, [windowWidth]);
+
   return (
     <DefaultLayout>
       <div className="snap-y snap-mandatory h-[100vh] w-[100vw] overflow-y-scroll">

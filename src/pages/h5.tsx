@@ -6,10 +6,19 @@ import H5PartnersView from '@/components/H5/H5PartnersView';
 import H5ProductView from '@/components/H5/H5ProductView';
 import H5TemplateView from '@/components/H5/H5TemplateView';
 import H5Layout from '@/components/Layout/H5Layout';
-import { useWindowWidth } from '@/hooks/window';
+import { MOBILE_VIEWWIDTH, useWindowWidth } from '@/hooks/window';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const H5 = () => {
+  const router = useRouter();
   const windowWidth = useWindowWidth();
+
+  useEffect(() => {
+    if (windowWidth > MOBILE_VIEWWIDTH) {
+      router.push('/')
+    }
+  }, [windowWidth]);
 
   return (
     <H5Layout>
