@@ -1,4 +1,5 @@
 module.exports = {
+  swcMinify: false,
   webpack5: true,
   reactStrictMode: true,
   webpack: (config, { isServer }) => {
