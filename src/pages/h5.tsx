@@ -14,11 +14,11 @@ const H5 = () => {
   const router = useRouter();
   const windowWidth = useWindowWidth();
 
-  useEffect(() => {
-    if (windowWidth > MOBILE_VIEWWIDTH) {
-      router.push('/')
-    }
-  }, [windowWidth]);
+  // useEffect(() => {
+  //   if (windowWidth > MOBILE_VIEWWIDTH) {
+  //     router.push('/')
+  //   }
+  // }, [windowWidth]);
 
   return (
     <H5Layout>
