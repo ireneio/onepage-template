@@ -125,7 +125,7 @@ const TemplateCarousel = ({
           return (
             <div
               key={idx}
-              className="grid gap-[12px] grid-cols-6 justify-between items-start flex-wrap mr-[24px]"
+              className="grid gap-[10px] grid-cols-6 justify-between items-start flex-wrap mr-[24px]"
               style={{
                 gridTemplateColumns: `repeat(${gridBlock}, minmax(0, 1fr))`,
               }}
