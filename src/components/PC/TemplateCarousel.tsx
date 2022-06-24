@@ -99,7 +99,7 @@ const TemplateCarousel = ({
   return (
     <div
       id="carousel_parent"
-      className="max-w-[1450px] mx-auto"
+      className="max-w-[1325px] mx-auto"
       onMouseOver={() => handleMouseOverParent()}
       onMouseLeave={() => handleMouseLeaveParent()}
     >
@@ -125,7 +125,7 @@ const TemplateCarousel = ({
           return (
             <div
               key={idx}
-              className="grid gap-[24px] grid-cols-6 justify-between items-start flex-wrap mr-[24px]"
+              className="grid gap-[12px] grid-cols-6 justify-between items-start flex-wrap mr-[24px]"
               style={{
                 gridTemplateColumns: `repeat(${gridBlock}, minmax(0, 1fr))`,
               }}
