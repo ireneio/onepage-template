@@ -99,7 +99,7 @@ const TemplateCarousel = ({
   return (
     <div
       id="carousel_parent"
-      className="max-w-[1325px] mx-auto"
+      className="max-w-[1450px] mx-auto"
       onMouseOver={() => handleMouseOverParent()}
       onMouseLeave={() => handleMouseLeaveParent()}
     >
