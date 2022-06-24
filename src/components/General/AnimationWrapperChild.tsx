@@ -93,7 +93,7 @@ const AnimationWrapperChild = ({
       <motion.div
         initial={'start'}
         animate={control}
-        transition={{ delay: delay || 0.5, duration: duration || 1.5 }}
+        transition={{ delay: delay || 0.5, duration: duration || 1 }}
         variants={variants}
         className="text-[#FFFFFF] bg-no-repeat bg-cover bg-center"
       >
