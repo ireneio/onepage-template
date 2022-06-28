@@ -22,15 +22,21 @@ const H5 = () => {
 
   return (
     <H5Layout>
-      <H5IntroView />
-      <div id="template" style={{ paddingTop: windowWidth <= 375 ? 88 : 44 }}>
-        <H5TemplateView />
+      <div className="snap-y snap-mandatory">
+        <div className="snap-start">
+          <H5IntroView />
+        </div>
+        <div className="snap-start">
+          <div id="template" style={{ paddingTop: windowWidth <= 375 ? 88 : 44 }}>
+            <H5TemplateView />
+          </div>
+        </div>
+        <H5ProductView />
+        <H5CooperationView />
+        <H5PartnersView />
+        <H5AboutView />
+        <ContactUsView />
       </div>
-      <H5ProductView />
-      <H5CooperationView />
-      <H5PartnersView />
-      <H5AboutView />
-      <ContactUsView />
     </H5Layout>
   );
 };

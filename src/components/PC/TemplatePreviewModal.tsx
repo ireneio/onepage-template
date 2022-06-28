@@ -62,16 +62,6 @@ const TemplatePreviewModal = ({
             <Dialog.Overlay className="fixed inset-0 bg-black opacity-[.8]" />
           </Transition.Child>
           <div
-            className="z-[100] absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]"
-            onClick={() => setIsOpen(false)}
-          >
-            {windowWidth < 768 && (
-              <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px] text-[16px]">
-                关闭
-              </button>
-            )}
-          </div>
-          <div
             className="hidden lg:block absolute right-[8px] top-[2px] py-[8px] text-[48px] text-[#FFF] cursor-pointer font-thin"
             onClick={() => setIsOpen(false)}
           >
@@ -92,12 +82,12 @@ const TemplatePreviewModal = ({
             leaveTo="opacity-0 scale-95"
           >
             <div
-              className="relative inline-block w-[100vw] lg:w-[80vw] overflow-hidden text-left align-middle transition-all
+              className="relative inline-block text-left align-middle transition-all
             transform rounded-[5px] bg-transparent font-circularstdbook"
             >
               <div className="px-[2px] py-[2px] rounded-[5px] mx-auto">
                 <div className="mt-0 px-[0] mx-auto">
-                  <div className="h-[100vh] max-w-[1200px] overflow-auto relative mx-auto hide-scrollbar">
+                  <div className="h-[100vh] overflow-auto relative mx-auto hide-scrollbar" style={{ maxWidth: windowWidth <= 1366 ? 1000 : 1200 }}>
                     <img
                       src={item}
                       alt="template preview"
@@ -106,7 +96,7 @@ const TemplatePreviewModal = ({
                   </div>
                 </div>
                 <div
-                  className="absolute right-[12px] top-[50%] cursor-pointer"
+                  className="absolute right-[-100px] top-[50%] z-[2] cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCurrent(1);
@@ -115,11 +105,10 @@ const TemplatePreviewModal = ({
                   <img
                     src="/images/icon_arrow_right_pc.png"
                     alt=""
-                  // className="w-[38px] h-[38px]"
                   />
                 </div>
                 <div
-                  className="absolute left-[12px] top-[50%] cursor-pointer"
+                  className="absolute left-[-100px] top-[50%] cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCurrent(-1);
@@ -128,7 +117,6 @@ const TemplatePreviewModal = ({
                   <img
                     src="/images/icon_arrow_left_pc.png"
                     alt=""
-                  // className="w-[38px] h-[38px]"
                   />
                 </div>
               </div>
