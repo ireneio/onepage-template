@@ -109,7 +109,15 @@ export const pcTemplates = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     return {
       image: `/images/templates/t${num}_pcs.png`,
       enlarged: `/images/templates/t${num}_pc.png`,
+      num,
     };
+  })
+  .sort((a, b) => {
+    // order by black to white
+    if (b.num === 1 || b.num === 7 || b.num === 13 || b.num === 9) {
+      return 1
+    }
+    return -1
   })
   .reduce(
     (acc: any[], curr: any, idx: number) => {
@@ -130,7 +138,15 @@ export const mobileTemplates = Array(13)
     return {
       image: `/images/templates/t${num}_apps.png`,
       enlarged: `/images/templates/t${num}_app.png`,
+      num,
     };
+  })
+  .sort((a, b) => {
+    // order by black to white
+    if (b.num === 1 || b.num === 7 || b.num === 13 || b.num === 9) {
+      return 1
+    }
+    return -1
   })
   .reduce(
     (acc: any[], curr: any, idx: number) => {
@@ -151,7 +167,15 @@ export const mobileTemplatesPc = Array(13)
     return {
       image: `/images/templates/t${num}_apps_pc.png`,
       enlarged: `/images/templates/t${num}_app.png`,
+      num,
     };
+  })
+  .sort((a, b) => {
+    // order by black to white
+    if (b.num === 1 || b.num === 7 || b.num === 13 || b.num === 9) {
+      return 1
+    }
+    return -1
   })
   .reduce(
     (acc: any[], curr: any, idx: number) => {

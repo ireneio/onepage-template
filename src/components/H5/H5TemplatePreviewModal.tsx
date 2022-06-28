@@ -65,11 +65,9 @@ const TemplatePreviewModal = ({
             className="z-[100] absolute flex items-center justify-center bottom-[40px] left-[50%] translate-x-[-50%]"
             onClick={() => setIsOpen(false)}
           >
-            {windowWidth < 768 && (
-              <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px] text-[16px]">
-                关闭
-              </button>
-            )}
+            <button className="bg-[#B39B5C] shadow-2xl text-[#FFFFFF] px-[24px] py-[6px] text-[16px]">
+              关闭
+            </button>
           </div>
           <div
             className="hidden lg:block absolute right-[8px] top-[2px] py-[8px] text-[48px] text-[#FFF] cursor-pointer font-thin"
@@ -78,8 +76,8 @@ const TemplatePreviewModal = ({
             <img
               src="/images/icon_close.png"
               alt="close"
-              // width={32}
-              // height={32}
+            // width={32}
+            // height={32}
             />
           </div>
           <Transition.Child

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { throttle } from 'lodash';
+import { useWindowWidth } from '@/hooks/window';
 
 const TemplateCarousel = ({
   onItemClick,
@@ -18,6 +19,7 @@ const TemplateCarousel = ({
 }) => {
   const [currentHover, setCurrentHover] = useState(-1);
   const [gridBlock, setGridBlock] = useState(8);
+  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     if (selectedDevice === 'pc') {
@@ -99,7 +101,8 @@ const TemplateCarousel = ({
   return (
     <div
       id="carousel_parent"
-      className="max-w-[1350px] mx-auto"
+      className="mx-auto"
+      style={{ maxWidth: windowWidth <= 1366 ? 1000 : 1350 }}
       onMouseOver={() => handleMouseOverParent()}
       onMouseLeave={() => handleMouseLeaveParent()}
     >
@@ -142,11 +145,11 @@ const TemplateCarousel = ({
                     <img
                       src={item?.image}
                       alt=""
-                      className="w-[225px] h-[486px] object-cover"
-                      style={{
-                        width: selectedDevice === 'mobile' ? 225 : 400,
-                        height: selectedDevice === 'mobile' ? 486 : 226,
-                      }}
+                    // className="w-[225px] h-[486px] object-cover"
+                    // style={{
+                    //   width: selectedDevice === 'mobile' ? 225 : 400,
+                    //   height: selectedDevice === 'mobile' ? 486 : 226,
+                    // }}
                     />
                     {currentHover === itemIdx && (
                       <div>

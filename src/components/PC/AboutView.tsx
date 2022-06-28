@@ -5,7 +5,7 @@ import AnimationWrapperChild from '../General/AnimationWrapperChild';
 
 const AboutView = () => {
   return (
-    <div className="w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[75px] pb-[24px] lg:pb-0">
+    <div className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[75px] pb-[24px] lg:pb-0">
       <AnimationWrapperChild
         headerStyle="light"
         headerItem="#about"

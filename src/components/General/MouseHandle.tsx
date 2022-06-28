@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '@/store';
+import { useAppSelector } from '@/store';
 import ScrollIntoView from 'react-scroll-into-view';
 import { motion } from 'framer-motion';
 
@@ -11,7 +11,6 @@ const MouseHandle = ({
   headerValueOnScroll: string;
   anchor: string;
 }) => {
-  const dispatch = useAppDispatch();
   const headerStyle = useAppSelector((state) => state.layout.header.style);
 
   return (
@@ -19,15 +18,6 @@ const MouseHandle = ({
       <ScrollIntoView
         selector={anchor}
         className="relative cursor-pointer"
-        onClick={() => {
-          setTimeout(() => {
-            // dispatch({
-            //   type: 'SET_HEADER_STYLE',
-            //   payload: headerStyleOnScroll,
-            // });
-            // dispatch({ type: 'SET_HEADER_ITEM', payload: headerValueOnScroll });
-          });
-        }}
       >
         <div
           className="w-[24px] h-[42px] rounded-[12px] border-[2px]"

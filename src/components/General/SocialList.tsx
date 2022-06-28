@@ -6,12 +6,11 @@ import { twMerge } from 'tailwind-merge';
 const SocialList = ({
   className,
 }: // isNav,
-{
-  className?: string;
-  isNav?: boolean;
-}) => {
+  {
+    className?: string;
+    isNav?: boolean;
+  }) => {
   const headerStyle = useAppSelector((state) => state.layout.header.style);
-  const windowWidth = useWindowWidth();
 
   return (
     <div
@@ -31,9 +30,7 @@ const SocialList = ({
           >
             <img
               src={
-                windowWidth < 1366
-                  ? contact.image
-                  : headerStyle === 'light'
+                headerStyle === 'light'
                   ? contact.image.split('.').join('_pc.')
                   : contact.image
               }
