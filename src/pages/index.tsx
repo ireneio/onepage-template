@@ -9,6 +9,7 @@ import AnimationWrapper from '@/components/PC/AnimationWrapper';
 import { useEffect } from 'react';
 import { MOBILE_VIEWWIDTH, useWindowWidth } from '@/hooks/window';
 import { useRouter } from 'next/router';
+import PayView from '@/components/PC/PayView';
 
 const Index = () => {
   const router = useRouter();
@@ -51,6 +52,11 @@ const Index = () => {
         <AnimationWrapper bg="#FFF" headerStyle="light">
           <div id="about">
             <AboutView />
+          </div>
+        </AnimationWrapper>
+        <AnimationWrapper bg="#FFF" headerStyle="dark">
+          <div id="pay">
+            <PayView />
           </div>
         </AnimationWrapper>
       </div>

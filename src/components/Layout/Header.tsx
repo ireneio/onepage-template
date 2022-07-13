@@ -15,6 +15,7 @@ const headers: Header[] = [
   { text: '业务合作', value: '#cooperation', header: 'light' },
   { text: '合作伙伴', value: '#partners', header: 'dark' },
   { text: '公司简介', value: '#about', header: 'light' },
+  { text: '支付优势', value: '#pay', header: 'dark' },
 ];
 
 const Header = () => {
@@ -77,10 +78,10 @@ const Header = () => {
                     currentHeader === header.value
                       ? '#B39B5C'
                       : headerMode === 'light'
-                      ? '#000000'
-                      : '#FFFFFF',
+                        ? '#000000'
+                        : '#FFFFFF',
                 }}
-                // onClick={() => handleSetHeader(header)}
+              // onClick={() => handleSetHeader(header)}
               >
                 {header.text}
               </div>

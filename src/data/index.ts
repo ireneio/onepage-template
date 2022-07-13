@@ -234,6 +234,13 @@ export const sidebarItems = [
     value: '#about',
     theme: 'light',
   },
+  {
+    en: 'pay',
+    cn: '支付优势',
+    tag: '07',
+    value: '#pay',
+    theme: 'dark',
+  },
 ];
 
 export const contacts = [
@@ -242,4 +249,30 @@ export const contacts = [
   { image: '/images/ct_skype.png', value: '' },
   { image: '/images/ct_whasapp.png', value: '' },
   { image: '/images/ct_bbm.png', value: '' },
+];
+
+export const pay = [
+  {
+    image: '/images/pay_1.png',
+    title: 'USDT支付',
+    description:
+      '支持市面上所有的交易所/钱包\n单笔限额：100-100000¥\n成率：100%'
+  },
+  {
+    image: '/images/pay_2.png',
+    title: '数字人民币',
+    description:
+      '全新数字人民币\n单笔限额：100-100000¥\n成率：100%',
+  },
+  {
+    image: '/images/pay_3.png',
+    title: '聚合支付',
+    description: '无需下载任何三方APP即可在线支付\n单笔限额：500-100000¥\n成率：90%',
+  },
+  {
+    image: '/images/pay_4.png',
+    title: '代付',
+    description:
+      '零风控零冻结，解决您的代付烦恼\n单笔限额：100-100000¥\n成率：100%',
+  },
 ];
