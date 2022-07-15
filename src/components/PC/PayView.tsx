@@ -54,11 +54,6 @@ const PayView = () => {
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
-      <MouseHandle
-        anchor="#cooperation"
-        headerStyleOnScroll="dark"
-        headerValueOnScroll="#cooperation"
-      />
       <SocialList />
     </div>
   );

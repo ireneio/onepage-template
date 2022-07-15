@@ -235,7 +235,7 @@ export const sidebarItems = [
     theme: 'light',
   },
   {
-    en: 'pay',
+    en: 'payment',
     cn: '支付优势',
     tag: '07',
     value: '#pay',

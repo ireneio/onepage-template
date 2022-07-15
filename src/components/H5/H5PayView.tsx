@@ -4,8 +4,8 @@ import AnimationWrapperChild from '../General/AnimationWrapperChild';
 const H5PayView = () => {
   return (
     <div
-      id="products"
-      className="relative z-[4] w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] pb-[24px] overflow-hidden"
+      id="pay"
+      className="relative z-[4] w-full lg:h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[24px] overflow-hidden"
       style={{ backgroundImage: 'url(/images/bg_pay_h5.png)' }}
     >
       <AnimationWrapperChild delay={0.3} disableOnScrollUp>
@@ -44,6 +44,7 @@ const H5PayView = () => {
           })}
         </div>
       </AnimationWrapperChild>
+      <div className='w-[100vw] h-[1px] bg-[#363636] mt-[24px]'></div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { about } from '@/data';
 import Cr from '../General/Cr';
 import SocialList from '../General/SocialList';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
+import MouseHandle from '../General/MouseHandle';
 
 const AboutView = () => {
   return (
@@ -61,6 +62,11 @@ const AboutView = () => {
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
+      <MouseHandle
+        anchor="#pay"
+        headerStyleOnScroll="dark"
+        headerValueOnScroll="#pay"
+      />
       <SocialList />
     </div>
   );
