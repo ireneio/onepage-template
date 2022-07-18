@@ -21,11 +21,11 @@ const Index = () => {
   const router = useRouter();
   const windowWidth = useWindowWidth();
 
-  // useEffect(() => {
-  //   if (windowWidth <= MOBILE_VIEWWIDTH) {
-  //     router.push('/h5');
-  //   }
-  // }, [windowWidth]);
+  useEffect(() => {
+    if (windowWidth <= MOBILE_VIEWWIDTH) {
+      router.push('/h5');
+    }
+  }, [windowWidth]);
 
   return (
     <ReactFullpage
