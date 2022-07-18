@@ -61,9 +61,9 @@ const DefaultLayout = ({ children, title }: Props) => {
           />
         </Head>
         <div className="fixed right-[18px] top-[50%] translate-y-[-50%] z-[100]">
-          <SideScroller />
+          {/* <SideScroller /> */}
         </div>
-        <Header />
+        {/* <Header /> */}
         <div className="mx-auto w-full">{children}</div>
       </div>
     </>
