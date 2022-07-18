@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { throttle } from 'lodash';
 import { useWindowWidth } from '@/hooks/window';
 
 const TemplateCarousel = ({
@@ -51,10 +50,6 @@ const TemplateCarousel = ({
 
     let isWheeled = false;
     function cb() {
-      console.log('wheeled');
-      console.log('scrollingLeft', scrollingLeft);
-
-      console.log(current, carouselItems.length - 1);
       isWheeled = true;
       if (scrollingLeft) {
         if (current === 0) {
@@ -79,32 +74,11 @@ const TemplateCarousel = ({
     }
   };
 
-  const handleMouseOverParent = () => {
-    console.log('mouseover');
-
-    // function attachListener() {
-    //   const el = window.document.getElementById('carousel_parent');
-    //   if (el) {
-    //     el.addEventListener('wheel', wheelEventCb);
-    //   }
-    // }
-    // attachListener();
-  };
-
-  const handleMouseLeaveParent = () => {
-    // const el = window.document.getElementById('carousel_parent');
-    // if (el) {
-    //   el.removeEventListener('wheel', wheelEventCb);
-    // }
-  };
-
   return (
     <div
       id="carousel_parent"
       className="mx-auto"
       style={{ maxWidth: windowWidth <= 1366 ? 1000 : 1350 }}
-      onMouseOver={() => handleMouseOverParent()}
-      onMouseLeave={() => handleMouseLeaveParent()}
     >
       <Carousel
         ariaLabel="Carousel"
@@ -145,11 +119,11 @@ const TemplateCarousel = ({
                     <img
                       src={item?.image}
                       alt=""
-                    // className="w-[225px] h-[486px] object-cover"
-                    // style={{
-                    //   width: selectedDevice === 'mobile' ? 225 : 400,
-                    //   height: selectedDevice === 'mobile' ? 486 : 226,
-                    // }}
+                      // className="w-[225px] h-[486px] object-cover"
+                      // style={{
+                      //   width: selectedDevice === 'mobile' ? 225 : 400,
+                      //   height: selectedDevice === 'mobile' ? 486 : 226,
+                      // }}
                     />
                     {currentHover === itemIdx && (
                       <div>

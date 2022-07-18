@@ -76,8 +76,8 @@ const TemplatePreviewModal = ({
             <img
               src="/images/icon_close.png"
               alt="close"
-            // width={32}
-            // height={32}
+              // width={32}
+              // height={32}
             />
           </div>
           <Transition.Child

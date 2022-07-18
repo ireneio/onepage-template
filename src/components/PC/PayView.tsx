@@ -41,11 +41,15 @@ const PayView = () => {
                   <div className="text-[18px] mt-[24px] font-bold">
                     {item.title}
                   </div>
-                  <div className='flex items-center justify-center'>
-                    <div className='bg-[#B39B5C] h-[4px] w-[50px] mt-[20px] mb-[20px]'></div>
+                  <div className="flex items-center justify-center">
+                    <div className="bg-[#B39B5C] h-[4px] w-[50px] mt-[20px] mb-[20px]"></div>
                   </div>
                   <div className="text-[16px] text-[#B1B1B1] text-center">
-                    <div dangerouslySetInnerHTML={{ __html: item.description.replaceAll('\n', '<br />') }}></div>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: item.description.replaceAll('\n', '<br />'),
+                      }}
+                    ></div>
                   </div>
                 </div>
               );

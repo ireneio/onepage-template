@@ -15,10 +15,7 @@ const MouseHandle = ({
 
   return (
     <div className="absolute left-[50%] translate-x-[-50%] bottom-[12px] uppercase text-[#3C3C3C] text-[14px]">
-      <ScrollIntoView
-        selector={anchor}
-        className="relative cursor-pointer"
-      >
+      <ScrollIntoView selector={anchor} className="relative cursor-pointer">
         <div
           className="w-[24px] h-[42px] rounded-[12px] border-[2px]"
           style={{

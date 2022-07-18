@@ -28,7 +28,10 @@ const H5 = () => {
           <H5IntroView />
         </div>
         <div className="snap-start">
-          <div id="template" style={{ paddingTop: windowWidth <= 375 ? 88 : 44 }}>
+          <div
+            id="template"
+            style={{ paddingTop: windowWidth <= 375 ? 88 : 44 }}
+          >
             <H5TemplateView />
           </div>
         </div>

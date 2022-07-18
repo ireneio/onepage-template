@@ -115,9 +115,9 @@ export const pcTemplates = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   .sort((a, b) => {
     // order by black to white
     if (b.num === 1 || b.num === 7 || b.num === 13 || b.num === 9) {
-      return 1
+      return 1;
     }
-    return -1
+    return -1;
   })
   .reduce(
     (acc: any[], curr: any, idx: number) => {
@@ -144,9 +144,9 @@ export const mobileTemplates = Array(13)
   .sort((a, b) => {
     // order by black to white
     if (b.num === 1 || b.num === 7 || b.num === 13 || b.num === 9) {
-      return 1
+      return 1;
     }
-    return -1
+    return -1;
   })
   .reduce(
     (acc: any[], curr: any, idx: number) => {
@@ -173,9 +173,9 @@ export const mobileTemplatesPc = Array(13)
   .sort((a, b) => {
     // order by black to white
     if (b.num === 1 || b.num === 7 || b.num === 13 || b.num === 9) {
-      return 1
+      return 1;
     }
-    return -1
+    return -1;
   })
   .reduce(
     (acc: any[], curr: any, idx: number) => {
@@ -244,11 +244,13 @@ export const sidebarItems = [
 ];
 
 export const contacts = [
-  { image: '/images/ct_wx.png', value: '' },
-  { image: '/images/ct_telegram.png', value: '' },
-  { image: '/images/ct_skype.png', value: '' },
-  { image: '/images/ct_whasapp.png', value: '' },
-  { image: '/images/ct_bbm.png', value: '' },
+  { image: '/images/email.png', value: 'mailto:lixiangoffice@gmail.com' },
+  { image: '/images/ct_telegram.png', value: 'https://t.me/@LXZS888' },
+  { image: '/images/flygram.png', value: 'https://www.flygram3.com' },
+  { image: '/images/line.png', value: 'https://line.me/R/lxoffice' },
+  // { image: '/images/ct_skype.png', value: '' },
+  // { image: '/images/ct_whasapp.png', value: '' },
+  // { image: '/images/ct_bbm.png', value: '' },
 ];
 
 export const pay = [
@@ -256,18 +258,18 @@ export const pay = [
     image: '/images/pay_1.png',
     title: 'USDT支付',
     description:
-      '支持市面上所有的交易所/钱包\n单笔限额：100-100000¥\n成率：100%'
+      '支持市面上所有的交易所/钱包\n单笔限额：100-100000¥\n成率：100%',
   },
   {
     image: '/images/pay_2.png',
     title: '数字人民币',
-    description:
-      '全新数字人民币\n单笔限额：100-100000¥\n成率：100%',
+    description: '全新数字人民币\n单笔限额：100-100000¥\n成率：100%',
   },
   {
     image: '/images/pay_3.png',
     title: '聚合支付',
-    description: '无需下载任何三方APP即可在线支付\n单笔限额：500-100000¥\n成率：90%',
+    description:
+      '无需下载任何三方APP即可在线支付\n单笔限额：500-100000¥\n成率：90%',
   },
   {
     image: '/images/pay_4.png',

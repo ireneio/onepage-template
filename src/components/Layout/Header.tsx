@@ -23,8 +23,6 @@ const Header = () => {
   const currentHeader = useAppSelector((state) => state.layout.header.item);
   const headerMode = useAppSelector((state) => state.layout.header.style);
 
-  console.log(headerMode);
-
   useEffect(() => {
     dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
     dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });
@@ -34,15 +32,6 @@ const Header = () => {
     dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
     dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });
   };
-
-  // const handleSetHeader = (header: {
-  //   text: string;
-  //   value: string;
-  //   header: 'light' | 'dark';
-  // }) => {
-  //   dispatch({ type: 'SET_HEADER_ITEM', payload: header.value });
-  //   dispatch({ type: 'SET_HEADER_STYLE', payload: header.header });
-  // };
 
   return (
     <div className="z-[10] bg-transparent fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto">
@@ -78,10 +67,10 @@ const Header = () => {
                     currentHeader === header.value
                       ? '#B39B5C'
                       : headerMode === 'light'
-                        ? '#000000'
-                        : '#FFFFFF',
+                      ? '#000000'
+                      : '#FFFFFF',
                 }}
-              // onClick={() => handleSetHeader(header)}
+                // onClick={() => handleSetHeader(header)}
               >
                 {header.text}
               </div>

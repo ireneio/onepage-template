@@ -20,13 +20,6 @@ const SideScroller = () => {
     setCurrentHover(-1);
   };
 
-  const handleSwitch = (theme: 'light' | 'dark', item: string) => {
-    setTimeout(() => {
-      // dispatch({ type: 'SET_HEADER_ITEM', payload: item });
-      // dispatch({ type: 'SET_HEADER_STYLE', payload: theme });
-    });
-  };
-
   const handlePrev = () => {
     const currentIdx = sidebarItems.findIndex(
       (item) => item.value === headerItem,
@@ -91,12 +84,7 @@ const SideScroller = () => {
       {sidebarItems.map((item, idx) => {
         return (
           <div key={item.value} className="mb-[24px] cursor-pointer">
-            <ScrollIntoView
-              selector={item.value}
-              onClick={() =>
-                handleSwitch(item.theme as 'light' | 'dark', item.value)
-              }
-            >
+            <ScrollIntoView selector={item.value}>
               <div
                 className="text-[#3C3C3C] hover:text-[#B39B5C]"
                 style={{

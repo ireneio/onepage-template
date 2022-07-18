@@ -17,7 +17,7 @@ const Index = () => {
 
   useEffect(() => {
     if (windowWidth <= MOBILE_VIEWWIDTH) {
-      router.push('/h5')
+      router.push('/h5');
     }
   }, [windowWidth]);
 

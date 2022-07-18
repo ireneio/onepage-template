@@ -1,15 +1,14 @@
 import { contacts } from '@/data';
-import { useWindowWidth } from '@/hooks/window';
 import { useAppSelector } from '@/store';
 import { twMerge } from 'tailwind-merge';
 
 const SocialList = ({
   className,
-}: // isNav,
-  {
-    className?: string;
-    isNav?: boolean;
-  }) => {
+  isNav,
+}: {
+  className?: string;
+  isNav?: boolean;
+}) => {
   const headerStyle = useAppSelector((state) => state.layout.header.style);
 
   return (
@@ -30,9 +29,11 @@ const SocialList = ({
           >
             <img
               src={
-                headerStyle === 'light'
-                  ? contact.image.split('.').join('_pc.')
-                  : contact.image
+                isNav
+                  ? contact.image.split('.').join('_h5.')
+                  : headerStyle === 'light'
+                  ? contact.image.split('.').join('_white.')
+                  : contact.image.split('.').join('_dark.')
               }
               alt=""
               width={30}

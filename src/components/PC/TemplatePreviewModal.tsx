@@ -68,8 +68,8 @@ const TemplatePreviewModal = ({
             <img
               src="/images/icon_close.png"
               alt="close"
-            // width={32}
-            // height={32}
+              // width={32}
+              // height={32}
             />
           </div>
           <Transition.Child
@@ -87,7 +87,10 @@ const TemplatePreviewModal = ({
             >
               <div className="px-[2px] py-[2px] rounded-[5px] mx-auto">
                 <div className="mt-0 px-[0] mx-auto">
-                  <div className="h-[100vh] overflow-auto relative mx-auto hide-scrollbar" style={{ maxWidth: windowWidth <= 1366 ? 1000 : 1200 }}>
+                  <div
+                    className="h-[100vh] overflow-auto relative mx-auto hide-scrollbar"
+                    style={{ maxWidth: windowWidth <= 1366 ? 1000 : 1200 }}
+                  >
                     <img
                       src={item}
                       alt="template preview"
@@ -102,10 +105,7 @@ const TemplatePreviewModal = ({
                     handleCurrent(1);
                   }}
                 >
-                  <img
-                    src="/images/icon_arrow_right_pc.png"
-                    alt=""
-                  />
+                  <img src="/images/icon_arrow_right_pc.png" alt="" />
                 </div>
                 <div
                   className="absolute left-[-100px] top-[50%] cursor-pointer"
@@ -114,10 +114,7 @@ const TemplatePreviewModal = ({
                     handleCurrent(-1);
                   }}
                 >
-                  <img
-                    src="/images/icon_arrow_left_pc.png"
-                    alt=""
-                  />
+                  <img src="/images/icon_arrow_left_pc.png" alt="" />
                 </div>
               </div>
             </div>

@@ -33,18 +33,22 @@ const H5PayView = () => {
                 <div className="text-[15px] mt-[24px] font-bold">
                   {item.title}
                 </div>
-                <div className='flex items-center justify-center'>
-                  <div className='bg-[#B39B5C] h-[2px] w-[25px] mt-[5px] mb-[10px]'></div>
+                <div className="flex items-center justify-center">
+                  <div className="bg-[#B39B5C] h-[2px] w-[25px] mt-[5px] mb-[10px]"></div>
                 </div>
                 <div className="text-[12px] text-[#B1B1B1] text-center">
-                  <div dangerouslySetInnerHTML={{ __html: item.description.replaceAll('\n', '<br />') }}></div>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: item.description.replaceAll('\n', '<br />'),
+                    }}
+                  ></div>
                 </div>
               </div>
             );
           })}
         </div>
       </AnimationWrapperChild>
-      <div className='w-[100vw] h-[1px] bg-[#363636] mt-[24px]'></div>
+      <div className="w-[100vw] h-[1px] bg-[#363636] mt-[24px]"></div>
     </div>
   );
 };
