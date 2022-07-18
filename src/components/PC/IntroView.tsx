@@ -1,5 +1,4 @@
 import { services } from '@/data';
-import { useWindowWidth } from '@/hooks/window';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import ScrollIntoView from 'react-scroll-into-view';
@@ -7,9 +6,10 @@ import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
+import Header from '../Layout/Header';
+import SideScroller from '../General/SideScroller';
 
 const IntroView = () => {
-  const windowWidth = useWindowWidth();
   const [currentHover, setCurrentHover] = useState(-1);
 
   const handleMouseEnter = (idx: number) => {
@@ -24,11 +24,14 @@ const IntroView = () => {
 
   return (
     <div
-      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[100vh]"
+      id="entry"
+      className="relative text-[#FFFFFF] bg-no-repeat bg-cover bg-center flex items-center justify-center h-[100vh] overflow-hidden"
       style={{
         backgroundImage: 'url(/images/bg_first.png)',
       }}
     >
+      <Header selected="#entry" bg="dark" />
+      <SideScroller selected="#entry" bg="dark" />
       <AnimationWrapperChild headerStyle="dark" headerItem="#entry" delay={0.3}>
         <div className="text-center mt-[-100px]">
           <div className="text-[48px] text-[#FFFFFF]">最全面的包网服务商</div>
@@ -89,12 +92,8 @@ const IntroView = () => {
         </ScrollIntoView>
       </AnimationWrapperChild>
       <Cr />
-      <MouseHandle
-        anchor="#template"
-        headerStyleOnScroll="light"
-        headerValueOnScroll="#template"
-      />
-      <SocialList />
+      <MouseHandle anchor="#template" bg="dark" />
+      <SocialList bg="dark" />
     </div>
   );
 };

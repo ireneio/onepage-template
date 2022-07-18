@@ -15,6 +15,7 @@
     "@ethersproject/bytes": "^5.5.0",
     "@ethersproject/providers": "^5.5.1",
     "@ethersproject/units": "^5.5.0",
+    "@fullpage/react-fullpage": "^0.1.26",
     "@metamask/detect-provider": "1.2.0",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
@@ -56,6 +57,7 @@
     "react-super-responsive-table": "^5.2.0",
     "react-tooltip": "^4.2.21",
     "redux": "^4.2.0",
+    "slick-carousel": "^1.8.1",
     "tailwind-merge": "^1.2.1",
     "uglify-js-plugin": "^0.0.6",
     "uuid": "^8.3.2"

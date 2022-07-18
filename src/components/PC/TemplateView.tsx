@@ -7,6 +7,8 @@ import SocialList from '../General/SocialList';
 import TemplateCarousel from './TemplateCarousel';
 import TemplatePreviewModal from './TemplatePreviewModal';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
+import Header from '../Layout/Header';
+import SideScroller from '../General/SideScroller';
 
 const TemplateView = () => {
   const [selectedDevice, setSelectedDevice] = useState<'pc' | 'mobile'>('pc');
@@ -52,7 +54,12 @@ const TemplateView = () => {
   };
 
   return (
-    <div className="relative h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[75px] pb-[24px] lg:pb-0">
+    <div
+      id="template"
+      className="relative h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[75px] pb-[24px] lg:pb-0 overflow-hidden"
+    >
+      <Header selected="#template" bg="light" />
+      <SideScroller selected="#template" bg="light" />
       <AnimationWrapperChild
         headerStyle="light"
         headerItem="#template"
@@ -103,29 +110,11 @@ const TemplateView = () => {
               selectedDevice={selectedDevice}
             />
           </div>
-          <div className="w-full justify-center flex mt-[40px]">
-            {carouselItems.map((item, idx) => {
-              return (
-                <div
-                  key={idx}
-                  className="w-[100px] h-[2px]"
-                  style={{
-                    backgroundColor: current === idx ? '#B39B5C' : '#E8E8E8',
-                  }}
-                  onClick={() => setCurrent(idx)}
-                ></div>
-              );
-            })}
-          </div>
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
-      <MouseHandle
-        anchor="#products"
-        headerStyleOnScroll="light"
-        headerValueOnScroll="#products"
-      />
-      <SocialList />
+      <MouseHandle anchor="#products" bg="light" />
+      <SocialList bg="light" />
       <TemplatePreviewModal
         isOpen={showPreview}
         item={previewItem}

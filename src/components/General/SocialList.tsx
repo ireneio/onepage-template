@@ -1,16 +1,15 @@
 import { contacts } from '@/data';
-import { useAppSelector } from '@/store';
 import { twMerge } from 'tailwind-merge';
 
 const SocialList = ({
+  bg,
   className,
   isNav,
 }: {
+  bg?: 'light' | 'dark';
   className?: string;
   isNav?: boolean;
 }) => {
-  const headerStyle = useAppSelector((state) => state.layout.header.style);
-
   return (
     <div
       className={twMerge(
@@ -31,7 +30,7 @@ const SocialList = ({
               src={
                 isNav
                   ? contact.image.split('.').join('_h5.')
-                  : headerStyle === 'light'
+                  : bg === 'light'
                   ? contact.image.split('.').join('_white.')
                   : contact.image.split('.').join('_dark.')
               }

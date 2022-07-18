@@ -1,66 +1,68 @@
-import AboutView from '../components/PC/AboutView';
-import CooperationView from '../components/PC/CooperationView';
-import IntroView from '../components/PC/IntroView';
-import PartnersView from '../components/PC/PartnersView';
-import ProductView from '../components/PC/ProductView';
-import TemplateView from '../components/PC/TemplateView';
-import DefaultLayout from '../components/Layout/DefaultLayout';
-import AnimationWrapper from '@/components/PC/AnimationWrapper';
-import { useEffect } from 'react';
-import { MOBILE_VIEWWIDTH, useWindowWidth } from '@/hooks/window';
-import { useRouter } from 'next/router';
+import SideScroller from '@/components/General/SideScroller';
+import DefaultLayout from '@/components/Layout/DefaultLayout';
+import Header from '@/components/Layout/Header';
+import AboutView from '@/components/PC/AboutView';
+import CooperationView from '@/components/PC/CooperationView';
+import IntroView from '@/components/PC/IntroView';
+import PartnersView from '@/components/PC/PartnersView';
 import PayView from '@/components/PC/PayView';
+import ProductView from '@/components/PC/ProductView';
+import TemplateView from '@/components/PC/TemplateView';
+import { MOBILE_VIEWWIDTH, useWindowWidth } from '@/hooks/window';
+import ReactFullpage from '@fullpage/react-fullpage';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
+const pluginWrapper = () => {
+  // require('./statics/fullpage.scrollHorizontally.min');
+};
 
 const Index = () => {
   const router = useRouter();
   const windowWidth = useWindowWidth();
 
-  useEffect(() => {
-    if (windowWidth <= MOBILE_VIEWWIDTH) {
-      router.push('/h5');
-    }
-  }, [windowWidth]);
+  // useEffect(() => {
+  //   if (windowWidth <= MOBILE_VIEWWIDTH) {
+  //     router.push('/h5');
+  //   }
+  // }, [windowWidth]);
 
   return (
-    <DefaultLayout>
-      <div className="snap-y snap-mandatory h-[100vh] w-[100vw] overflow-y-scroll">
-        <div className="bg-[#181818] snap-start h-[100vh]">
-          <div id="entry">
-            <IntroView />
-          </div>
-        </div>
-        <AnimationWrapper bg="#FFF" headerStyle="light">
-          <div id="template">
-            <TemplateView />
-          </div>
-        </AnimationWrapper>
-        <AnimationWrapper bg="#000" headerStyle="dark">
-          <div id="products">
-            <ProductView />
-          </div>
-        </AnimationWrapper>
-        <AnimationWrapper bg="#FFF" headerStyle="light">
-          <div id="cooperation">
-            <CooperationView />
-          </div>
-        </AnimationWrapper>
-        <AnimationWrapper bg="#000" headerStyle="dark">
-          <div id="partners">
-            <PartnersView />
-          </div>
-        </AnimationWrapper>
-        <AnimationWrapper bg="#FFF" headerStyle="light">
-          <div id="about">
-            <AboutView />
-          </div>
-        </AnimationWrapper>
-        <AnimationWrapper bg="#FFF" headerStyle="dark">
-          <div id="pay">
-            <PayView />
-          </div>
-        </AnimationWrapper>
-      </div>
-    </DefaultLayout>
+    <ReactFullpage
+      pluginWrapper={pluginWrapper}
+      autoScrolling={false}
+      //fullpage options
+      // licenseKey={'YOUR_KEY_HERE'}
+      scrollingSpeed={1000} /* Options here */
+      // scrollHorizontallyKey={'YOUR KEY HERE'}
+      render={({ state, fullpageApi }) => {
+        return (
+          <ReactFullpage.Wrapper>
+            <div className="section">
+              <IntroView />
+            </div>
+            <div className="section">
+              <TemplateView />
+            </div>
+            <div className="section">
+              <ProductView />
+            </div>
+            <div className="section">
+              <CooperationView />
+            </div>
+            <div className="section">
+              <PartnersView />
+            </div>
+            <div className="section">
+              <AboutView />
+            </div>
+            <div className="section">
+              <PayView />
+            </div>
+          </ReactFullpage.Wrapper>
+        );
+      }}
+    />
   );
 };
 

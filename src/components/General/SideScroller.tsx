@@ -1,13 +1,14 @@
 import { sidebarItems } from '@/data';
-import { useAppDispatch, useAppSelector } from '@/store';
 import { useMemo, useState } from 'react';
 import ScrollIntoView from 'react-scroll-into-view';
 
-const SideScroller = () => {
-  const dispatch = useAppDispatch();
-  const headerItem = useAppSelector((state) => state.layout.header.item);
-  const headerStyle = useAppSelector((state) => state.layout.header.style);
-
+const SideScroller = ({
+  selected,
+  bg,
+}: {
+  selected: string;
+  bg: 'light' | 'dark';
+}) => {
   const [currentHover, setCurrentHover] = useState(-1);
 
   const handleMouseEnter = (idx: number) => {
@@ -20,37 +21,9 @@ const SideScroller = () => {
     setCurrentHover(-1);
   };
 
-  const handlePrev = () => {
-    const currentIdx = sidebarItems.findIndex(
-      (item) => item.value === headerItem,
-    );
-    const prevItem = sidebarItems[currentIdx - 1];
-    if (prevItem) {
-      dispatch({ type: 'SET_HEADER_ITEM', payload: prevItem.value });
-      dispatch({
-        type: 'SET_HEADER_STYLE',
-        payload: prevItem.theme as 'light' | 'dark',
-      });
-    }
-  };
-
-  const handleNext = () => {
-    const currentIdx = sidebarItems.findIndex(
-      (item) => item.value === headerItem,
-    );
-    const nextItem = sidebarItems[currentIdx + 1];
-    if (nextItem) {
-      dispatch({ type: 'SET_HEADER_ITEM', payload: nextItem.value });
-      dispatch({
-        type: 'SET_HEADER_STYLE',
-        payload: nextItem.theme as 'light' | 'dark',
-      });
-    }
-  };
-
   const prev = useMemo(() => {
     const currentIdx = sidebarItems.findIndex(
-      (item) => item.value === headerItem,
+      (item) => item.value === selected,
     );
     const prevItem = sidebarItems[currentIdx - 1];
     if (prevItem) {
@@ -58,11 +31,11 @@ const SideScroller = () => {
     } else {
       return '#';
     }
-  }, [headerItem, headerStyle]);
+  }, [selected]);
 
   const next = useMemo(() => {
     const currentIdx = sidebarItems.findIndex(
-      (item) => item.value === headerItem,
+      (item) => item.value === selected,
     );
     const nextItem = sidebarItems[currentIdx + 1];
     if (nextItem) {
@@ -70,14 +43,16 @@ const SideScroller = () => {
     } else {
       return '#';
     }
-  }, [headerItem, headerStyle]);
+  }, [selected]);
 
   return (
-    <div aria-label="side scroller">
+    <div
+      aria-label="side scroller"
+      className="absolute right-[24px] top-[50%] translate-y-[-50%] z-[2]"
+    >
       <ScrollIntoView
         selector={prev}
         className="mb-[24px] flex items-center justify-center cursor-pointer"
-        onClick={() => handlePrev()}
       >
         <img src="/images/sidescroller_up.png" alt="" />
       </ScrollIntoView>
@@ -91,11 +66,11 @@ const SideScroller = () => {
                   color:
                     currentHover === idx
                       ? '#B39B5C'
-                      : headerStyle === 'light'
-                      ? headerItem === item.value
+                      : bg === 'light'
+                      ? selected === item.value
                         ? '#313131'
                         : '#BCBCBC'
-                      : headerItem === item.value
+                      : selected === item.value
                       ? '#FFFFFF'
                       : '#747474',
                 }}
@@ -111,7 +86,6 @@ const SideScroller = () => {
       <ScrollIntoView
         selector={next}
         className="mb-[24px] flex items-center justify-center cursor-pointer"
-        onClick={() => handleNext()}
       >
         <img src="/images/sidescroller_down.png" alt="" />
       </ScrollIntoView>

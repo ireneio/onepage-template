@@ -3,13 +3,18 @@ import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
+import Header from '../Layout/Header';
+import SideScroller from '../General/SideScroller';
 
 const ProductView = () => {
   return (
     <div
-      className="relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
+      id="products"
+      className="overflow-hidden relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
       style={{ backgroundImage: 'url(/images/bg_product.png)' }}
     >
+      <Header selected="#products" bg="dark" />
+      <SideScroller selected="#products" bg="dark" />
       <AnimationWrapperChild
         headerStyle="dark"
         headerItem="#products"
@@ -51,12 +56,8 @@ const ProductView = () => {
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
-      <MouseHandle
-        anchor="#cooperation"
-        headerStyleOnScroll="dark"
-        headerValueOnScroll="#cooperation"
-      />
-      <SocialList />
+      <MouseHandle anchor="#cooperation" bg="dark" />
+      <SocialList bg="dark" />
     </div>
   );
 };

@@ -1,34 +1,35 @@
 import { partners } from '@/data';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { v4 as uuid } from 'uuid';
 
+import Slider from 'react-slick';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const settings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
 const PartnersCarousel = () => {
   const [carouselItems] = useState([partners, partners, partners]);
   const [current, setCurrent] = useState(0);
-
-  const handleChange = (current: number) => {
-    setCurrent(current);
-  };
+  const ref = useRef<any>(null);
 
   return (
-    <div className="max-w-[1325px] mx-auto">
-      <Carousel
-        ariaLabel="Carousel"
-        selectedItem={current}
-        useKeyboardArrows
-        swipeable={true}
-        stopOnHover
-        showStatus={false}
-        showArrows={false}
-        showIndicators={false}
-        showThumbs={false}
-        infiniteLoop
-        autoPlay={false}
-        width="100%"
-        emulateTouch={true}
-        onChange={(e) => handleChange(e)}
+    <div className="max-w-[1325px] mx-auto overflow-hidden">
+      <Slider
+        ref={(slider) => (ref.current = slider)}
+        {...settings}
+        afterChange={(current) => {
+          setCurrent(current);
+        }}
       >
         {carouselItems.map((array) => {
           return (
@@ -48,7 +49,7 @@ const PartnersCarousel = () => {
             </>
           );
         })}
-      </Carousel>
+      </Slider>
       <div className="flex mt-[24px] lg:mt-[48px] w-full justify-center">
         {carouselItems.map((item, idx) => {
           return (
@@ -58,7 +59,10 @@ const PartnersCarousel = () => {
               style={{
                 backgroundColor: current === idx ? '#B39B5C' : '#363636',
               }}
-              onClick={() => setCurrent(idx)}
+              onClick={() => {
+                ref?.current.slickGoTo(idx);
+                setCurrent(idx);
+              }}
             ></div>
           );
         })}

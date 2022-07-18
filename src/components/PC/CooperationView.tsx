@@ -3,10 +3,17 @@ import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
+import Header from '../Layout/Header';
+import SideScroller from '../General/SideScroller';
 
 const CooperationView = () => {
   return (
-    <div className="relative h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[75px] pb-0">
+    <div
+      id="cooperation"
+      className="overflow-hidden relative h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pt-[75px] pb-0"
+    >
+      <Header selected="#cooperation" bg="light" />
+      <SideScroller selected="#cooperation" bg="light" />
       <AnimationWrapperChild
         headerStyle="light"
         headerItem="#cooperation"
@@ -57,12 +64,8 @@ const CooperationView = () => {
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
-      <MouseHandle
-        anchor="#partners"
-        headerStyleOnScroll="dark"
-        headerValueOnScroll="#partners"
-      />
-      <SocialList />
+      <MouseHandle anchor="#partners" bg="light" />
+      <SocialList bg="light" />
     </div>
   );
 };

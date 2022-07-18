@@ -18,26 +18,18 @@ const headers: Header[] = [
   { text: '支付优势', value: '#pay', header: 'dark' },
 ];
 
-const Header = () => {
-  const dispatch = useAppDispatch();
-  const currentHeader = useAppSelector((state) => state.layout.header.item);
-  const headerMode = useAppSelector((state) => state.layout.header.style);
-
-  useEffect(() => {
-    dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
-    dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });
-  }, []);
-
-  const handleGoHomePage = () => {
-    dispatch({ type: 'SET_HEADER_STYLE', payload: 'dark' });
-    dispatch({ type: 'SET_HEADER_ITEM', payload: '#entry' });
-  };
-
+const Header = ({
+  selected,
+  bg,
+}: {
+  selected: string;
+  bg: 'light' | 'dark';
+}) => {
   return (
-    <div className="z-[10] bg-transparent fixed top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto">
+    <div className="z-[10] bg-transparent absolute top-0 left-0 flex w-[100vw] h-[75px] items-center px-[25px] mx-auto">
       <div className="cursor-pointer w-[200px]">
-        <ScrollIntoView selector="#entry" onClick={() => handleGoHomePage()}>
-          {headerMode === 'dark' ? (
+        <ScrollIntoView selector="#entry">
+          {bg === 'dark' ? (
             <img
               className="block"
               src={'/images/logo.png'}
@@ -64,13 +56,12 @@ const Header = () => {
                 className="text-[18px] cursor-pointer"
                 style={{
                   color:
-                    currentHeader === header.value
+                    selected === header.value
                       ? '#B39B5C'
-                      : headerMode === 'light'
+                      : bg === 'light'
                       ? '#000000'
                       : '#FFFFFF',
                 }}
-                // onClick={() => handleSetHeader(header)}
               >
                 {header.text}
               </div>

@@ -68,6 +68,8 @@ const AnimationWrapperChild = ({
     if (inView) {
       control.start('end');
       if (headerStyle && headerItem) {
+        console.log('headerItem', headerItem);
+
         dispatch({ type: 'SET_HEADER_STYLE', payload: headerStyle });
         dispatch({ type: 'SET_HEADER_ITEM', payload: headerItem });
       }

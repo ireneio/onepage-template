@@ -3,13 +3,18 @@ import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
 import PartnersCarousel from './PartnersCarousel';
+import Header from '../Layout/Header';
+import SideScroller from '../General/SideScroller';
 
 const PartnersView = () => {
   return (
     <div
-      className="relative h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
+      id="partners"
+      className="overflow-hidden relative h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
       style={{ backgroundImage: 'url(/images/bg_partners.png)' }}
     >
+      <Header selected="#partners" bg="dark" />
+      <SideScroller selected="#partners" bg="dark" />
       <AnimationWrapperChild
         headerStyle="dark"
         headerItem="#partners"
@@ -31,12 +36,8 @@ const PartnersView = () => {
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
-      <MouseHandle
-        anchor="#about"
-        headerStyleOnScroll="light"
-        headerValueOnScroll="#about"
-      />
-      <SocialList />
+      <MouseHandle anchor="#about" bg="dark" />
+      <SocialList bg="dark" />
     </div>
   );
 };

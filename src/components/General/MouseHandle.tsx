@@ -3,23 +3,19 @@ import ScrollIntoView from 'react-scroll-into-view';
 import { motion } from 'framer-motion';
 
 const MouseHandle = ({
-  headerStyleOnScroll,
-  headerValueOnScroll,
+  bg,
   anchor,
 }: {
-  headerStyleOnScroll: 'light' | 'dark';
-  headerValueOnScroll: string;
+  bg: 'light' | 'dark';
   anchor: string;
 }) => {
-  const headerStyle = useAppSelector((state) => state.layout.header.style);
-
   return (
     <div className="absolute left-[50%] translate-x-[-50%] bottom-[12px] uppercase text-[#3C3C3C] text-[14px]">
       <ScrollIntoView selector={anchor} className="relative cursor-pointer">
         <div
           className="w-[24px] h-[42px] rounded-[12px] border-[2px]"
           style={{
-            borderColor: headerStyle === 'light' ? '#aaa' : 'a5a5a5',
+            borderColor: bg === 'light' ? '#aaa' : 'a5a5a5',
           }}
         ></div>
         <motion.div
@@ -30,7 +26,7 @@ const MouseHandle = ({
         >
           <img
             src={
-              headerStyle === 'dark'
+              bg === 'dark'
                 ? '/images/cursor_anim.png'
                 : '/images/cursor_anim_gold.png'
             }

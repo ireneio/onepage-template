@@ -3,13 +3,18 @@ import Cr from '../General/Cr';
 import MouseHandle from '../General/MouseHandle';
 import SocialList from '../General/SocialList';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
+import Header from '../Layout/Header';
+import SideScroller from '../General/SideScroller';
 
 const PayView = () => {
   return (
     <div
-      className="relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
+      id="pay"
+      className="overflow-hidden relative w-full h-[100vh] bg-[#000000] text-[#FFFFFF] bg-no-repeat bg-cover bg-center pb-0 pt-[75px]"
       style={{ backgroundImage: 'url(/images/bg_pay.png)' }}
     >
+      <Header selected="#pay" bg="dark" />
+      <SideScroller selected="#pay" bg="dark" />
       <AnimationWrapperChild
         headerStyle="dark"
         headerItem="#pay"
@@ -58,7 +63,7 @@ const PayView = () => {
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
-      <SocialList />
+      <SocialList bg="dark" />
     </div>
   );
 };

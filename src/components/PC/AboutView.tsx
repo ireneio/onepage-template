@@ -3,10 +3,17 @@ import Cr from '../General/Cr';
 import SocialList from '../General/SocialList';
 import AnimationWrapperChild from '../General/AnimationWrapperChild';
 import MouseHandle from '../General/MouseHandle';
+import Header from '../Layout/Header';
+import SideScroller from '../General/SideScroller';
 
 const AboutView = () => {
   return (
-    <div className="relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[75px] pb-[24px] lg:pb-0">
+    <div
+      id="about"
+      className="overflow-hidden relative w-full h-[100vh] bg-[#FFFFFF] text-[#FFFFFF] pt-[75px] pb-[24px] lg:pb-0"
+    >
+      <Header selected="#about" bg="light" />
+      <SideScroller selected="#about" bg="light" />
       <AnimationWrapperChild
         headerStyle="light"
         headerItem="#about"
@@ -62,12 +69,8 @@ const AboutView = () => {
         </AnimationWrapperChild>
       </AnimationWrapperChild>
       <Cr />
-      <MouseHandle
-        anchor="#pay"
-        headerStyleOnScroll="dark"
-        headerValueOnScroll="#pay"
-      />
-      <SocialList />
+      <MouseHandle anchor="#pay" bg="light" />
+      <SocialList bg="light" />
     </div>
   );
 };
