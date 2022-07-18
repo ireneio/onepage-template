@@ -1,4 +1,3 @@
-import { useAppDispatch } from '@/store';
 import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -18,20 +17,15 @@ const variants = {
 
 const AnimationWrapperChild = ({
   children,
-  headerStyle,
-  headerItem,
   delay,
   duration,
   disableOnScrollUp,
 }: {
   children: React.ReactNode;
-  headerStyle?: 'light' | 'dark';
-  headerItem?: string;
   delay?: number;
   duration?: number;
   disableOnScrollUp?: boolean;
 }) => {
-  const dispatch = useAppDispatch();
   const control = useAnimation();
   const { ref, inView } = useInView();
   const [scrollDir, setScrollDir] = useState('d');
@@ -67,12 +61,6 @@ const AnimationWrapperChild = ({
   const setAnimation = () => {
     if (inView) {
       control.start('end');
-      if (headerStyle && headerItem) {
-        console.log('headerItem', headerItem);
-
-        dispatch({ type: 'SET_HEADER_STYLE', payload: headerStyle });
-        dispatch({ type: 'SET_HEADER_ITEM', payload: headerItem });
-      }
     } else {
       control.set('start');
     }

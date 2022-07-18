@@ -14,11 +14,7 @@ const AboutView = () => {
     >
       <Header selected="#about" bg="light" />
       <SideScroller selected="#about" bg="light" />
-      <AnimationWrapperChild
-        headerStyle="light"
-        headerItem="#about"
-        delay={0.3}
-      >
+      <AnimationWrapperChild delay={0.3}>
         <AnimationWrapperChild delay={0.1}>
           <div className="w-[80%] mx-auto flex justify-center items-center mt-[12px] mb-[30px]">
             <img

@@ -60,11 +60,7 @@ const TemplateView = () => {
     >
       <Header selected="#template" bg="light" />
       <SideScroller selected="#template" bg="light" />
-      <AnimationWrapperChild
-        headerStyle="light"
-        headerItem="#template"
-        delay={0.3}
-      >
+      <AnimationWrapperChild delay={0.3}>
         <AnimationWrapperChild delay={0.1}>
           <div className="w-[80%] mx-auto flex justify-center items-center">
             <img

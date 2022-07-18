@@ -32,7 +32,7 @@ const IntroView = () => {
     >
       <Header selected="#entry" bg="dark" />
       <SideScroller selected="#entry" bg="dark" />
-      <AnimationWrapperChild headerStyle="dark" headerItem="#entry" delay={0.3}>
+      <AnimationWrapperChild delay={0.3}>
         <div className="text-center mt-[-100px]">
           <div className="text-[48px] text-[#FFFFFF]">最全面的包网服务商</div>
           <div className="mt-0 mb-0 text-[80px] text-[#FFFFFF] font-bold">

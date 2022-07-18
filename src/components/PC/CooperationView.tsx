@@ -14,11 +14,7 @@ const CooperationView = () => {
     >
       <Header selected="#cooperation" bg="light" />
       <SideScroller selected="#cooperation" bg="light" />
-      <AnimationWrapperChild
-        headerStyle="light"
-        headerItem="#cooperation"
-        delay={0.3}
-      >
+      <AnimationWrapperChild delay={0.3}>
         <AnimationWrapperChild delay={0.1}>
           <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
             <img

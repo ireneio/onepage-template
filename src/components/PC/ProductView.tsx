@@ -15,12 +15,7 @@ const ProductView = () => {
     >
       <Header selected="#products" bg="dark" />
       <SideScroller selected="#products" bg="dark" />
-      <AnimationWrapperChild
-        headerStyle="dark"
-        headerItem="#products"
-        delay={0.3}
-        disableOnScrollUp
-      >
+      <AnimationWrapperChild delay={0.3} disableOnScrollUp>
         <AnimationWrapperChild delay={0.1} disableOnScrollUp>
           <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
             <img

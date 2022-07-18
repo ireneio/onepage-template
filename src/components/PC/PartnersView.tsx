@@ -15,11 +15,7 @@ const PartnersView = () => {
     >
       <Header selected="#partners" bg="dark" />
       <SideScroller selected="#partners" bg="dark" />
-      <AnimationWrapperChild
-        headerStyle="dark"
-        headerItem="#partners"
-        delay={0.3}
-      >
+      <AnimationWrapperChild delay={0.3}>
         <AnimationWrapperChild delay={0.1}>
           <div className="mx-auto flex justify-center items-center mt-[18px]">
             <img

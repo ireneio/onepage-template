@@ -15,12 +15,7 @@ const PayView = () => {
     >
       <Header selected="#pay" bg="dark" />
       <SideScroller selected="#pay" bg="dark" />
-      <AnimationWrapperChild
-        headerStyle="dark"
-        headerItem="#pay"
-        delay={0.3}
-        disableOnScrollUp
-      >
+      <AnimationWrapperChild delay={0.3} disableOnScrollUp>
         <AnimationWrapperChild delay={0.1} disableOnScrollUp>
           <div className="w-[80%] mx-auto flex justify-center items-center mt-[18px]">
             <img
