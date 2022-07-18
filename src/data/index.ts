@@ -245,10 +245,13 @@ export const sidebarItems = [
 
 export const contacts = [
   { image: '/images/email.png', value: 'mailto:lixiangoffice@gmail.com' },
-  { image: '/images/ct_telegram.png', value: 'https://t.me/@LXZS888' },
+  {
+    image: '/images/ct_telegram.png',
+    value: 'https://t.me/share/url?url=@LXZS888',
+  },
   { image: '/images/flygram.png', value: 'https://www.flygram3.com' },
   { image: '/images/line.png', value: 'https://line.me/R/lxoffice' },
-  // { image: '/images/ct_skype.png', value: '' },
+  { image: '/images/ct_skype.png', value: 'skype:live:.cid.f65d910808a274f8' },
   // { image: '/images/ct_whasapp.png', value: '' },
   // { image: '/images/ct_bbm.png', value: '' },
 ];
